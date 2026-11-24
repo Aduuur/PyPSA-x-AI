@@ -27,8 +27,9 @@ solving networks instead of downloading 9 GB and rebuilding the network.
    ```
 
 2. Download `europe-de4-myopic-prebuilt-2026-11-24.tar.zst` (0.9 GB) and
-   `europe-2026-11-24.sha256` from ZENODO_LINK into the repository root, check
-   and unpack it:
+   `europe-2026-11-24.sha256` from the Zenodo record into the repository root
+   (ZENODO_LINK; the files open with the share link you got from the
+   organisers), check and unpack it:
 
    ```bash
    sha256sum -c europe-2026-11-24.sha256 --ignore-missing
@@ -91,6 +92,28 @@ raw data. For that, also download `europe-raw-data-2026-11-24.tar.zst`
 (8 GB, including the 2013 ERA5/SARAH-3 weather cutout) and unpack it in the
 repository root, then run Snakemake without `--allowed-rules`. Building from it
 takes about 20 minutes plus the solves.
+
+## Brazil data
+
+The same Zenodo record holds `brazil-workshop-data.zip` (6.3 GB) with the inputs
+for the Brazil side, for weather year 2013:
+- an ERA5 weather cutout;
+- land cover, protected areas, elevation, ship density and the exclusive economic
+  zone, cut to Brazil;
+- Atlantic bathymetry for the cable route;
+- grid operator (ONS) load, inflow, generation and interchange data;
+- power plant and state-level data.
+
+Nothing in it is a model yet. Unpack it into `data/` (which git ignores) and
+start with its `README.md`, which maps every file and the traps in the data:
+
+```bash
+sha256sum -c brazil-workshop-data.zip.sha256
+unzip brazil-workshop-data.zip -d data/
+```
+
+Some of its sources (GADM, WDPA) must not be redistributed, so keep the zip
+within the workshop.
 
 ## What the baseline assumes
 
