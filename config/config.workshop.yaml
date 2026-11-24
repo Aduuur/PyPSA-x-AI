@@ -7,6 +7,8 @@
 # Everything not set here keeps the value in config.default.yaml.
 #
 #   pixi run snakemake -call --configfile config/config.workshop.yaml
+#
+# Pre-built inputs and how to run from them: workshop/README.md
 
 run:
   name: de4-myopic
