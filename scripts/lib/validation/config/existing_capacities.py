@@ -71,6 +71,10 @@ class ExistingCapacitiesConfig(ConfigModel):
         default_factory=lambda: [1995, 2000, 2005, 2010, 2015, 2020, 2025],
         description="Intervals to group existing industry plants (steel, cement, ammonia, methanol) by build year.",
     )
+    freeze_first_horizon: bool = Field(
+        False,
+        description="Under myopic foresight, solve the first planning horizon with existing capacities only and no investment, so that it represents today's system. Expansion starts in the second horizon.",
+    )
     threshold_capacity: float = Field(
         10,
         description="Capacities (MW) of generators and links below threshold are removed during add_existing_capacities.",

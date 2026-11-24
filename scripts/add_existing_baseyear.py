@@ -157,6 +157,7 @@ def add_power_capacities_installed_before_baseyear(
     renewable_carriers: list[str],
     spatial: SimpleNamespace,
     solar_rooftop_ratio: float = 0.5,
+    sector_enabled: bool = True,
 ) -> None:
     """
     Add power generation capacities installed before base year.
@@ -185,6 +186,9 @@ def add_power_capacities_installed_before_baseyear(
         Container of spatial data
     solar_rooftop_ratio: float
         Ratio of solar capacity to assign to rooftop vs utility-scale (between 0 and 1)
+    sector_enabled: bool
+        Whether the sector-coupled model is built. If False, only existing
+        renewables are added here.
     """
     logger.debug(f"Adding power capacities installed before {baseyear}")
 
@@ -243,6 +247,11 @@ def add_power_capacities_installed_before_baseyear(
         countries=countries,
         renewable_carriers=renewable_carriers,
     )
+    if not sector_enabled:
+        # An electricity-only network has no fuel or CO2 buses, and add_electricity
+        # has already added the thermal plants as generators. Adding them again
+        # as links would leave them drawing from buses that do not exist.
+        df_agg = df_agg[df_agg.Fueltype.isin(["solar", "onwind", "offwind-ac"])].copy()
     # drop assets which are already phased out / decommissioned
     phased_out = df_agg[df_agg["DateOut"] < baseyear].index
     df_agg.drop(phased_out, inplace=True)
@@ -1075,6 +1084,7 @@ def main(
         renewable_carriers=renewable_carriers,
         spatial=spatial,
         solar_rooftop_ratio=params.existing_capacities["solar_rooftop_ratio"],
+        sector_enabled=options["enabled"],
     )
 
     if options["heating"]:

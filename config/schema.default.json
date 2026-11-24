@@ -2625,6 +2625,11 @@
           },
           "type": "array"
         },
+        "freeze_first_horizon": {
+          "default": false,
+          "description": "Under myopic foresight, solve the first planning horizon with existing capacities only and no investment, so that it represents today's system. Expansion starts in the second horizon.",
+          "type": "boolean"
+        },
         "threshold_capacity": {
           "default": 10,
           "description": "Capacities (MW) of generators and links below threshold are removed during add_existing_capacities.",
@@ -2930,6 +2935,18 @@
           "description": "Correction factor for line capacities (`s_nom`) to approximate N-1 security and reserve capacity for reactive power flows.",
           "type": "number"
         },
+        "s_max_pu_crossborder": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Correction factor for AC lines between countries, replacing `s_max_pu` on those lines. Useful when neighbouring countries are clustered to few nodes, which overstates how much a border can carry. If null, `s_max_pu` applies."
+        },
         "s_nom_max": {
           "default": null,
           "description": "Global upper limit for the maximum capacity of each extendable line (MW).",
@@ -3087,9 +3104,19 @@
           "type": "boolean"
         },
         "scaling_factor": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "additionalProperties": {
+                "type": "number"
+              },
+              "type": "object"
+            }
+          ],
           "default": 1.0,
-          "description": "Global correction factor for the load time series.",
-          "type": "number"
+          "description": "Global correction factor for the load time series. A dict maps each planning horizon to its own factor, e.g. for demand growth in myopic runs."
         },
         "fixed_year": {
           "anyOf": [
@@ -11955,6 +11982,18 @@
           "description": "Correction factor for line capacities (`s_nom`) to approximate N-1 security and reserve capacity for reactive power flows.",
           "type": "number"
         },
+        "s_max_pu_crossborder": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Correction factor for AC lines between countries, replacing `s_max_pu` on those lines. Useful when neighbouring countries are clustered to few nodes, which overstates how much a border can carry. If null, `s_max_pu` applies."
+        },
         "s_nom_max": {
           "default": null,
           "description": "Global upper limit for the maximum capacity of each extendable line (MW).",
@@ -12198,9 +12237,19 @@
           "type": "boolean"
         },
         "scaling_factor": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "additionalProperties": {
+                "type": "number"
+              },
+              "type": "object"
+            }
+          ],
           "default": 1.0,
-          "description": "Global correction factor for the load time series.",
-          "type": "number"
+          "description": "Global correction factor for the load time series. A dict maps each planning horizon to its own factor, e.g. for demand growth in myopic runs."
         },
         "fixed_year": {
           "anyOf": [
@@ -12426,6 +12475,11 @@
             "type": "integer"
           },
           "type": "array"
+        },
+        "freeze_first_horizon": {
+          "default": false,
+          "description": "Under myopic foresight, solve the first planning horizon with existing capacities only and no investment, so that it represents today's system. Expansion starts in the second horizon.",
+          "type": "boolean"
         },
         "threshold_capacity": {
           "default": 10,

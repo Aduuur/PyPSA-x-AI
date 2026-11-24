@@ -54,9 +54,9 @@ class LoadConfig(BaseModel):
         True,
         description="Whether to adjust the load data manually according to the function in `manual_adjustment`.",
     )
-    scaling_factor: float = Field(
+    scaling_factor: float | dict[int, float] = Field(
         1.0,
-        description="Global correction factor for the load time series.",
+        description="Global correction factor for the load time series. A dict maps each planning horizon to its own factor, e.g. for demand growth in myopic runs.",
     )
     fixed_year: int | bool = Field(
         False,

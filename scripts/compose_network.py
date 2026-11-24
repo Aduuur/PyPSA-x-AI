@@ -42,6 +42,25 @@ logger = logging.getLogger(__name__)
 SECTOR_RENEWABLE_CARRIERS = {"solar rooftop"}
 
 
+def freeze_expansion(n: pypsa.Network) -> None:
+    """
+    Fix every extendable asset at its minimum capacity, so the network is only
+    dispatched. Transmission limits are dropped as nothing can expand.
+    """
+    for c in ("Generator", "StorageUnit", "Store", "Link", "Line"):
+        static = n.static(c)
+        attr = "s_nom" if c == "Line" else ("e_nom" if c == "Store" else "p_nom")
+        ext = static[f"{attr}_extendable"]
+        static.loc[ext, attr] = static.loc[ext, f"{attr}_min"]
+        static.loc[ext, f"{attr}_extendable"] = False
+        logger.info(f"Froze {ext.sum()} extendable {c} components")
+
+    glcs = n.global_constraints.index[
+        n.global_constraints.type.str.startswith("transmission_")
+    ]
+    n.global_constraints.drop(glcs, inplace=True)
+
+
 if __name__ == "__main__":
     if "snakemake" not in globals():
         from scripts._helpers import mock_snakemake
@@ -78,7 +97,7 @@ if __name__ == "__main__":
     nyears = n.snapshot_weightings.objective.sum() / 8760.0
     costs = load_costs(snakemake.input.tech_costs)
 
-    add_electricity_components(n, inputs, params, costs)
+    add_electricity_components(n, inputs, params, costs, current_horizon)
 
     if sector_mode:
         add_sector_components(n, inputs, params, costs, nyears, current_horizon)
@@ -97,7 +116,7 @@ if __name__ == "__main__":
                 n, str(current_horizon), renewable_carriers
             )
 
-    prepare_network_for_solving(n, inputs, params, costs, nyears)
+    prepare_network_for_solving(n, inputs, params, costs, nyears, current_horizon)
 
     if foresight == "myopic" and not is_first_horizon:
         apply_brownfield(
@@ -115,6 +134,14 @@ if __name__ == "__main__":
     adjustments = params.adjustments
     maybe_adjust_costs_and_potentials(n, adjustments["electricity"], current_horizon)
     maybe_adjust_costs_and_potentials(n, adjustments["sector"], current_horizon)
+
+    if (
+        foresight == "myopic"
+        and is_first_horizon
+        and params.existing_capacities["freeze_first_horizon"]
+    ):
+        logger.info(f"No investment in first horizon {current_horizon}")
+        freeze_expansion(n)
 
     sanitize_custom_columns(n)
     sanitize_carriers(n, params.nice_names, params.tech_colors)

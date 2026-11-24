@@ -65,6 +65,10 @@ class LinesConfig(BaseModel):
         0.7,
         description="Correction factor for line capacities (`s_nom`) to approximate N-1 security and reserve capacity for reactive power flows.",
     )
+    s_max_pu_crossborder: float | None = Field(
+        None,
+        description="Correction factor for AC lines between countries, replacing `s_max_pu` on those lines. Useful when neighbouring countries are clustered to few nodes, which overstates how much a border can carry. If null, `s_max_pu` applies.",
+    )
     s_nom_max: float = Field(
         float("inf"),
         description="Global upper limit for the maximum capacity of each extendable line (MW).",

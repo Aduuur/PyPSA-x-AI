@@ -442,6 +442,7 @@ lines:
     500.0: "Al/St 240/40 4-bundle 380.0"
     750.0: "Al/St 560/50 4-bundle 750.0"
   s_max_pu: 0.7
+  s_max_pu_crossborder:
   s_nom_max: .inf
   s_nom_max_extension: 20000
   length_factor: 1.25
@@ -615,6 +616,7 @@ existing_capacities:
   - 2015
   - 2020
   - 2025
+  freeze_first_horizon: false
   threshold_capacity: 10
   default_heating_lifetime: 20
   solar_rooftop_ratio: 0.5

@@ -1,0 +1,89 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Workshop baseline: power sector only, Germany with 4 nodes, every other
+# country with one node per synchronous zone, myopic in 5-year steps.
+# Everything not set here keeps the value in config.default.yaml.
+#
+#   pixi run snakemake -call --configfile config/config.workshop.yaml
+
+run:
+  name: de4-myopic
+
+foresight: myopic
+planning_horizons: [2025, 2030, 2035, 2040, 2045, 2050]
+
+sector:
+  enabled: false
+  # Read even when the sector model is off:
+  heating: false            # true makes the first horizon open heat inputs that do not exist
+  transport: false          # these three select the 1990 base of the CO2 cap;
+  industry: false           # all false = cap relative to 1990 power-sector emissions
+  agriculture: false
+  cluster_heat_buses: false # nothing to cluster without heat buses
+
+electricity:
+  transmission_limit: v1.25 # grid volume may grow 25% over today; default is unlimited
+  everywhere_powerplants:   # lets gas be built at nodes whose existing gas plants have retired
+  - OCGT
+  - CCGT
+
+existing_capacities:
+  freeze_first_horizon: true # 2025 = today's fleet and grid, dispatch only; investment starts in 2030
+
+load:
+  scaling_factor:          # demand growth, same factor in every country, today's hourly shape;
+    2025: 1.0               # TYNDP 2024 Distributed Energy: EU27 direct electricity demand
+    2030: 1.1               # +50% by 2050 (electrolysis not included)
+    2035: 1.2
+    2040: 1.3
+    2045: 1.4
+    2050: 1.5
+
+costs:
+  overwrites:
+    lifetime:               # years; sets when existing plants without a closure date retire
+      nuclear: 60           # French and Swedish life extensions; cost data says 40
+      CCGT: 35              # cost data says 25, which retires half of Europe's gas fleet by 2030
+      OCGT: 35
+  emission_prices:         # CO2 price in EUR/t added to fuel costs; the cap's own price comes on top
+    enable: true
+    co2:
+      2025: 80
+      2030: 130
+      2035: 175
+      2040: 220
+      2045: 260
+      2050: 300
+
+lines:
+  s_max_pu_crossborder: 0.3 # with one node per neighbour, all border circuits add up; this
+                            # brings Germany's usable border capacity to about 25 GW (0.7 gives 59 GW)
+
+renewable:                  # three site qualities per node instead of one average
+  onwind:
+    resource_classes: 3
+  solar:
+    resource_classes: 3
+  solar-hsat:
+    resource_classes: 3
+
+clustering:
+  focus_weights:
+    DE: 0.9                 # sends every spare cluster to Germany
+  cluster_network:
+    n_clusters: 43          # 40 (country, synchronous zone) groups get one each, + 3 spare for Germany
+  temporal:
+    averaging: 3h
+
+solving:
+  solver_options:
+    gurobi-default:
+      threads: 8            # default is 32; more threads cost memory during the barrier ordering
+
+plotting:
+  balance_map:
+    bus_carriers: [AC]
+  balance_map_interactive:
+    bus_carriers: [AC]

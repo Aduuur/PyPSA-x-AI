@@ -64,6 +64,7 @@ from scripts._helpers import (
     rename_techs,
     update_p_nom_max,
 )
+from scripts.co2_budget import bound_value_for_horizon
 
 if PYPSA_V1:
     pypsa.options.params.add.return_names = True
@@ -263,6 +264,8 @@ def load_and_aggregate_powerplants(
     consider_efficiency_classes: bool | list[float] = False,
     aggregation_strategies: dict = None,
     exclude_carriers: list = None,
+    retire_before: int | None = None,
+    operating_until: int | None = None,
 ) -> pd.DataFrame:
     if not aggregation_strategies:
         aggregation_strategies = {}
@@ -304,6 +307,20 @@ def load_and_aggregate_powerplants(
         "fuel",
         "lifetime",
     ]
+    if retire_before is not None:
+        # The conventional fleet is rebuilt from this list in every horizon, so
+        # plants past their retirement date are dropped here. A missing date is
+        # estimated from the technology lifetime, counted from the last retrofit.
+        # Plants in the list without a closure date are taken to be running
+        # today, so an estimate never retires them before `operating_until`.
+        start = ppl.dateretrofit.combine_first(ppl.datein)
+        estimated = start + ppl.carrier.map(costs.lifetime).fillna(30)
+        if operating_until is not None:
+            estimated = estimated.clip(lower=operating_until)
+        dateout = ppl.dateout.combine_first(estimated)
+        retired = (dateout < retire_before) & ~ppl.carrier.isin(["ror", "hydro", "PHS"])
+        ppl = ppl[~retired]
+
     ppl = ppl.join(costs[cost_columns], on="carrier", rsuffix="_r")
 
     ppl["efficiency"] = ppl.efficiency.combine_first(ppl.efficiency_r)
@@ -1192,9 +1209,16 @@ def main(
     inputs,
     params,
     costs: pd.DataFrame,
+    current_horizon: int | None = None,
 ) -> None:
     logger.info("Adding electricity components")
     foresight = params.foresight
+    # Sector-coupled networks replace these generators and track plant ages there.
+    retire_before = (
+        current_horizon
+        if foresight == "myopic" and not params.sector["enabled"]
+        else None
+    )
 
     landfall_lengths = {
         tech: settings["landfall_length"]
@@ -1208,12 +1232,23 @@ def main(
         consider_efficiency_classes=params.clustering["consider_efficiency_classes"],
         aggregation_strategies=params.clustering["aggregation_strategies"],
         exclude_carriers=params.clustering["exclude_carriers"],
+        retire_before=retire_before,
+        # running in the first horizon, retired by the second if overdue
+        operating_until=params.horizons[0] + 1 if retire_before else None,
     )
 
+    load_scaling = params.load["scaling_factor"]
+    if isinstance(load_scaling, dict):
+        # one factor per planning horizon, e.g. for demand growth in myopic runs
+        load_scaling = bound_value_for_horizon(load_scaling, current_horizon)
+        if load_scaling is None:
+            raise ValueError(
+                f"load.scaling_factor has no value for planning horizon {current_horizon}."
+            )
     attach_load(
         n,
         inputs["load"],
-        params.load["scaling_factor"],
+        load_scaling,
     )
 
     set_transmission_costs(

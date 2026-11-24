@@ -520,6 +520,22 @@ def adjust_geothermal_capacity_limits(n: pypsa.Network, horizon: str) -> None:
         ).clip(lower=0)
 
 
+def carry_over_generator_expansion(n: pypsa.Network, n_p: pypsa.Network) -> None:
+    """
+    Keep capacity built on top of the existing conventional fleet.
+
+    Electricity-only networks hold existing and new conventional capacity in one
+    extendable generator without lifetime, which add_electricity recreates in
+    every horizon. Capacity built in earlier horizons is added to the minimum
+    capacity here, otherwise it would be lost.
+    """
+    gens = n.generators.index[
+        n.generators.p_nom_extendable & (n.generators.lifetime == np.inf)
+    ].intersection(n_p.generators.index)
+    built = (n_p.generators.p_nom_opt[gens] - n_p.generators.p_nom[gens]).clip(lower=0)
+    n.generators.loc[gens, "p_nom_min"] = n.generators.loc[gens, "p_nom"] + built
+
+
 def main(
     n: pypsa.Network,
     n_previous: pypsa.Network,
@@ -543,6 +559,9 @@ def main(
     logger.info(
         f"Applying brownfield constraints from horizon {horizons[horizons.index(current_horizon) - 1]}"
     )
+
+    if not params.sector["enabled"]:
+        carry_over_generator_expansion(n, n_previous)
 
     add_brownfield(
         n,

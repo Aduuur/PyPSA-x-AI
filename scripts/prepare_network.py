@@ -378,6 +378,7 @@ def cap_transmission_capacity(
     link_max_extension=None,
     line_max_pu=None,
     link_max_pu=None,
+    crossborder_line_max_pu=None,
 ):
     """
     Cap transmission capacity for AC lines and DC links.
@@ -400,6 +401,9 @@ def cap_transmission_capacity(
     link_max_pu : float, optional
         Set maximum utilization for DC links (e.g., 0.7 for 70% utilization).
         If None, p_max_pu is not modified.
+    crossborder_line_max_pu : float, optional
+        Utilisation for AC lines between countries, replacing line_max_pu on
+        those lines. If None, they keep line_max_pu.
 
     Notes
     -----
@@ -410,6 +414,20 @@ def cap_transmission_capacity(
     if line_max_pu is not None:
         n.lines["s_max_pu"] = line_max_pu
         logger.info(f"N-1 security margin of lines set to {line_max_pu}")
+
+    # With one node per country, all parallel circuits across a border add up and
+    # the neighbour has no internal limits, so the border carries far more than
+    # its commercial capacity. A lower utilisation for these lines corrects that.
+    if crossborder_line_max_pu is not None:
+        country = n.buses.country
+        crossborder = n.lines.index[
+            country.reindex(n.lines.bus0).values != country.reindex(n.lines.bus1).values
+        ]
+        n.lines.loc[crossborder, "s_max_pu"] = crossborder_line_max_pu
+        logger.info(
+            f"Utilisation of {len(crossborder)} cross-border lines set to "
+            f"{crossborder_line_max_pu}"
+        )
 
     # Set maximum utilization (p_max_pu) for DC links if specified
     if link_max_pu is not None:
@@ -464,6 +482,7 @@ def main(
     params,
     costs: pd.DataFrame,
     nyears: float,
+    current_horizon: int | None = None,
 ) -> None:
     logger.info("Preparing network for solving")
 
@@ -480,13 +499,16 @@ def main(
             raise ValueError("CO2 price file for monthly prices not found")
         add_dynamic_emission_prices(n, inputs.co2_price)
     elif emission_prices["enable"]:
-        if isinstance(emission_prices["co2"], dict):
+        co2_price = emission_prices["co2"]
+        if isinstance(co2_price, dict) and current_horizon is not None:
+            co2_price = bound_value_for_horizon(co2_price, current_horizon)
+        if isinstance(co2_price, dict) or co2_price is None:
             logger.warning(
-                "Not setting emission prices specified per planning horizon. "
-                "Use dynamic emission prices instead."
+                f"No emission price set for planning horizon {current_horizon}."
             )
         else:
-            add_emission_prices(n, {"co2": emission_prices["co2"]}, exclude_co2=False)
+            logger.info(f"Adding CO2 price of {co2_price} EUR/t.")
+            add_emission_prices(n, {"co2": co2_price}, exclude_co2=False)
 
     transmission_limit = electricity_cfg["transmission_limit"]
     if isinstance(transmission_limit, str):
@@ -509,4 +531,5 @@ def main(
         link_max_extension=params.links["p_nom_max_extension"],
         line_max_pu=params.lines["s_max_pu"],
         link_max_pu=params.links["p_max_pu"],
+        crossborder_line_max_pu=params.lines["s_max_pu_crossborder"],
     )
