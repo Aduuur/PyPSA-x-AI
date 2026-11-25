@@ -68,6 +68,7 @@ glpk = ">=5.0"
 graphviz = ">=12.2.1"
 gurobi = ">=12.0.3"
 highspy = ">=1.12.0"
+ipykernel = ">=6.29"
 ipython = ">=9.7.0"
 jpype1 = ">=1.6.0"
 libgdal-netcdf = ">=3.10.3"
@@ -134,6 +135,8 @@ holidays = ">=0.105"
 # makes a locally spawned run: job store its output twice and leaves the cache
 # entry a symlink to itself.
 [pypi-dependencies]
+# Must match the COPT floating license server version (copt.pypsalabs.org).
+coptpy = "==8.0.7"
 snakemake = { git = "https://github.com/lkstrp/snakemake.git", rev = "8c34c0a8b983f7ee9c9131604073d4a46504d5fc" }
 # The cached-http storage plugin, vendored with a cache-before-metadata fix for
 # the immutable hosts (vendor/snakemake-storage-plugin-cached-http/README.md).

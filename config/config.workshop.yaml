@@ -80,9 +80,12 @@ clustering:
     averaging: 3h
 
 solving:
+  solver:
+    name: copt              # floating license from copt.pypsalabs.org, client.ini in ~/copt
+    options: copt-default
   solver_options:
-    gurobi-default:
-      threads: 8            # default is 32; more threads cost memory during the barrier ordering
+    copt-default:
+      Threads: 4            # matches the 4 CPUs per workspace
 
 plotting:
   balance_map:
