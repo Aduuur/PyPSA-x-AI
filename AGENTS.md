@@ -24,5 +24,4 @@ group's figures fit together: before you write plotting code, read
 `.claude/skills/plot-style/SKILL.md` (code in `workshop/plotstyle/`).
 
 The role file sets guardrails for a sensible contribution; stay within them.
-Other people and their agents change the same workflow. If the group has
-written skills for coordinating code contributions, follow them.
+Other people and their agents change the same workflow.

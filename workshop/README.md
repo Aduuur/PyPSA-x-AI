@@ -50,12 +50,6 @@ roles contribute to one workflow. How your group shares code is yours to
 organise: branches, who changes which file, how pieces are merged and tested.
 Nothing here prescribes it.
 
-Write skills for your agents that enable them to coordinate their code
-contributions with those of your teammates' agents. A skill is a short
-instruction file an agent loads when a task calls for it (for Claude Code:
-`.claude/skills/<name>/SKILL.md`; other agents have their own equivalents).
-Commit the skills, so every agent in your group follows the same rules.
-
 ## One thing every group has to deal with: 2050
 
 In the baseline, the CO₂ cap falls to zero in 2050. Germany alone can only meet
