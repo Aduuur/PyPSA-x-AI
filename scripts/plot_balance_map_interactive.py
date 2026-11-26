@@ -154,7 +154,10 @@ if __name__ == "__main__":
             groupby=["bus", "carrier"],
         )
 
-    components = transmission_carriers.unique("component")
+    # A network may lack some transmission components in the balance (e.g. no Links)
+    components = transmission_carriers.unique("component").intersection(
+        eb.index.unique("component")
+    )
     carriers = transmission_carriers.unique("carrier")
 
     # Only carriers that are also in the energy balance
