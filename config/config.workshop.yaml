@@ -2,8 +2,8 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-# Workshop baseline: power sector only, Germany with 4 nodes, every other
-# country with one node per synchronous zone, myopic in 5-year steps.
+# Workshop baseline: power sector only, Germany alone with 10 nodes,
+# myopic in 5-year steps. Sized so one solve fits in 6 GB of memory.
 # Everything not set here keeps the value in config.default.yaml.
 #
 #   pixi run snakemake -call --configfile config/config.workshop.yaml
@@ -11,7 +11,9 @@
 # Pre-built inputs and how to run from them: workshop/README.md
 
 run:
-  name: de4-myopic
+  name: de10-myopic
+
+countries: [DE]
 
 foresight: myopic
 planning_horizons: [2025, 2030, 2035, 2040, 2045, 2050]
@@ -59,10 +61,6 @@ costs:
       2045: 260
       2050: 300
 
-lines:
-  s_max_pu_crossborder: 0.3 # with one node per neighbour, all border circuits add up; this
-                            # brings Germany's usable border capacity to about 25 GW (0.7 gives 59 GW)
-
 renewable:                  # three site qualities per node instead of one average
   onwind:
     resource_classes: 3
@@ -72,10 +70,8 @@ renewable:                  # three site qualities per node instead of one avera
     resource_classes: 3
 
 clustering:
-  focus_weights:
-    DE: 0.9                 # sends every spare cluster to Germany
   cluster_network:
-    n_clusters: 43          # 40 (country, synchronous zone) groups get one each, + 3 spare for Germany
+    n_clusters: 10
   temporal:
     averaging: 3h
 
