@@ -140,3 +140,8 @@ path = [
 ]
 SPDX-FileCopyrightText = "Neuwirth et al. (Fraunhofer ISI), doi:10.1016/j.enconman.2024.119117"
 SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["workshop/plotstyle/fonts/*"]
+SPDX-FileCopyrightText = "2015 Impallari Type"
+SPDX-License-Identifier = "OFL-1.1"

@@ -19,6 +19,10 @@ Before you act on a request:
 3. Before you run or change the model, read `workshop/BASELINE.md`: how to run
    it, what it assumes, and the memory limit of the workspace.
 
+Every figure you make, in any role, uses the workshop plot style, so the
+group's figures fit together: before you write plotting code, read
+`.claude/skills/plot-style/SKILL.md` (code in `workshop/plotstyle/`).
+
 The role file sets guardrails for a sensible contribution; stay within them.
 Other people and their agents change the same workflow. If the group has
 written skills for coordinating code contributions, follow them.
