@@ -5,3 +5,11 @@
 # See https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles
 
 logger: pypsa
+
+# Workshop: each build_renewable_profiles job holds 3 to 4 GB, so only one runs at
+# a time. Without this, -c4 starts three at once and exceeds a workspace's memory.
+resources:
+  profile_builds: 1
+set-resources:
+  build_renewable_profiles:
+    profile_builds: 1

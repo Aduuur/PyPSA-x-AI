@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: CC0-1.0
 
 # Workshop baseline: power sector only, Germany alone with 10 nodes,
-# myopic in 5-year steps. Sized so one solve fits in 6 GB of memory.
+# 2-hour steps, myopic in 5-year steps. Sized so one solve stays under 8 GB
+# of memory (data/custom_extra_functionality.py keeps it there).
 # Everything not set here keeps the value in config.default.yaml.
 #
 #   pixi run snakemake -call --configfile config/config.workshop.yaml
@@ -73,9 +74,10 @@ clustering:
   cluster_network:
     n_clusters: 10
   temporal:
-    averaging: 3h
+    averaging: 2h
 
 solving:
+  mem_mb: 8000              # what Snakemake reserves per solve; default is 128000
   solver:
     name: copt              # floating license from copt.pypsalabs.org, client.ini in ~/copt
     options: copt-default
