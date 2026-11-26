@@ -9,7 +9,7 @@
 #
 #   pixi run snakemake -call --configfile config/config.workshop.yaml
 #
-# Pre-built inputs and how to run from them: workshop/README.md
+# The study and the roles: workshop/README.md; how to run the baseline: workshop/BASELINE.md
 
 run:
   name: de10-myopic
