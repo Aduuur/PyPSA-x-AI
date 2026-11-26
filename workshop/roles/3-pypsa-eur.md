@@ -12,6 +12,10 @@ Make sure the baseline is sensible, understand and explain what the model is
 doing, and refine it. The aim is a model good enough that the feasibility of
 the cable can be judged against an accurate system.
 
+You work across the whole workflow, from building the inputs and clustering to
+composing and solving the network: the German system, with its assumptions and
+checks in each step and each planning year.
+
 ## What you start with
 
 - The baseline: its config (`config/config.workshop.yaml`), the six solved
