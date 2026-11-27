@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Scenario (role 4), with border trade (role 3). Differs from `de10-trade` in the 2050 CO2 cap only.
+# Layer it on the workshop config and border-trade.yaml, in this order (the
+# last file sets the run name). See workshop/economics/STUDY_DESIGN.md.
+#
+#   sh workshop/economics/link_inputs.sh trade-cap2050-relaxed
+#   pixi run snakemake results/trade-cap2050-relaxed/networks/solved_2050.nc -c4 \
+#     --configfile config/config.workshop.yaml config/workshop/border-trade.yaml \
+#     config/workshop/trade-cap2050-relaxed.yaml \
+#     --allowed-rules process_cost_data compose_network solve_network
+
+run:
+  name: trade-cap2050-relaxed
+
+co2_budget:
+  upper:
+    2050: 0.02             # as in cap2050-relaxed.yaml (placeholder, to agree with role 3)

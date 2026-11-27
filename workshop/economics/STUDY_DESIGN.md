@@ -121,14 +121,41 @@ Each scenario is a config file in `config/workshop/`, layered on the workshop
 config, with its own `run: name`. Two runs that are compared differ in one
 thing only.
 
+**Reference: Germany with border trade (`de10-trade`).** Against the island
+baseline, any new source of power is worth too much: the island has no other
+way to import in a scarcity hour. The main runs therefore all carry role 3's
+border trade (`config/workshop/border-trade.yaml`), and the cable is judged
+against `de10-trade`. The island runs stay as a comparison that shows how much
+of the cable's value comes from Germany having no neighbours.
+
+Main runs, each layered on the workshop config and `border-trade.yaml`:
+
+| Run | Differs from | in | Status |
+|---|---|---|---|
+| `de10-trade` | `de10-myopic` | border trade (role 3) | solving |
+| `trade-cable` | `de10-trade` | the cable (role 1 central) | config ready, waits for the Brazilian supply (role 2) |
+| `trade-cable-cost-low`, `trade-cable-cost-high` | `trade-cable` | role 1 low / high level | config ready, waits as above |
+| `trade-cap2050-relaxed` | `de10-trade` | 2050 cap | config ready (2% of 1990, placeholder) |
+| `trade-cable-cap2050-relaxed` | `trade-cap2050-relaxed` | the cable | config ready, waits as above |
+
+Island comparison, layered on the workshop config only:
+
 | Run | Differs from | in | Status |
 |---|---|---|---|
 | `de10-myopic` | – | baseline | solved |
-| `cable` | `de10-myopic` | the cable (role 1 central) | config ready, waits for the cable in `compose_network` |
+| `cable` | `de10-myopic` | the cable (role 1 central) | config ready, waits as above |
 | `cable-cost-low`, `cable-cost-high` | `cable` | role 1 low / high level | config ready, waits as above |
 | `cable-project` | `cable` | asset WACC and IDC from `financing.py` instead of 7% | to do: private layer for role 1's parameter file |
 | `cap2050-relaxed` | `de10-myopic` | 2050 cap | solved (2% of 1990, placeholder) |
 | `cable-cap2050-relaxed` | `cable` | 2050 cap | config ready, waits as above |
+
+Border trade prices the neighbours at their 2024 level plus 7% per horizon
+(group decision), and imports carry the neighbours' 2024 CO2 intensity into
+the German cap. With `co2_scaling` at 1.0 in every horizon, the zero cap of
+2050 leaves almost no room for imports, so 2050 stays as tight as in the
+island model. How fast the neighbours decarbonise (`co2_scaling`) is a role 4
+decision still to make; `price_scaling` and `net_import_limit` are the other
+levers for a sensitivity once the main runs stand.
 
 The cable configs turn on role 1's code with `brazil_cable: {enable: true,
 level: ...}` (`workshop/cable/add_brazil_cable.py`). Commissioning 2040 and
@@ -206,7 +233,9 @@ peaks. Oversizing the wind 1.5x lowers the cost by about 30%.
 | Role 2 | hourly RN onshore wind capacity factor, 2013, UTC | `resources/brazil/rn_onwind_cf_2013_utc.csv` | screening |
 | Role 2 | Brazilian costs (CAPEX, FOM, VOM), solar | _open_ | |
 | Role 3 | decision on 2050 | _open_ | |
-| Roles 1–3 | cable and Brazil in `compose_network` | _open, nobody assigned yet_ | all cable runs |
+| Role 1 | the cable in `compose_network` | `workshop/cable/add_brazil_cable.py` | all cable runs |
+| Role 2 | Brazilian generators at `Brazil Natal` in `compose_network` | _open, role 2 (Julian) took it on_ | all cable runs |
+| Role 3 | border trade with the neighbours | `scripts/add_border_trade.py`, `config/workshop/border-trade.yaml` | all main runs |
 
 ## What the other roles deliver
 
