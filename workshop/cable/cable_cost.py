@@ -24,8 +24,9 @@ data or ``costs.fill_values`` (7%, harmonised by Role 4). So we hand over the
 
 Outputs:
   results/cable/cost_estimate.csv        all components, cases and ranges
+                                         (copy in workshop/cable/results/, tracked)
   workshop/cable/cable_parameters.yaml   model-ready parameters (public)
-  results/cable/cost_breakdown.png/.pdf  figure
+  results/cable/cost_breakdown.png/.pdf  figure (SVG copy in workshop/cable/results/)
 
 Run from the repo root (after cable_route.py):
 
@@ -45,6 +46,7 @@ sys.path.insert(0, str(ROOT / "workshop/plotstyle"))
 import studystyle as st  # noqa: E402
 
 OUT = ROOT / "results/cable"
+SHARED = ROOT / "workshop/cable/results"  # tracked: public results for the group
 PARAMS = ROOT / "workshop/cable/cable_parameters.yaml"
 PRIVATE_OVERRIDE = ROOT / "workshop/private/cable_parameters_private.yaml"  # git-ignored
 COSTS = ROOT / "data/costs/archive/v0.15.0/costs_{year}.csv"
@@ -199,6 +201,8 @@ def main():
             rows.append(estimate(case, r.length_km, bands, shallow, level))
     df = pd.DataFrame(rows)
     df.to_csv(OUT / "cost_estimate.csv", index=False)
+    SHARED.mkdir(parents=True, exist_ok=True)
+    df.round(4).to_csv(SHARED / "cost_estimate.csv", index=False)
 
     show = ["investment_EUR_per_MW", "investment_bnEUR", "efficiency", "availability",
             "capital_cost_EUR_per_MW_a_at_7pct", "transmission_cost_EUR_per_MWh"]
@@ -304,6 +308,7 @@ def plot(df):
              fontsize=6.5, color=st.FAINT)
     for ext, kw in (("png", {"dpi": 200}), ("pdf", {})):
         fig.savefig(OUT / f"cost_breakdown.{ext}", bbox_inches="tight", **kw)
+    fig.savefig(SHARED / "cost_breakdown.svg", bbox_inches="tight")
 
 
 if __name__ == "__main__":

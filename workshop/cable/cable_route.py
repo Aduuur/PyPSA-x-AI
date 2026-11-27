@@ -20,7 +20,8 @@ shipping lanes in the world.
 Uses public data only (GEBCO_2025, public-domain; landing points are public
 coastal towns). Outputs go to ``results/cable/`` (git-ignored):
 ``routes.csv`` (summary), ``routes.gpkg`` (lines), ``profiles.csv`` and two
-figures.
+figures (PNG, PDF). Shared copies (CSV, SVG) go to the tracked
+``workshop/cable/results/``.
 
 Run from the repo root:
 
@@ -45,6 +46,7 @@ import studystyle as st  # noqa: E402
 
 BATHY = ROOT / "data-brazil/bathymetry_atlantic/gebco_2025_atlantic_30s.nc"
 OUT = ROOT / "results/cable"
+SHARED = ROOT / "workshop/cable/results"  # tracked: public results for the group
 
 COARSEN = 6  # 30" -> 3' (0.05 deg) routing grid
 R_EARTH = 6371.0  # km
@@ -201,17 +203,32 @@ def main():
     cases = df[df.case != ""].set_index("case").loc[list(CASES)]
     cols = ["route", "length_km", "max_depth_m", "km_deeper_3000m", "km_deeper_5000m"]
     cases[cols].to_csv(OUT / "cases.csv")
+    SHARED.mkdir(parents=True, exist_ok=True)
+    cases[cols].to_csv(SHARED / "route_cases.csv")
+    df.to_csv(SHARED / "routes_all.csv", index=False)
+    # depth profiles of the four cases, every 10 km
+    prof[prof.route.isin(cases.route) & (prof.km % 10 == 0)].assign(
+        case=lambda d: d.route.map({v: k for k, v in cases.route.items()})
+    )[["case", "km", "depth_m"]].to_csv(SHARED / "depth_profiles_10km.csv", index=False)
     pd.set_option("display.width", 250)
     print(cases[cols].to_string())
     print(f"German landing point and node (agreed): {DE_AGREED}, {DE_NODE}")
     plot(fine, gpd.read_file(OUT / "routes.gpkg"), prof, cases)
 
 
+def save(fig, name, shared=True):
+    """PNG and PDF locally (results/cable/); SVG to the shared folder. The NDA guard
+    reads staged files as text, so binary formats cannot pass it; SVG is text.
+    The map SVG is not shared: its many coordinates trip the guard (see README)."""
+    fig.savefig(OUT / f"{name}.png", dpi=200)
+    fig.savefig(OUT / f"{name}.pdf")
+    if shared:
+        fig.savefig(SHARED / f"{name}.svg", dpi=110)
+
+
 def plot(fine, routes, prof, cases):
-    """Map of the four cases and depth profiles; saved to results/cable/ and
-    to workshop/cable/figures/ (public data only, so they may be committed)."""
-    figdir = ROOT / "workshop/cable/figures"
-    figdir.mkdir(parents=True, exist_ok=True)
+    """Map of the four cases and depth profiles; saved to results/cable/ and,
+    as SVG, to workshop/cable/results/ (public data only, so they are shared)."""
     cable = st.GROUPS["Brazil cable"]
     style = {  # case -> colour, width, dash
         "reference": (cable, 1.6, "-"),
@@ -247,9 +264,7 @@ def plot(fine, routes, prof, cases):
     ax.text(0.01, 0.20, "thin black line: 3,000 m isobath (deepest qualified cable)",
             transform=ax.transAxes, fontsize=7, color="#aaaaaa")
     st.colorbar(fig, m, cax, "Water depth, m")
-    for d in (OUT, figdir):
-        fig.savefig(d / "routes_map.png", dpi=200)
-    fig.savefig(OUT / "routes_map.pdf")
+    save(fig, "routes_map", shared=False)
 
     # depth profiles, one panel per case
     fig, axes = plt.subplots(len(CASES), 1, figsize=(5.6, 6.4), sharex=True, sharey=True)
@@ -267,9 +282,7 @@ def plot(fine, routes, prof, cases):
     axes[0].text(50, DEPTH_QUALIFIED + 650, "deepest qualified, 3,000 m", fontsize=7, color="#aaaaaa")
     axes[0].set_title("Water depth along the cable route from Natal, m", loc="left")
     axes[-1].set_xlabel("Distance from Natal, km")
-    for d in (OUT, figdir):
-        fig.savefig(d / "depth_profile.png", dpi=200)
-    fig.savefig(OUT / "depth_profile.pdf")
+    save(fig, "depth_profile")
 
 
 

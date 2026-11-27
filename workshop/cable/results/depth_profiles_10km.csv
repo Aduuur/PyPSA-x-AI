@@ -1,0 +1,3435 @@
+case,km,depth_m
+"short, deep",0.0,0.0
+"short, deep",10.0,13.0
+"short, deep",20.0,14.0
+"short, deep",30.0,14.0
+"short, deep",40.0,11.0
+"short, deep",50.0,14.0
+"short, deep",60.0,19.0
+"short, deep",70.0,30.0
+"short, deep",80.0,36.0
+"short, deep",90.0,43.0
+"short, deep",100.0,54.0
+"short, deep",110.0,88.0
+"short, deep",120.0,804.0
+"short, deep",130.0,1826.0
+"short, deep",140.0,2531.0
+"short, deep",150.0,2944.0
+"short, deep",160.0,3247.0
+"short, deep",170.0,3236.0
+"short, deep",180.0,3196.0
+"short, deep",190.0,2974.0
+"short, deep",200.0,2736.0
+"short, deep",210.0,2439.0
+"short, deep",220.0,2551.0
+"short, deep",230.0,3004.0
+"short, deep",240.0,3348.0
+"short, deep",250.0,3282.0
+"short, deep",260.0,3198.0
+"short, deep",270.0,3365.0
+"short, deep",280.0,3668.0
+"short, deep",290.0,3718.0
+"short, deep",300.0,3742.0
+"short, deep",310.0,3766.0
+"short, deep",320.0,3777.0
+"short, deep",330.0,3798.0
+"short, deep",340.0,3842.0
+"short, deep",350.0,3834.0
+"short, deep",360.0,3845.0
+"short, deep",370.0,3870.0
+"short, deep",380.0,3897.0
+"short, deep",390.0,3943.0
+"short, deep",400.0,3992.0
+"short, deep",410.0,4012.0
+"short, deep",420.0,4016.0
+"short, deep",430.0,4030.0
+"short, deep",440.0,4039.0
+"short, deep",450.0,4021.0
+"short, deep",460.0,3642.0
+"short, deep",470.0,4258.0
+"short, deep",480.0,4320.0
+"short, deep",490.0,4358.0
+"short, deep",500.0,4402.0
+"short, deep",510.0,4408.0
+"short, deep",520.0,4410.0
+"short, deep",530.0,4431.0
+"short, deep",540.0,4426.0
+"short, deep",550.0,4440.0
+"short, deep",560.0,4414.0
+"short, deep",570.0,4474.0
+"short, deep",580.0,4502.0
+"short, deep",590.0,4552.0
+"short, deep",600.0,4513.0
+"short, deep",610.0,4532.0
+"short, deep",620.0,4533.0
+"short, deep",630.0,4526.0
+"short, deep",640.0,4509.0
+"short, deep",650.0,4534.0
+"short, deep",660.0,4544.0
+"short, deep",670.0,4542.0
+"short, deep",680.0,4543.0
+"short, deep",690.0,4544.0
+"short, deep",700.0,4531.0
+"short, deep",710.0,4537.0
+"short, deep",720.0,4548.0
+"short, deep",730.0,4339.0
+"short, deep",740.0,3911.0
+"short, deep",750.0,3792.0
+"short, deep",760.0,3671.0
+"short, deep",770.0,3693.0
+"short, deep",780.0,3920.0
+"short, deep",790.0,4108.0
+"short, deep",800.0,4124.0
+"short, deep",810.0,4120.0
+"short, deep",820.0,4010.0
+"short, deep",830.0,4107.0
+"short, deep",840.0,4028.0
+"short, deep",850.0,4048.0
+"short, deep",860.0,4273.0
+"short, deep",870.0,4300.0
+"short, deep",880.0,4312.0
+"short, deep",890.0,4271.0
+"short, deep",900.0,4178.0
+"short, deep",910.0,3746.0
+"short, deep",920.0,3748.0
+"short, deep",930.0,4063.0
+"short, deep",940.0,4038.0
+"short, deep",950.0,3834.0
+"short, deep",960.0,3924.0
+"short, deep",970.0,3735.0
+"short, deep",980.0,3707.0
+"short, deep",990.0,3806.0
+"short, deep",1000.0,3911.0
+"short, deep",1010.0,4042.0
+"short, deep",1020.0,3938.0
+"short, deep",1030.0,3985.0
+"short, deep",1040.0,3780.0
+"short, deep",1050.0,3856.0
+"short, deep",1060.0,4290.0
+"short, deep",1070.0,3821.0
+"short, deep",1080.0,3636.0
+"short, deep",1090.0,3841.0
+"short, deep",1100.0,3816.0
+"short, deep",1110.0,3998.0
+"short, deep",1120.0,3863.0
+"short, deep",1130.0,3682.0
+"short, deep",1140.0,3673.0
+"short, deep",1150.0,4068.0
+"short, deep",1160.0,4230.0
+"short, deep",1170.0,4032.0
+"short, deep",1180.0,4072.0
+"short, deep",1190.0,3754.0
+"short, deep",1200.0,3696.0
+"short, deep",1210.0,3796.0
+"short, deep",1220.0,4053.0
+"short, deep",1230.0,4240.0
+"short, deep",1240.0,4094.0
+"short, deep",1250.0,4275.0
+"short, deep",1260.0,4251.0
+"short, deep",1270.0,4233.0
+"short, deep",1280.0,4066.0
+"short, deep",1290.0,4086.0
+"short, deep",1300.0,4480.0
+"short, deep",1310.0,4344.0
+"short, deep",1320.0,4043.0
+"short, deep",1330.0,3726.0
+"short, deep",1340.0,3534.0
+"short, deep",1350.0,3811.0
+"short, deep",1360.0,3894.0
+"short, deep",1370.0,3680.0
+"short, deep",1380.0,3984.0
+"short, deep",1390.0,4019.0
+"short, deep",1400.0,4084.0
+"short, deep",1410.0,3918.0
+"short, deep",1420.0,3049.0
+"short, deep",1430.0,3410.0
+"short, deep",1440.0,4408.0
+"short, deep",1450.0,3131.0
+"short, deep",1460.0,3564.0
+"short, deep",1470.0,4382.0
+"short, deep",1480.0,4364.0
+"short, deep",1490.0,4231.0
+"short, deep",1500.0,3996.0
+"short, deep",1510.0,3756.0
+"short, deep",1520.0,3627.0
+"short, deep",1530.0,4100.0
+"short, deep",1540.0,4811.0
+"short, deep",1550.0,4634.0
+"short, deep",1560.0,4381.0
+"short, deep",1570.0,4407.0
+"short, deep",1580.0,4595.0
+"short, deep",1590.0,4661.0
+"short, deep",1600.0,4676.0
+"short, deep",1610.0,4492.0
+"short, deep",1620.0,4515.0
+"short, deep",1630.0,4611.0
+"short, deep",1640.0,4668.0
+"short, deep",1650.0,4344.0
+"short, deep",1660.0,4747.0
+"short, deep",1670.0,4831.0
+"short, deep",1680.0,4755.0
+"short, deep",1690.0,4801.0
+"short, deep",1700.0,4818.0
+"short, deep",1710.0,5080.0
+"short, deep",1720.0,5175.0
+"short, deep",1730.0,5057.0
+"short, deep",1740.0,4499.0
+"short, deep",1750.0,4908.0
+"short, deep",1760.0,4978.0
+"short, deep",1770.0,5118.0
+"short, deep",1780.0,5288.0
+"short, deep",1790.0,5076.0
+"short, deep",1800.0,5395.0
+"short, deep",1810.0,5354.0
+"short, deep",1820.0,4996.0
+"short, deep",1830.0,4725.0
+"short, deep",1840.0,5057.0
+"short, deep",1850.0,5617.0
+"short, deep",1860.0,5362.0
+"short, deep",1870.0,5266.0
+"short, deep",1880.0,5668.0
+"short, deep",1890.0,5468.0
+"short, deep",1900.0,4981.0
+"short, deep",1910.0,5290.0
+"short, deep",1920.0,5408.0
+"short, deep",1930.0,5719.0
+"short, deep",1940.0,5270.0
+"short, deep",1950.0,5220.0
+"short, deep",1960.0,5315.0
+"short, deep",1970.0,5410.0
+"short, deep",1980.0,5678.0
+"short, deep",1990.0,5717.0
+"short, deep",2000.0,5804.0
+"short, deep",2010.0,6022.0
+"short, deep",2020.0,5088.0
+"short, deep",2030.0,5172.0
+"short, deep",2040.0,5671.0
+"short, deep",2050.0,6033.0
+"short, deep",2060.0,6226.0
+"short, deep",2070.0,5764.0
+"short, deep",2080.0,5839.0
+"short, deep",2090.0,6184.0
+"short, deep",2100.0,6201.0
+"short, deep",2110.0,5778.0
+"short, deep",2120.0,6050.0
+"short, deep",2130.0,5701.0
+"short, deep",2140.0,5616.0
+"short, deep",2150.0,5751.0
+"short, deep",2160.0,5954.0
+"short, deep",2170.0,5987.0
+"short, deep",2180.0,6081.0
+"short, deep",2190.0,6113.0
+"short, deep",2200.0,5749.0
+"short, deep",2210.0,4998.0
+"short, deep",2220.0,5362.0
+"short, deep",2230.0,5935.0
+"short, deep",2240.0,6013.0
+"short, deep",2250.0,6114.0
+"short, deep",2260.0,6467.0
+"short, deep",2270.0,6500.0
+"short, deep",2280.0,5602.0
+"short, deep",2290.0,5867.0
+"short, deep",2300.0,5823.0
+"short, deep",2310.0,5893.0
+"short, deep",2320.0,5740.0
+"short, deep",2330.0,5660.0
+"short, deep",2340.0,5430.0
+"short, deep",2350.0,5405.0
+"short, deep",2360.0,5450.0
+"short, deep",2370.0,5565.0
+"short, deep",2380.0,5199.0
+"short, deep",2390.0,5738.0
+"short, deep",2400.0,5806.0
+"short, deep",2410.0,5521.0
+"short, deep",2420.0,5424.0
+"short, deep",2430.0,5515.0
+"short, deep",2440.0,5507.0
+"short, deep",2450.0,4972.0
+"short, deep",2460.0,5369.0
+"short, deep",2470.0,5496.0
+"short, deep",2480.0,5591.0
+"short, deep",2490.0,5438.0
+"short, deep",2500.0,5489.0
+"short, deep",2510.0,5318.0
+"short, deep",2520.0,5240.0
+"short, deep",2530.0,5068.0
+"short, deep",2540.0,5200.0
+"short, deep",2550.0,5158.0
+"short, deep",2560.0,5242.0
+"short, deep",2570.0,5305.0
+"short, deep",2580.0,5382.0
+"short, deep",2590.0,5212.0
+"short, deep",2600.0,5133.0
+"short, deep",2610.0,5086.0
+"short, deep",2620.0,5189.0
+"short, deep",2630.0,5222.0
+"short, deep",2640.0,5294.0
+"short, deep",2650.0,5340.0
+"short, deep",2660.0,5384.0
+"short, deep",2670.0,5206.0
+"short, deep",2680.0,5034.0
+"short, deep",2690.0,5071.0
+"short, deep",2700.0,5311.0
+"short, deep",2710.0,5470.0
+"short, deep",2720.0,5465.0
+"short, deep",2730.0,5374.0
+"short, deep",2740.0,5419.0
+"short, deep",2750.0,5258.0
+"short, deep",2760.0,5231.0
+"short, deep",2770.0,5340.0
+"short, deep",2780.0,5382.0
+"short, deep",2790.0,5236.0
+"short, deep",2800.0,5224.0
+"short, deep",2810.0,5188.0
+"short, deep",2820.0,5234.0
+"short, deep",2830.0,5174.0
+"short, deep",2840.0,5156.0
+"short, deep",2850.0,5127.0
+"short, deep",2860.0,4990.0
+"short, deep",2870.0,5164.0
+"short, deep",2880.0,5098.0
+"short, deep",2890.0,5214.0
+"short, deep",2900.0,5087.0
+"short, deep",2910.0,5176.0
+"short, deep",2920.0,5383.0
+"short, deep",2930.0,5392.0
+"short, deep",2940.0,5019.0
+"short, deep",2950.0,5192.0
+"short, deep",2960.0,4837.0
+"short, deep",2970.0,5235.0
+"short, deep",2980.0,4894.0
+"short, deep",2990.0,4977.0
+"short, deep",3000.0,5004.0
+"short, deep",3010.0,5136.0
+"short, deep",3020.0,5009.0
+"short, deep",3030.0,4990.0
+"short, deep",3040.0,4780.0
+"short, deep",3050.0,4900.0
+"short, deep",3060.0,5172.0
+"short, deep",3070.0,5016.0
+"short, deep",3080.0,4830.0
+"short, deep",3090.0,4691.0
+"short, deep",3100.0,4739.0
+"short, deep",3110.0,4814.0
+"short, deep",3120.0,4867.0
+"short, deep",3130.0,4709.0
+"short, deep",3140.0,4761.0
+"short, deep",3150.0,4813.0
+"short, deep",3160.0,4783.0
+"short, deep",3170.0,4802.0
+"short, deep",3180.0,4774.0
+"short, deep",3190.0,4828.0
+"short, deep",3200.0,4953.0
+"short, deep",3210.0,4952.0
+"short, deep",3220.0,4930.0
+"short, deep",3230.0,4769.0
+"short, deep",3240.0,4810.0
+"short, deep",3250.0,5088.0
+"short, deep",3260.0,4866.0
+"short, deep",3270.0,4840.0
+"short, deep",3280.0,4735.0
+"short, deep",3290.0,4467.0
+"short, deep",3300.0,5339.0
+"short, deep",3310.0,4929.0
+"short, deep",3320.0,5298.0
+"short, deep",3330.0,5673.0
+"short, deep",3340.0,5566.0
+"short, deep",3350.0,5596.0
+"short, deep",3360.0,5464.0
+"short, deep",3370.0,5457.0
+"short, deep",3380.0,5567.0
+"short, deep",3390.0,5314.0
+"short, deep",3400.0,5414.0
+"short, deep",3410.0,5764.0
+"short, deep",3420.0,5712.0
+"short, deep",3430.0,5358.0
+"short, deep",3440.0,5366.0
+"short, deep",3450.0,5587.0
+"short, deep",3460.0,5496.0
+"short, deep",3470.0,5613.0
+"short, deep",3480.0,5553.0
+"short, deep",3490.0,5669.0
+"short, deep",3500.0,5696.0
+"short, deep",3510.0,5692.0
+"short, deep",3520.0,5682.0
+"short, deep",3530.0,5766.0
+"short, deep",3540.0,5581.0
+"short, deep",3550.0,5459.0
+"short, deep",3560.0,5508.0
+"short, deep",3570.0,5686.0
+"short, deep",3580.0,5525.0
+"short, deep",3590.0,5689.0
+"short, deep",3600.0,5640.0
+"short, deep",3610.0,5684.0
+"short, deep",3620.0,5324.0
+"short, deep",3630.0,5674.0
+"short, deep",3640.0,5676.0
+"short, deep",3650.0,5652.0
+"short, deep",3660.0,5667.0
+"short, deep",3670.0,5664.0
+"short, deep",3680.0,5654.0
+"short, deep",3690.0,5651.0
+"short, deep",3700.0,5574.0
+"short, deep",3710.0,5624.0
+"short, deep",3720.0,5698.0
+"short, deep",3730.0,5374.0
+"short, deep",3740.0,5459.0
+"short, deep",3750.0,5667.0
+"short, deep",3760.0,5426.0
+"short, deep",3770.0,5491.0
+"short, deep",3780.0,5514.0
+"short, deep",3790.0,5616.0
+"short, deep",3800.0,5198.0
+"short, deep",3810.0,5324.0
+"short, deep",3820.0,5281.0
+"short, deep",3830.0,5184.0
+"short, deep",3840.0,5228.0
+"short, deep",3850.0,5308.0
+"short, deep",3860.0,5234.0
+"short, deep",3870.0,5130.0
+"short, deep",3880.0,4832.0
+"short, deep",3890.0,4810.0
+"short, deep",3900.0,5178.0
+"short, deep",3910.0,5076.0
+"short, deep",3920.0,5045.0
+"short, deep",3930.0,5169.0
+"short, deep",3940.0,5152.0
+"short, deep",3950.0,5057.0
+"short, deep",3960.0,4958.0
+"short, deep",3970.0,5288.0
+"short, deep",3980.0,5281.0
+"short, deep",3990.0,5244.0
+"short, deep",4000.0,5198.0
+"short, deep",4010.0,5246.0
+"short, deep",4020.0,5214.0
+"short, deep",4030.0,5065.0
+"short, deep",4040.0,5177.0
+"short, deep",4050.0,5153.0
+"short, deep",4060.0,5176.0
+"short, deep",4070.0,5287.0
+"short, deep",4080.0,5273.0
+"short, deep",4090.0,5235.0
+"short, deep",4100.0,5244.0
+"short, deep",4110.0,5240.0
+"short, deep",4120.0,5283.0
+"short, deep",4130.0,5309.0
+"short, deep",4140.0,5274.0
+"short, deep",4150.0,5119.0
+"short, deep",4160.0,5292.0
+"short, deep",4170.0,5365.0
+"short, deep",4180.0,5364.0
+"short, deep",4190.0,5391.0
+"short, deep",4200.0,5314.0
+"short, deep",4210.0,5279.0
+"short, deep",4220.0,5286.0
+"short, deep",4230.0,5327.0
+"short, deep",4240.0,5288.0
+"short, deep",4250.0,5304.0
+"short, deep",4260.0,5282.0
+"short, deep",4270.0,5276.0
+"short, deep",4280.0,5286.0
+"short, deep",4290.0,5301.0
+"short, deep",4300.0,5291.0
+"short, deep",4310.0,5264.0
+"short, deep",4320.0,5230.0
+"short, deep",4330.0,5259.0
+"short, deep",4340.0,5255.0
+"short, deep",4350.0,5318.0
+"short, deep",4360.0,5248.0
+"short, deep",4370.0,5281.0
+"short, deep",4380.0,5224.0
+"short, deep",4390.0,4560.0
+"short, deep",4400.0,5278.0
+"short, deep",4410.0,5253.0
+"short, deep",4420.0,5268.0
+"short, deep",4430.0,5256.0
+"short, deep",4440.0,5270.0
+"short, deep",4450.0,5235.0
+"short, deep",4460.0,5212.0
+"short, deep",4470.0,5254.0
+"short, deep",4480.0,5188.0
+"short, deep",4490.0,5233.0
+"short, deep",4500.0,5250.0
+"short, deep",4510.0,5242.0
+"short, deep",4520.0,5214.0
+"short, deep",4530.0,5206.0
+"short, deep",4540.0,5206.0
+"short, deep",4550.0,5174.0
+"short, deep",4560.0,5169.0
+"short, deep",4570.0,5148.0
+"short, deep",4580.0,5157.0
+"short, deep",4590.0,5165.0
+"short, deep",4600.0,5152.0
+"short, deep",4610.0,5149.0
+"short, deep",4620.0,5114.0
+"short, deep",4630.0,5102.0
+"short, deep",4640.0,5114.0
+"short, deep",4650.0,5077.0
+"short, deep",4660.0,5084.0
+"short, deep",4670.0,5071.0
+"short, deep",4680.0,5039.0
+"short, deep",4690.0,5042.0
+"short, deep",4700.0,5042.0
+"short, deep",4710.0,5048.0
+"short, deep",4720.0,5022.0
+"short, deep",4730.0,4980.0
+"short, deep",4740.0,5004.0
+"short, deep",4750.0,5018.0
+"short, deep",4760.0,5026.0
+"short, deep",4770.0,5020.0
+"short, deep",4780.0,4990.0
+"short, deep",4790.0,5001.0
+"short, deep",4800.0,5015.0
+"short, deep",4810.0,5032.0
+"short, deep",4820.0,5064.0
+"short, deep",4830.0,5078.0
+"short, deep",4840.0,5074.0
+"short, deep",4850.0,5043.0
+"short, deep",4860.0,5020.0
+"short, deep",4870.0,5032.0
+"short, deep",4880.0,5036.0
+"short, deep",4890.0,5018.0
+"short, deep",4900.0,5008.0
+"short, deep",4910.0,4986.0
+"short, deep",4920.0,4976.0
+"short, deep",4930.0,4990.0
+"short, deep",4940.0,4986.0
+"short, deep",4950.0,4979.0
+"short, deep",4960.0,4940.0
+"short, deep",4970.0,4863.0
+"short, deep",4980.0,4949.0
+"short, deep",4990.0,4862.0
+"short, deep",5000.0,4827.0
+"short, deep",5010.0,4839.0
+"short, deep",5020.0,4510.0
+"short, deep",5030.0,4895.0
+"short, deep",5040.0,4780.0
+"short, deep",5050.0,4860.0
+"short, deep",5060.0,4842.0
+"short, deep",5070.0,5042.0
+"short, deep",5080.0,5048.0
+"short, deep",5090.0,5044.0
+"short, deep",5100.0,5049.0
+"short, deep",5110.0,5054.0
+"short, deep",5120.0,5038.0
+"short, deep",5130.0,5009.0
+"short, deep",5140.0,4943.0
+"short, deep",5150.0,4869.0
+"short, deep",5160.0,4790.0
+"short, deep",5170.0,4733.0
+"short, deep",5180.0,4658.0
+"short, deep",5190.0,4507.0
+"short, deep",5200.0,4498.0
+"short, deep",5210.0,4528.0
+"short, deep",5220.0,4437.0
+"short, deep",5230.0,4664.0
+"short, deep",5240.0,4992.0
+"short, deep",5250.0,4990.0
+"short, deep",5260.0,4544.0
+"short, deep",5270.0,4914.0
+"short, deep",5280.0,4826.0
+"short, deep",5290.0,4614.0
+"short, deep",5300.0,4428.0
+"short, deep",5310.0,5150.0
+"short, deep",5320.0,5260.0
+"short, deep",5330.0,5270.0
+"short, deep",5340.0,5182.0
+"short, deep",5350.0,4983.0
+"short, deep",5360.0,4800.0
+"short, deep",5370.0,4551.0
+"short, deep",5380.0,4886.0
+"short, deep",5390.0,5102.0
+"short, deep",5400.0,4721.0
+"short, deep",5410.0,4404.0
+"short, deep",5420.0,4327.0
+"short, deep",5430.0,4689.0
+"short, deep",5440.0,4749.0
+"short, deep",5450.0,4412.0
+"short, deep",5460.0,4746.0
+"short, deep",5470.0,5006.0
+"short, deep",5480.0,4838.0
+"short, deep",5490.0,4385.0
+"short, deep",5500.0,4578.0
+"short, deep",5510.0,4209.0
+"short, deep",5520.0,4300.0
+"short, deep",5530.0,4316.0
+"short, deep",5540.0,4486.0
+"short, deep",5550.0,4761.0
+"short, deep",5560.0,4999.0
+"short, deep",5570.0,4956.0
+"short, deep",5580.0,4948.0
+"short, deep",5590.0,4945.0
+"short, deep",5600.0,4954.0
+"short, deep",5610.0,4744.0
+"short, deep",5620.0,5096.0
+"short, deep",5630.0,5557.0
+"short, deep",5640.0,5600.0
+"short, deep",5650.0,5202.0
+"short, deep",5660.0,5298.0
+"short, deep",5670.0,5173.0
+"short, deep",5680.0,5329.0
+"short, deep",5690.0,5358.0
+"short, deep",5700.0,5437.0
+"short, deep",5710.0,5434.0
+"short, deep",5720.0,5166.0
+"short, deep",5730.0,4757.0
+"short, deep",5740.0,4716.0
+"short, deep",5750.0,4490.0
+"short, deep",5760.0,3903.0
+"short, deep",5770.0,4203.0
+"short, deep",5780.0,4315.0
+"short, deep",5790.0,4663.0
+"short, deep",5800.0,5350.0
+"short, deep",5810.0,5366.0
+"short, deep",5820.0,5368.0
+"short, deep",5830.0,3957.0
+"short, deep",5840.0,4290.0
+"short, deep",5850.0,5368.0
+"short, deep",5860.0,5372.0
+"short, deep",5870.0,5364.0
+"short, deep",5880.0,5359.0
+"short, deep",5890.0,5356.0
+"short, deep",5900.0,5349.0
+"short, deep",5910.0,5346.0
+"short, deep",5920.0,5342.0
+"short, deep",5930.0,5336.0
+"short, deep",5940.0,5338.0
+"short, deep",5950.0,5332.0
+"short, deep",5960.0,5330.0
+"short, deep",5970.0,5330.0
+"short, deep",5980.0,5328.0
+"short, deep",5990.0,5326.0
+"short, deep",6000.0,5322.0
+"short, deep",6010.0,5324.0
+"short, deep",6020.0,5310.0
+"short, deep",6030.0,5189.0
+"short, deep",6040.0,5044.0
+"short, deep",6050.0,4982.0
+"short, deep",6060.0,4802.0
+"short, deep",6070.0,4633.0
+"short, deep",6080.0,4396.0
+"short, deep",6090.0,4375.0
+"short, deep",6100.0,3638.0
+"short, deep",6110.0,3569.0
+"short, deep",6120.0,3311.0
+"short, deep",6130.0,3547.0
+"short, deep",6140.0,3025.0
+"short, deep",6150.0,2637.0
+"short, deep",6160.0,2489.0
+"short, deep",6170.0,2371.0
+"short, deep",6180.0,2243.0
+"short, deep",6190.0,2131.0
+"short, deep",6200.0,2292.0
+"short, deep",6210.0,2058.0
+"short, deep",6220.0,1814.0
+"short, deep",6230.0,1730.0
+"short, deep",6240.0,2122.0
+"short, deep",6250.0,2480.0
+"short, deep",6260.0,2779.0
+"short, deep",6270.0,2926.0
+"short, deep",6280.0,3238.0
+"short, deep",6290.0,3402.0
+"short, deep",6300.0,3538.0
+"short, deep",6310.0,3503.0
+"short, deep",6320.0,3210.0
+"short, deep",6330.0,3329.0
+"short, deep",6340.0,2894.0
+"short, deep",6350.0,2425.0
+"short, deep",6360.0,3218.0
+"short, deep",6370.0,3035.0
+"short, deep",6380.0,2713.0
+"short, deep",6390.0,2227.0
+"short, deep",6400.0,2346.0
+"short, deep",6410.0,2442.0
+"short, deep",6420.0,2828.0
+"short, deep",6430.0,4042.0
+"short, deep",6440.0,4336.0
+"short, deep",6450.0,3874.0
+"short, deep",6460.0,2798.0
+"short, deep",6470.0,2403.0
+"short, deep",6480.0,3674.0
+"short, deep",6490.0,4558.0
+"short, deep",6500.0,4920.0
+"short, deep",6510.0,4923.0
+"short, deep",6520.0,4914.0
+"short, deep",6530.0,4914.0
+"short, deep",6540.0,4910.0
+"short, deep",6550.0,4906.0
+"short, deep",6560.0,4904.0
+"short, deep",6570.0,4901.0
+"short, deep",6580.0,4899.0
+"short, deep",6590.0,4914.0
+"short, deep",6600.0,4899.0
+"short, deep",6610.0,4878.0
+"short, deep",6620.0,4883.0
+"short, deep",6630.0,4876.0
+"short, deep",6640.0,4870.0
+"short, deep",6650.0,4863.0
+"short, deep",6660.0,4853.0
+"short, deep",6670.0,4848.0
+"short, deep",6680.0,4834.0
+"short, deep",6690.0,4823.0
+"short, deep",6700.0,4806.0
+"short, deep",6710.0,4795.0
+"short, deep",6720.0,4776.0
+"short, deep",6730.0,4760.0
+"short, deep",6740.0,4746.0
+"short, deep",6750.0,4717.0
+"short, deep",6760.0,4707.0
+"short, deep",6770.0,4660.0
+"short, deep",6780.0,4623.0
+"short, deep",6790.0,4567.0
+"short, deep",6800.0,4495.0
+"short, deep",6810.0,4389.0
+"short, deep",6820.0,4241.0
+"short, deep",6830.0,3724.0
+"short, deep",6840.0,2695.0
+"short, deep",6850.0,2276.0
+"short, deep",6860.0,1747.0
+"short, deep",6870.0,1164.0
+"short, deep",6880.0,217.0
+"short, deep",6890.0,155.0
+"short, deep",6900.0,156.0
+"short, deep",6910.0,144.0
+"short, deep",6920.0,142.0
+"short, deep",6930.0,136.0
+"short, deep",6940.0,130.0
+"short, deep",6950.0,129.0
+"short, deep",6960.0,125.0
+"short, deep",6970.0,119.0
+"short, deep",6980.0,116.0
+"short, deep",6990.0,114.0
+"short, deep",7000.0,109.0
+"short, deep",7010.0,94.0
+"short, deep",7020.0,78.0
+"short, deep",7030.0,14.0
+"short, deep",7040.0,90.0
+"short, deep",7050.0,92.0
+"short, deep",7060.0,96.0
+"short, deep",7070.0,98.0
+"short, deep",7080.0,98.0
+"short, deep",7090.0,98.0
+"short, deep",7100.0,94.0
+"short, deep",7110.0,93.0
+"short, deep",7120.0,92.0
+"short, deep",7130.0,89.0
+"short, deep",7140.0,86.0
+"short, deep",7150.0,85.0
+"short, deep",7160.0,85.0
+"short, deep",7170.0,84.0
+"short, deep",7180.0,78.0
+"short, deep",7190.0,78.0
+"short, deep",7200.0,73.0
+"short, deep",7210.0,72.0
+"short, deep",7220.0,70.0
+"short, deep",7230.0,67.0
+"short, deep",7240.0,66.0
+"short, deep",7250.0,64.0
+"short, deep",7260.0,62.0
+"short, deep",7270.0,58.0
+"short, deep",7280.0,55.0
+"short, deep",7290.0,52.0
+"short, deep",7300.0,46.0
+"short, deep",7310.0,46.0
+"short, deep",7320.0,44.0
+"short, deep",7330.0,44.0
+"short, deep",7340.0,37.0
+"short, deep",7350.0,30.0
+"short, deep",7360.0,36.0
+"short, deep",7370.0,36.0
+"short, deep",7380.0,34.0
+"short, deep",7390.0,36.0
+"short, deep",7400.0,38.0
+"short, deep",7410.0,37.0
+"short, deep",7420.0,36.0
+"short, deep",7430.0,35.0
+"short, deep",7440.0,32.0
+"short, deep",7450.0,10.0
+"short, deep",7460.0,17.0
+"short, deep",7470.0,6.0
+"short, deep",7480.0,23.0
+"short, deep",7490.0,18.0
+"short, deep",7500.0,27.0
+"short, deep",7510.0,29.0
+"short, deep",7520.0,28.0
+"short, deep",7530.0,26.0
+"short, deep",7540.0,28.0
+"short, deep",7550.0,19.0
+"short, deep",7560.0,12.0
+"short, deep",7570.0,12.0
+"short, deep",7580.0,14.0
+"short, deep",7590.0,8.0
+"short, deep",7600.0,30.0
+"short, deep",7610.0,30.0
+"short, deep",7620.0,22.0
+"short, deep",7630.0,22.0
+"short, deep",7640.0,29.0
+"short, deep",7650.0,25.0
+"short, deep",7660.0,6.0
+"short, deep",7670.0,19.0
+"short, deep",7680.0,20.0
+"short, deep",7690.0,40.0
+"short, deep",7700.0,41.0
+"short, deep",7710.0,45.0
+"short, deep",7720.0,28.0
+"short, deep",7730.0,34.0
+"short, deep",7740.0,48.0
+"short, deep",7750.0,47.0
+"short, deep",7760.0,50.0
+"short, deep",7770.0,48.0
+"short, deep",7780.0,46.0
+"short, deep",7790.0,40.0
+"short, deep",7800.0,38.0
+"short, deep",7810.0,46.0
+"short, deep",7820.0,42.0
+"short, deep",7830.0,40.0
+"short, deep",7840.0,36.0
+"short, deep",7850.0,29.0
+"short, deep",7860.0,36.0
+"short, deep",7870.0,38.0
+"short, deep",7880.0,27.0
+"short, deep",7890.0,30.0
+"short, deep",7900.0,30.0
+"short, deep",7910.0,28.0
+"short, deep",7920.0,24.0
+"short, deep",7930.0,28.0
+"short, deep",7940.0,26.0
+"short, deep",7950.0,28.0
+"short, deep",7960.0,30.0
+"short, deep",7970.0,34.0
+"short, deep",7980.0,38.0
+"short, deep",7990.0,39.0
+"short, deep",8000.0,41.0
+"short, deep",8010.0,41.0
+"short, deep",8020.0,41.0
+"short, deep",8030.0,40.0
+"short, deep",8040.0,40.0
+"short, deep",8050.0,38.0
+"short, deep",8060.0,37.0
+"short, deep",8070.0,35.0
+"short, deep",8080.0,35.0
+"short, deep",8090.0,32.0
+"short, deep",8100.0,31.0
+"short, deep",8110.0,29.0
+"short, deep",8120.0,29.0
+"short, deep",8130.0,29.0
+"short, deep",8140.0,28.0
+"short, deep",8150.0,28.0
+"short, deep",8160.0,24.0
+"short, deep",8170.0,24.0
+"short, deep",8180.0,24.0
+"short, deep",8190.0,21.0
+"short, deep",8200.0,22.0
+"short, deep",8210.0,20.0
+"short, deep",8220.0,22.0
+"short, deep",8230.0,19.0
+"short, deep",8240.0,20.0
+"short, deep",8250.0,17.0
+"short, deep",8260.0,8.0
+"short, deep",8270.0,10.0
+"short, deep",8280.0,0.0
+"short, deep",8290.0,16.0
+"short, deep",8300.0,0.0
+reference,0.0,0.0
+reference,10.0,13.0
+reference,20.0,14.0
+reference,30.0,14.0
+reference,40.0,11.0
+reference,50.0,14.0
+reference,60.0,19.0
+reference,70.0,30.0
+reference,80.0,36.0
+reference,90.0,43.0
+reference,100.0,54.0
+reference,110.0,88.0
+reference,120.0,804.0
+reference,130.0,1826.0
+reference,140.0,2531.0
+reference,150.0,2944.0
+reference,160.0,3247.0
+reference,170.0,3236.0
+reference,180.0,3196.0
+reference,190.0,2974.0
+reference,200.0,2736.0
+reference,210.0,2439.0
+reference,220.0,2551.0
+reference,230.0,3004.0
+reference,240.0,3348.0
+reference,250.0,3045.0
+reference,260.0,1514.0
+reference,270.0,1067.0
+reference,280.0,2645.0
+reference,290.0,3488.0
+reference,300.0,3769.0
+reference,310.0,3796.0
+reference,320.0,3817.0
+reference,330.0,3828.0
+reference,340.0,3856.0
+reference,350.0,3876.0
+reference,360.0,3896.0
+reference,370.0,3924.0
+reference,380.0,3962.0
+reference,390.0,3996.0
+reference,400.0,4048.0
+reference,410.0,4090.0
+reference,420.0,4127.0
+reference,430.0,4150.0
+reference,440.0,4163.0
+reference,450.0,4174.0
+reference,460.0,4199.0
+reference,470.0,4233.0
+reference,480.0,4271.0
+reference,490.0,4308.0
+reference,500.0,4351.0
+reference,510.0,4365.0
+reference,520.0,4384.0
+reference,530.0,4402.0
+reference,540.0,4415.0
+reference,550.0,4431.0
+reference,560.0,4457.0
+reference,570.0,4476.0
+reference,580.0,4487.0
+reference,590.0,4446.0
+reference,600.0,4367.0
+reference,610.0,4177.0
+reference,620.0,3824.0
+reference,630.0,4028.0
+reference,640.0,4166.0
+reference,650.0,4266.0
+reference,660.0,4345.0
+reference,670.0,4394.0
+reference,680.0,4422.0
+reference,690.0,4439.0
+reference,700.0,4450.0
+reference,710.0,4459.0
+reference,720.0,4368.0
+reference,730.0,4255.0
+reference,740.0,4500.0
+reference,750.0,4498.0
+reference,760.0,4445.0
+reference,770.0,4219.0
+reference,780.0,4262.0
+reference,790.0,4256.0
+reference,800.0,4123.0
+reference,810.0,3950.0
+reference,820.0,4284.0
+reference,830.0,4531.0
+reference,840.0,4537.0
+reference,850.0,4177.0
+reference,860.0,3821.0
+reference,870.0,3773.0
+reference,880.0,3371.0
+reference,890.0,3478.0
+reference,900.0,3366.0
+reference,910.0,3128.0
+reference,920.0,3105.0
+reference,930.0,3092.0
+reference,940.0,3048.0
+reference,950.0,3065.0
+reference,960.0,2745.0
+reference,970.0,2922.0
+reference,980.0,2778.0
+reference,990.0,2684.0
+reference,1000.0,3023.0
+reference,1010.0,2846.0
+reference,1020.0,2684.0
+reference,1030.0,3382.0
+reference,1040.0,3436.0
+reference,1050.0,3099.0
+reference,1060.0,2624.0
+reference,1070.0,2492.0
+reference,1080.0,2676.0
+reference,1090.0,2903.0
+reference,1100.0,2331.0
+reference,1110.0,3210.0
+reference,1120.0,2873.0
+reference,1130.0,3154.0
+reference,1140.0,3189.0
+reference,1150.0,3076.0
+reference,1160.0,2930.0
+reference,1170.0,3142.0
+reference,1180.0,3108.0
+reference,1190.0,2994.0
+reference,1200.0,3231.0
+reference,1210.0,3598.0
+reference,1220.0,3643.0
+reference,1230.0,3033.0
+reference,1240.0,3152.0
+reference,1250.0,3432.0
+reference,1260.0,3829.0
+reference,1270.0,3864.0
+reference,1280.0,3157.0
+reference,1290.0,2693.0
+reference,1300.0,3626.0
+reference,1310.0,3724.0
+reference,1320.0,3294.0
+reference,1330.0,3745.0
+reference,1340.0,3770.0
+reference,1350.0,3794.0
+reference,1360.0,3797.0
+reference,1370.0,3914.0
+reference,1380.0,3822.0
+reference,1390.0,3964.0
+reference,1400.0,3325.0
+reference,1410.0,3596.0
+reference,1420.0,3882.0
+reference,1430.0,4242.0
+reference,1440.0,4338.0
+reference,1450.0,3917.0
+reference,1460.0,3585.0
+reference,1470.0,3976.0
+reference,1480.0,3971.0
+reference,1490.0,4054.0
+reference,1500.0,4109.0
+reference,1510.0,4158.0
+reference,1520.0,4114.0
+reference,1530.0,3792.0
+reference,1540.0,2188.0
+reference,1550.0,3377.0
+reference,1560.0,3955.0
+reference,1570.0,3602.0
+reference,1580.0,3794.0
+reference,1590.0,4329.0
+reference,1600.0,4305.0
+reference,1610.0,3974.0
+reference,1620.0,4274.0
+reference,1630.0,4168.0
+reference,1640.0,2540.0
+reference,1650.0,3429.0
+reference,1660.0,2744.0
+reference,1670.0,612.0
+reference,1680.0,3017.0
+reference,1690.0,3910.0
+reference,1700.0,4006.0
+reference,1710.0,4263.0
+reference,1720.0,4149.0
+reference,1730.0,2773.0
+reference,1740.0,3670.0
+reference,1750.0,4155.0
+reference,1760.0,4248.0
+reference,1770.0,4226.0
+reference,1780.0,3031.0
+reference,1790.0,3826.0
+reference,1800.0,3940.0
+reference,1810.0,3726.0
+reference,1820.0,3970.0
+reference,1830.0,4115.0
+reference,1840.0,4138.0
+reference,1850.0,4000.0
+reference,1860.0,4020.0
+reference,1870.0,3973.0
+reference,1880.0,4185.0
+reference,1890.0,4467.0
+reference,1900.0,3104.0
+reference,1910.0,2537.0
+reference,1920.0,2554.0
+reference,1930.0,2896.0
+reference,1940.0,2177.0
+reference,1950.0,3455.0
+reference,1960.0,4289.0
+reference,1970.0,4209.0
+reference,1980.0,4202.0
+reference,1990.0,4247.0
+reference,2000.0,3968.0
+reference,2010.0,3578.0
+reference,2020.0,4284.0
+reference,2030.0,4274.0
+reference,2040.0,3756.0
+reference,2050.0,3552.0
+reference,2060.0,3242.0
+reference,2070.0,3404.0
+reference,2080.0,3932.0
+reference,2090.0,3354.0
+reference,2100.0,2338.0
+reference,2110.0,3383.0
+reference,2120.0,3146.0
+reference,2130.0,2664.0
+reference,2140.0,3626.0
+reference,2150.0,3692.0
+reference,2160.0,2376.0
+reference,2170.0,1660.0
+reference,2180.0,2099.0
+reference,2190.0,1492.0
+reference,2200.0,2182.0
+reference,2210.0,2202.0
+reference,2220.0,3896.0
+reference,2230.0,2143.0
+reference,2240.0,2212.0
+reference,2250.0,2656.0
+reference,2260.0,2012.0
+reference,2270.0,1969.0
+reference,2280.0,2022.0
+reference,2290.0,1772.0
+reference,2300.0,3025.0
+reference,2310.0,3039.0
+reference,2320.0,3249.0
+reference,2330.0,2520.0
+reference,2340.0,3541.0
+reference,2350.0,2946.0
+reference,2360.0,2343.0
+reference,2370.0,2145.0
+reference,2380.0,2307.0
+reference,2390.0,2994.0
+reference,2400.0,2725.0
+reference,2410.0,2447.0
+reference,2420.0,2379.0
+reference,2430.0,1941.0
+reference,2440.0,1653.0
+reference,2450.0,3035.0
+reference,2460.0,2938.0
+reference,2470.0,3061.0
+reference,2480.0,3996.0
+reference,2490.0,4232.0
+reference,2500.0,4242.0
+reference,2510.0,4240.0
+reference,2520.0,4230.0
+reference,2530.0,3755.0
+reference,2540.0,2592.0
+reference,2550.0,3018.0
+reference,2560.0,3678.0
+reference,2570.0,1837.0
+reference,2580.0,1005.0
+reference,2590.0,2736.0
+reference,2600.0,3235.0
+reference,2610.0,2515.0
+reference,2620.0,1609.0
+reference,2630.0,3011.0
+reference,2640.0,3451.0
+reference,2650.0,4542.0
+reference,2660.0,4720.0
+reference,2670.0,4708.0
+reference,2680.0,4224.0
+reference,2690.0,4060.0
+reference,2700.0,3910.0
+reference,2710.0,3847.0
+reference,2720.0,3830.0
+reference,2730.0,3848.0
+reference,2740.0,4105.0
+reference,2750.0,4048.0
+reference,2760.0,4136.0
+reference,2770.0,4122.0
+reference,2780.0,3812.0
+reference,2790.0,3553.0
+reference,2800.0,3534.0
+reference,2810.0,3462.0
+reference,2820.0,3286.0
+reference,2830.0,3406.0
+reference,2840.0,3317.0
+reference,2850.0,3200.0
+reference,2860.0,3040.0
+reference,2870.0,3177.0
+reference,2880.0,3108.0
+reference,2890.0,2980.0
+reference,2900.0,3116.0
+reference,2910.0,2810.0
+reference,2920.0,2642.0
+reference,2930.0,2854.0
+reference,2940.0,2714.0
+reference,2950.0,2946.0
+reference,2960.0,2989.0
+reference,2970.0,2856.0
+reference,2980.0,2901.0
+reference,2990.0,2936.0
+reference,3000.0,3054.0
+reference,3010.0,3025.0
+reference,3020.0,3004.0
+reference,3030.0,2836.0
+reference,3040.0,2666.0
+reference,3050.0,2919.0
+reference,3060.0,2883.0
+reference,3070.0,2520.0
+reference,3080.0,2306.0
+reference,3090.0,2720.0
+reference,3100.0,2393.0
+reference,3110.0,2156.0
+reference,3120.0,2495.0
+reference,3130.0,2706.0
+reference,3140.0,2428.0
+reference,3150.0,1805.0
+reference,3160.0,1446.0
+reference,3170.0,1180.0
+reference,3180.0,1286.0
+reference,3190.0,1126.0
+reference,3200.0,1115.0
+reference,3210.0,1143.0
+reference,3220.0,1214.0
+reference,3230.0,1276.0
+reference,3240.0,1353.0
+reference,3250.0,1675.0
+reference,3260.0,1604.0
+reference,3270.0,1777.0
+reference,3280.0,1680.0
+reference,3290.0,1845.0
+reference,3300.0,1800.0
+reference,3310.0,1633.0
+reference,3320.0,1503.0
+reference,3330.0,1462.0
+reference,3340.0,1360.0
+reference,3350.0,1390.0
+reference,3360.0,1254.0
+reference,3370.0,1247.0
+reference,3380.0,1342.0
+reference,3390.0,1296.0
+reference,3400.0,942.0
+reference,3410.0,873.0
+reference,3420.0,944.0
+reference,3430.0,1004.0
+reference,3440.0,1143.0
+reference,3450.0,1312.0
+reference,3460.0,1542.0
+reference,3470.0,1965.0
+reference,3480.0,1651.0
+reference,3490.0,1503.0
+reference,3500.0,1642.0
+reference,3510.0,1266.0
+reference,3520.0,673.0
+reference,3530.0,2188.0
+reference,3540.0,2738.0
+reference,3550.0,2820.0
+reference,3560.0,2840.0
+reference,3570.0,2620.0
+reference,3580.0,2629.0
+reference,3590.0,2594.0
+reference,3600.0,2559.0
+reference,3610.0,2559.0
+reference,3620.0,2543.0
+reference,3630.0,2566.0
+reference,3640.0,2608.0
+reference,3650.0,2588.0
+reference,3660.0,2582.0
+reference,3670.0,2594.0
+reference,3680.0,2610.0
+reference,3690.0,2594.0
+reference,3700.0,2606.0
+reference,3710.0,2622.0
+reference,3720.0,2620.0
+reference,3730.0,2638.0
+reference,3740.0,2685.0
+reference,3750.0,2700.0
+reference,3760.0,2738.0
+reference,3770.0,2752.0
+reference,3780.0,2727.0
+reference,3790.0,2646.0
+reference,3800.0,2622.0
+reference,3810.0,2590.0
+reference,3820.0,2579.0
+reference,3830.0,2556.0
+reference,3840.0,2544.0
+reference,3850.0,2502.0
+reference,3860.0,2453.0
+reference,3870.0,2425.0
+reference,3880.0,2382.0
+reference,3890.0,2318.0
+reference,3900.0,2226.0
+reference,3910.0,2186.0
+reference,3920.0,2121.0
+reference,3930.0,2110.0
+reference,3940.0,1984.0
+reference,3950.0,1916.0
+reference,3960.0,2067.0
+reference,3970.0,1741.0
+reference,3980.0,1441.0
+reference,3990.0,1117.0
+reference,4000.0,993.0
+reference,4010.0,956.0
+reference,4020.0,752.0
+reference,4030.0,713.0
+reference,4040.0,380.0
+reference,4050.0,282.0
+reference,4060.0,272.0
+reference,4070.0,338.0
+reference,4080.0,568.0
+reference,4090.0,682.0
+reference,4100.0,836.0
+reference,4110.0,830.0
+reference,4120.0,718.0
+reference,4130.0,594.0
+reference,4140.0,587.0
+reference,4150.0,628.0
+reference,4160.0,684.0
+reference,4170.0,678.0
+reference,4180.0,842.0
+reference,4190.0,1068.0
+reference,4200.0,1336.0
+reference,4210.0,1606.0
+reference,4220.0,1540.0
+reference,4230.0,1236.0
+reference,4240.0,1238.0
+reference,4250.0,1596.0
+reference,4260.0,2076.0
+reference,4270.0,2102.0
+reference,4280.0,1828.0
+reference,4290.0,1703.0
+reference,4300.0,1726.0
+reference,4310.0,1905.0
+reference,4320.0,1804.0
+reference,4330.0,1954.0
+reference,4340.0,2054.0
+reference,4350.0,1990.0
+reference,4360.0,2080.0
+reference,4370.0,2124.0
+reference,4380.0,2108.0
+reference,4390.0,2138.0
+reference,4400.0,2238.0
+reference,4410.0,2326.0
+reference,4420.0,2332.0
+reference,4430.0,2280.0
+reference,4440.0,2239.0
+reference,4450.0,2230.0
+reference,4460.0,2264.0
+reference,4470.0,2333.0
+reference,4480.0,2355.0
+reference,4490.0,2362.0
+reference,4500.0,2412.0
+reference,4510.0,2442.0
+reference,4520.0,2471.0
+reference,4530.0,2378.0
+reference,4540.0,2486.0
+reference,4550.0,2603.0
+reference,4560.0,2659.0
+reference,4570.0,2643.0
+reference,4580.0,2634.0
+reference,4590.0,2604.0
+reference,4600.0,2496.0
+reference,4610.0,2546.0
+reference,4620.0,2528.0
+reference,4630.0,2370.0
+reference,4640.0,2290.0
+reference,4650.0,2334.0
+reference,4660.0,2167.0
+reference,4670.0,2770.0
+reference,4680.0,2390.0
+reference,4690.0,2535.0
+reference,4700.0,2758.0
+reference,4710.0,1983.0
+reference,4720.0,1769.0
+reference,4730.0,2230.0
+reference,4740.0,2008.0
+reference,4750.0,2023.0
+reference,4760.0,2414.0
+reference,4770.0,2441.0
+reference,4780.0,2395.0
+reference,4790.0,2452.0
+reference,4800.0,2575.0
+reference,4810.0,2746.0
+reference,4820.0,2933.0
+reference,4830.0,3014.0
+reference,4840.0,3016.0
+reference,4850.0,3000.0
+reference,4860.0,3008.0
+reference,4870.0,2998.0
+reference,4880.0,3008.0
+reference,4890.0,2914.0
+reference,4900.0,2802.0
+reference,4910.0,2751.0
+reference,4920.0,2678.0
+reference,4930.0,2577.0
+reference,4940.0,2515.0
+reference,4950.0,2444.0
+reference,4960.0,2344.0
+reference,4970.0,2259.0
+reference,4980.0,2180.0
+reference,4990.0,2090.0
+reference,5000.0,1986.0
+reference,5010.0,1896.0
+reference,5020.0,1762.0
+reference,5030.0,1627.0
+reference,5040.0,1277.0
+reference,5050.0,95.0
+reference,5060.0,41.0
+reference,5070.0,253.0
+reference,5080.0,326.0
+reference,5090.0,649.0
+reference,5100.0,907.0
+reference,5110.0,961.0
+reference,5120.0,1095.0
+reference,5130.0,1090.0
+reference,5140.0,1105.0
+reference,5150.0,1128.0
+reference,5160.0,1188.0
+reference,5170.0,743.0
+reference,5180.0,789.0
+reference,5190.0,103.0
+reference,5200.0,156.0
+reference,5210.0,263.0
+reference,5220.0,693.0
+reference,5230.0,429.0
+reference,5240.0,1698.0
+reference,5250.0,1783.0
+reference,5260.0,1432.0
+reference,5270.0,1462.0
+reference,5280.0,302.0
+reference,5290.0,181.0
+reference,5300.0,207.0
+reference,5310.0,363.0
+reference,5320.0,1425.0
+reference,5330.0,1494.0
+reference,5340.0,1664.0
+reference,5350.0,1849.0
+reference,5360.0,1876.0
+reference,5370.0,1910.0
+reference,5380.0,1892.0
+reference,5390.0,1826.0
+reference,5400.0,1782.0
+reference,5410.0,1822.0
+reference,5420.0,1950.0
+reference,5430.0,2170.0
+reference,5440.0,2380.0
+reference,5450.0,2877.0
+reference,5460.0,2915.0
+reference,5470.0,2486.0
+reference,5480.0,2087.0
+reference,5490.0,2022.0
+reference,5500.0,2026.0
+reference,5510.0,2050.0
+reference,5520.0,2006.0
+reference,5530.0,1817.0
+reference,5540.0,1976.0
+reference,5550.0,1854.0
+reference,5560.0,2180.0
+reference,5570.0,2813.0
+reference,5580.0,2519.0
+reference,5590.0,2462.0
+reference,5600.0,2108.0
+reference,5610.0,2724.0
+reference,5620.0,2572.0
+reference,5630.0,2740.0
+reference,5640.0,2627.0
+reference,5650.0,2892.0
+reference,5660.0,2186.0
+reference,5670.0,2073.0
+reference,5680.0,2573.0
+reference,5690.0,2558.0
+reference,5700.0,2441.0
+reference,5710.0,2347.0
+reference,5720.0,2431.0
+reference,5730.0,2432.0
+reference,5740.0,2250.0
+reference,5750.0,1996.0
+reference,5760.0,1626.0
+reference,5770.0,1116.0
+reference,5780.0,817.0
+reference,5790.0,624.0
+reference,5800.0,629.0
+reference,5810.0,696.0
+reference,5820.0,883.0
+reference,5830.0,1110.0
+reference,5840.0,1419.0
+reference,5850.0,1286.0
+reference,5860.0,1394.0
+reference,5870.0,1722.0
+reference,5880.0,2485.0
+reference,5890.0,2698.0
+reference,5900.0,2929.0
+reference,5910.0,3066.0
+reference,5920.0,3040.0
+reference,5930.0,2990.0
+reference,5940.0,3192.0
+reference,5950.0,3386.0
+reference,5960.0,3352.0
+reference,5970.0,3132.0
+reference,5980.0,3115.0
+reference,5990.0,3120.0
+reference,6000.0,3116.0
+reference,6010.0,2762.0
+reference,6020.0,2863.0
+reference,6030.0,2696.0
+reference,6040.0,2398.0
+reference,6050.0,2462.0
+reference,6060.0,2412.0
+reference,6070.0,2470.0
+reference,6080.0,2478.0
+reference,6090.0,2350.0
+reference,6100.0,2304.0
+reference,6110.0,2517.0
+reference,6120.0,2556.0
+reference,6130.0,1606.0
+reference,6140.0,1696.0
+reference,6150.0,2363.0
+reference,6160.0,1921.0
+reference,6170.0,2293.0
+reference,6180.0,1527.0
+reference,6190.0,743.0
+reference,6200.0,728.0
+reference,6210.0,453.0
+reference,6220.0,122.0
+reference,6230.0,95.0
+reference,6240.0,49.0
+reference,6250.0,55.0
+reference,6260.0,82.0
+reference,6270.0,125.0
+reference,6280.0,154.0
+reference,6290.0,190.0
+reference,6300.0,199.0
+reference,6310.0,216.0
+reference,6320.0,179.0
+reference,6330.0,165.0
+reference,6340.0,152.0
+reference,6350.0,154.0
+reference,6360.0,144.0
+reference,6370.0,149.0
+reference,6380.0,281.0
+reference,6390.0,344.0
+reference,6400.0,132.0
+reference,6410.0,704.0
+reference,6420.0,114.0
+reference,6430.0,104.0
+reference,6440.0,88.0
+reference,6450.0,44.0
+reference,6460.0,57.0
+reference,6470.0,86.0
+reference,6480.0,60.0
+reference,6490.0,52.0
+reference,6500.0,63.0
+reference,6510.0,70.0
+reference,6520.0,44.0
+reference,6530.0,83.0
+reference,6540.0,247.0
+reference,6550.0,160.0
+reference,6560.0,140.0
+reference,6570.0,135.0
+reference,6580.0,136.0
+reference,6590.0,140.0
+reference,6600.0,148.0
+reference,6610.0,150.0
+reference,6620.0,156.0
+reference,6630.0,155.0
+reference,6640.0,154.0
+reference,6650.0,1220.0
+reference,6660.0,2234.0
+reference,6670.0,2620.0
+reference,6680.0,2464.0
+reference,6690.0,1299.0
+reference,6700.0,1335.0
+reference,6710.0,1539.0
+reference,6720.0,1664.0
+reference,6730.0,2131.0
+reference,6740.0,2741.0
+reference,6750.0,2426.0
+reference,6760.0,1942.0
+reference,6770.0,1750.0
+reference,6780.0,1584.0
+reference,6790.0,1360.0
+reference,6800.0,1529.0
+reference,6810.0,1396.0
+reference,6820.0,1354.0
+reference,6830.0,1114.0
+reference,6840.0,837.0
+reference,6850.0,865.0
+reference,6860.0,1235.0
+reference,6870.0,1293.0
+reference,6880.0,350.0
+reference,6890.0,161.0
+reference,6900.0,168.0
+reference,6910.0,174.0
+reference,6920.0,182.0
+reference,6930.0,138.0
+reference,6940.0,110.0
+reference,6950.0,100.0
+reference,6960.0,101.0
+reference,6970.0,126.0
+reference,6980.0,170.0
+reference,6990.0,175.0
+reference,7000.0,191.0
+reference,7010.0,201.0
+reference,7020.0,311.0
+reference,7030.0,312.0
+reference,7040.0,302.0
+reference,7050.0,315.0
+reference,7060.0,302.0
+reference,7070.0,283.0
+reference,7080.0,256.0
+reference,7090.0,209.0
+reference,7100.0,227.0
+reference,7110.0,200.0
+reference,7120.0,206.0
+reference,7130.0,192.0
+reference,7140.0,138.0
+reference,7150.0,184.0
+reference,7160.0,128.0
+reference,7170.0,525.0
+reference,7180.0,405.0
+reference,7190.0,1434.0
+reference,7200.0,1556.0
+reference,7210.0,1520.0
+reference,7220.0,1794.0
+reference,7230.0,2498.0
+reference,7240.0,2886.0
+reference,7250.0,3642.0
+reference,7260.0,2568.0
+reference,7270.0,1754.0
+reference,7280.0,1967.0
+reference,7290.0,2436.0
+reference,7300.0,2040.0
+reference,7310.0,2062.0
+reference,7320.0,994.0
+reference,7330.0,654.0
+reference,7340.0,456.0
+reference,7350.0,494.0
+reference,7360.0,513.0
+reference,7370.0,609.0
+reference,7380.0,1102.0
+reference,7390.0,1878.0
+reference,7400.0,1998.0
+reference,7410.0,2402.0
+reference,7420.0,4003.0
+reference,7430.0,2480.0
+reference,7440.0,2414.0
+reference,7450.0,3476.0
+reference,7460.0,3119.0
+reference,7470.0,3041.0
+reference,7480.0,3310.0
+reference,7490.0,3085.0
+reference,7500.0,2976.0
+reference,7510.0,2612.0
+reference,7520.0,2092.0
+reference,7530.0,2413.0
+reference,7540.0,3565.0
+reference,7550.0,3111.0
+reference,7560.0,3297.0
+reference,7570.0,3068.0
+reference,7580.0,2124.0
+reference,7590.0,1847.0
+reference,7600.0,344.0
+reference,7610.0,168.0
+reference,7620.0,150.0
+reference,7630.0,140.0
+reference,7640.0,135.0
+reference,7650.0,132.0
+reference,7660.0,128.0
+reference,7670.0,122.0
+reference,7680.0,123.0
+reference,7690.0,124.0
+reference,7700.0,121.0
+reference,7710.0,118.0
+reference,7720.0,111.0
+reference,7730.0,113.0
+reference,7740.0,114.0
+reference,7750.0,111.0
+reference,7760.0,115.0
+reference,7770.0,115.0
+reference,7780.0,118.0
+reference,7790.0,116.0
+reference,7800.0,116.0
+reference,7810.0,115.0
+reference,7820.0,114.0
+reference,7830.0,114.0
+reference,7840.0,110.0
+reference,7850.0,111.0
+reference,7860.0,102.0
+reference,7870.0,101.0
+reference,7880.0,102.0
+reference,7890.0,104.0
+reference,7900.0,101.0
+reference,7910.0,84.0
+reference,7920.0,74.0
+reference,7930.0,64.0
+reference,7940.0,31.0
+reference,7950.0,32.0
+reference,7960.0,57.0
+reference,7970.0,52.0
+reference,7980.0,61.0
+reference,7990.0,40.0
+reference,8000.0,26.0
+reference,8010.0,87.0
+reference,8020.0,93.0
+reference,8030.0,96.0
+reference,8040.0,98.0
+reference,8050.0,98.0
+reference,8060.0,99.0
+reference,8070.0,95.0
+reference,8080.0,94.0
+reference,8090.0,93.0
+reference,8100.0,90.0
+reference,8110.0,89.0
+reference,8120.0,84.0
+reference,8130.0,84.0
+reference,8140.0,84.0
+reference,8150.0,79.0
+reference,8160.0,78.0
+reference,8170.0,73.0
+reference,8180.0,72.0
+reference,8190.0,70.0
+reference,8200.0,67.0
+reference,8210.0,67.0
+reference,8220.0,65.0
+reference,8230.0,66.0
+reference,8240.0,58.0
+reference,8250.0,56.0
+reference,8260.0,52.0
+reference,8270.0,47.0
+reference,8280.0,46.0
+reference,8290.0,45.0
+reference,8300.0,43.0
+reference,8310.0,41.0
+reference,8320.0,25.0
+reference,8330.0,36.0
+reference,8340.0,36.0
+reference,8350.0,34.0
+reference,8360.0,36.0
+reference,8370.0,38.0
+reference,8380.0,38.0
+reference,8390.0,46.0
+reference,8400.0,36.0
+reference,8410.0,38.0
+reference,8420.0,10.0
+reference,8430.0,18.0
+reference,8440.0,8.0
+reference,8450.0,23.0
+reference,8460.0,16.0
+reference,8470.0,23.0
+reference,8480.0,28.0
+reference,8490.0,29.0
+reference,8500.0,27.0
+reference,8510.0,27.0
+reference,8520.0,23.0
+reference,8530.0,11.0
+reference,8540.0,11.0
+reference,8550.0,12.0
+reference,8560.0,8.0
+reference,8570.0,29.0
+reference,8580.0,30.0
+reference,8590.0,22.0
+reference,8600.0,22.0
+reference,8610.0,25.0
+reference,8620.0,25.0
+reference,8630.0,17.0
+reference,8640.0,19.0
+reference,8650.0,20.0
+reference,8660.0,44.0
+reference,8670.0,42.0
+reference,8680.0,44.0
+reference,8690.0,24.0
+reference,8700.0,34.0
+reference,8710.0,48.0
+reference,8720.0,47.0
+reference,8730.0,47.0
+reference,8740.0,49.0
+reference,8750.0,47.0
+reference,8760.0,44.0
+reference,8770.0,38.0
+reference,8780.0,44.0
+reference,8790.0,42.0
+reference,8800.0,40.0
+reference,8810.0,38.0
+reference,8820.0,31.0
+reference,8830.0,37.0
+reference,8840.0,38.0
+reference,8850.0,30.0
+reference,8860.0,30.0
+reference,8870.0,30.0
+reference,8880.0,26.0
+reference,8890.0,25.0
+reference,8900.0,28.0
+reference,8910.0,26.0
+reference,8920.0,28.0
+reference,8930.0,30.0
+reference,8940.0,34.0
+reference,8950.0,38.0
+reference,8960.0,39.0
+reference,8970.0,41.0
+reference,8980.0,41.0
+reference,8990.0,41.0
+reference,9000.0,40.0
+reference,9010.0,40.0
+reference,9020.0,38.0
+reference,9030.0,38.0
+reference,9040.0,36.0
+reference,9050.0,35.0
+reference,9060.0,33.0
+reference,9070.0,31.0
+reference,9080.0,29.0
+reference,9090.0,29.0
+reference,9100.0,29.0
+reference,9110.0,28.0
+reference,9120.0,28.0
+reference,9130.0,25.0
+reference,9140.0,23.0
+reference,9150.0,25.0
+reference,9160.0,20.0
+reference,9170.0,22.0
+reference,9180.0,19.0
+reference,9190.0,22.0
+reference,9200.0,19.0
+reference,9210.0,20.0
+reference,9220.0,18.0
+reference,9230.0,9.0
+reference,9240.0,10.0
+reference,9250.0,0.0
+reference,9260.0,9.0
+reference,9270.0,0.0
+sensitivity: Portugal,0.0,0.0
+sensitivity: Portugal,10.0,13.0
+sensitivity: Portugal,20.0,14.0
+sensitivity: Portugal,30.0,14.0
+sensitivity: Portugal,40.0,11.0
+sensitivity: Portugal,50.0,14.0
+sensitivity: Portugal,60.0,19.0
+sensitivity: Portugal,70.0,30.0
+sensitivity: Portugal,80.0,36.0
+sensitivity: Portugal,90.0,43.0
+sensitivity: Portugal,100.0,54.0
+sensitivity: Portugal,110.0,88.0
+sensitivity: Portugal,120.0,804.0
+sensitivity: Portugal,130.0,1826.0
+sensitivity: Portugal,140.0,2531.0
+sensitivity: Portugal,150.0,2944.0
+sensitivity: Portugal,160.0,3247.0
+sensitivity: Portugal,170.0,3236.0
+sensitivity: Portugal,180.0,3196.0
+sensitivity: Portugal,190.0,2974.0
+sensitivity: Portugal,200.0,2736.0
+sensitivity: Portugal,210.0,2439.0
+sensitivity: Portugal,220.0,2551.0
+sensitivity: Portugal,230.0,3004.0
+sensitivity: Portugal,240.0,3348.0
+sensitivity: Portugal,250.0,3045.0
+sensitivity: Portugal,260.0,1514.0
+sensitivity: Portugal,270.0,1067.0
+sensitivity: Portugal,280.0,2645.0
+sensitivity: Portugal,290.0,3488.0
+sensitivity: Portugal,300.0,3769.0
+sensitivity: Portugal,310.0,3796.0
+sensitivity: Portugal,320.0,3817.0
+sensitivity: Portugal,330.0,3828.0
+sensitivity: Portugal,340.0,3856.0
+sensitivity: Portugal,350.0,3876.0
+sensitivity: Portugal,360.0,3896.0
+sensitivity: Portugal,370.0,3924.0
+sensitivity: Portugal,380.0,3962.0
+sensitivity: Portugal,390.0,3996.0
+sensitivity: Portugal,400.0,4048.0
+sensitivity: Portugal,410.0,4090.0
+sensitivity: Portugal,420.0,4127.0
+sensitivity: Portugal,430.0,4150.0
+sensitivity: Portugal,440.0,4163.0
+sensitivity: Portugal,450.0,4174.0
+sensitivity: Portugal,460.0,4199.0
+sensitivity: Portugal,470.0,4233.0
+sensitivity: Portugal,480.0,4271.0
+sensitivity: Portugal,490.0,4308.0
+sensitivity: Portugal,500.0,4351.0
+sensitivity: Portugal,510.0,4365.0
+sensitivity: Portugal,520.0,4384.0
+sensitivity: Portugal,530.0,4402.0
+sensitivity: Portugal,540.0,4415.0
+sensitivity: Portugal,550.0,4431.0
+sensitivity: Portugal,560.0,4457.0
+sensitivity: Portugal,570.0,4476.0
+sensitivity: Portugal,580.0,4487.0
+sensitivity: Portugal,590.0,4446.0
+sensitivity: Portugal,600.0,4367.0
+sensitivity: Portugal,610.0,4177.0
+sensitivity: Portugal,620.0,3824.0
+sensitivity: Portugal,630.0,4028.0
+sensitivity: Portugal,640.0,4166.0
+sensitivity: Portugal,650.0,4266.0
+sensitivity: Portugal,660.0,4345.0
+sensitivity: Portugal,670.0,4394.0
+sensitivity: Portugal,680.0,4422.0
+sensitivity: Portugal,690.0,4439.0
+sensitivity: Portugal,700.0,4450.0
+sensitivity: Portugal,710.0,4459.0
+sensitivity: Portugal,720.0,4368.0
+sensitivity: Portugal,730.0,4255.0
+sensitivity: Portugal,740.0,4500.0
+sensitivity: Portugal,750.0,4498.0
+sensitivity: Portugal,760.0,4445.0
+sensitivity: Portugal,770.0,4219.0
+sensitivity: Portugal,780.0,4262.0
+sensitivity: Portugal,790.0,4256.0
+sensitivity: Portugal,800.0,4123.0
+sensitivity: Portugal,810.0,3950.0
+sensitivity: Portugal,820.0,4284.0
+sensitivity: Portugal,830.0,4531.0
+sensitivity: Portugal,840.0,4537.0
+sensitivity: Portugal,850.0,4177.0
+sensitivity: Portugal,860.0,3821.0
+sensitivity: Portugal,870.0,3773.0
+sensitivity: Portugal,880.0,3371.0
+sensitivity: Portugal,890.0,3478.0
+sensitivity: Portugal,900.0,3366.0
+sensitivity: Portugal,910.0,3128.0
+sensitivity: Portugal,920.0,3105.0
+sensitivity: Portugal,930.0,3092.0
+sensitivity: Portugal,940.0,3048.0
+sensitivity: Portugal,950.0,3065.0
+sensitivity: Portugal,960.0,2745.0
+sensitivity: Portugal,970.0,2922.0
+sensitivity: Portugal,980.0,2778.0
+sensitivity: Portugal,990.0,2684.0
+sensitivity: Portugal,1000.0,3023.0
+sensitivity: Portugal,1010.0,2846.0
+sensitivity: Portugal,1020.0,2684.0
+sensitivity: Portugal,1030.0,3382.0
+sensitivity: Portugal,1040.0,3436.0
+sensitivity: Portugal,1050.0,3099.0
+sensitivity: Portugal,1060.0,2624.0
+sensitivity: Portugal,1070.0,2492.0
+sensitivity: Portugal,1080.0,2676.0
+sensitivity: Portugal,1090.0,2903.0
+sensitivity: Portugal,1100.0,2331.0
+sensitivity: Portugal,1110.0,3210.0
+sensitivity: Portugal,1120.0,2873.0
+sensitivity: Portugal,1130.0,3154.0
+sensitivity: Portugal,1140.0,3189.0
+sensitivity: Portugal,1150.0,3076.0
+sensitivity: Portugal,1160.0,2930.0
+sensitivity: Portugal,1170.0,3142.0
+sensitivity: Portugal,1180.0,3108.0
+sensitivity: Portugal,1190.0,2994.0
+sensitivity: Portugal,1200.0,3231.0
+sensitivity: Portugal,1210.0,3598.0
+sensitivity: Portugal,1220.0,3643.0
+sensitivity: Portugal,1230.0,3033.0
+sensitivity: Portugal,1240.0,3152.0
+sensitivity: Portugal,1250.0,3432.0
+sensitivity: Portugal,1260.0,3829.0
+sensitivity: Portugal,1270.0,3864.0
+sensitivity: Portugal,1280.0,3157.0
+sensitivity: Portugal,1290.0,2693.0
+sensitivity: Portugal,1300.0,3626.0
+sensitivity: Portugal,1310.0,3724.0
+sensitivity: Portugal,1320.0,3294.0
+sensitivity: Portugal,1330.0,3745.0
+sensitivity: Portugal,1340.0,3770.0
+sensitivity: Portugal,1350.0,3794.0
+sensitivity: Portugal,1360.0,3797.0
+sensitivity: Portugal,1370.0,3914.0
+sensitivity: Portugal,1380.0,3822.0
+sensitivity: Portugal,1390.0,3964.0
+sensitivity: Portugal,1400.0,3325.0
+sensitivity: Portugal,1410.0,3596.0
+sensitivity: Portugal,1420.0,3882.0
+sensitivity: Portugal,1430.0,4242.0
+sensitivity: Portugal,1440.0,4338.0
+sensitivity: Portugal,1450.0,3917.0
+sensitivity: Portugal,1460.0,3585.0
+sensitivity: Portugal,1470.0,3976.0
+sensitivity: Portugal,1480.0,3971.0
+sensitivity: Portugal,1490.0,4054.0
+sensitivity: Portugal,1500.0,4109.0
+sensitivity: Portugal,1510.0,4158.0
+sensitivity: Portugal,1520.0,4114.0
+sensitivity: Portugal,1530.0,3792.0
+sensitivity: Portugal,1540.0,2188.0
+sensitivity: Portugal,1550.0,3377.0
+sensitivity: Portugal,1560.0,3955.0
+sensitivity: Portugal,1570.0,3602.0
+sensitivity: Portugal,1580.0,3794.0
+sensitivity: Portugal,1590.0,4329.0
+sensitivity: Portugal,1600.0,4305.0
+sensitivity: Portugal,1610.0,3974.0
+sensitivity: Portugal,1620.0,4274.0
+sensitivity: Portugal,1630.0,4168.0
+sensitivity: Portugal,1640.0,2540.0
+sensitivity: Portugal,1650.0,3429.0
+sensitivity: Portugal,1660.0,2744.0
+sensitivity: Portugal,1670.0,612.0
+sensitivity: Portugal,1680.0,3017.0
+sensitivity: Portugal,1690.0,3910.0
+sensitivity: Portugal,1700.0,4006.0
+sensitivity: Portugal,1710.0,4263.0
+sensitivity: Portugal,1720.0,4149.0
+sensitivity: Portugal,1730.0,2773.0
+sensitivity: Portugal,1740.0,3670.0
+sensitivity: Portugal,1750.0,4155.0
+sensitivity: Portugal,1760.0,4248.0
+sensitivity: Portugal,1770.0,4226.0
+sensitivity: Portugal,1780.0,3031.0
+sensitivity: Portugal,1790.0,3826.0
+sensitivity: Portugal,1800.0,3940.0
+sensitivity: Portugal,1810.0,3726.0
+sensitivity: Portugal,1820.0,3970.0
+sensitivity: Portugal,1830.0,4115.0
+sensitivity: Portugal,1840.0,4138.0
+sensitivity: Portugal,1850.0,4000.0
+sensitivity: Portugal,1860.0,4020.0
+sensitivity: Portugal,1870.0,3973.0
+sensitivity: Portugal,1880.0,4185.0
+sensitivity: Portugal,1890.0,4467.0
+sensitivity: Portugal,1900.0,3104.0
+sensitivity: Portugal,1910.0,2537.0
+sensitivity: Portugal,1920.0,2554.0
+sensitivity: Portugal,1930.0,2896.0
+sensitivity: Portugal,1940.0,2177.0
+sensitivity: Portugal,1950.0,3455.0
+sensitivity: Portugal,1960.0,4289.0
+sensitivity: Portugal,1970.0,4209.0
+sensitivity: Portugal,1980.0,4202.0
+sensitivity: Portugal,1990.0,4247.0
+sensitivity: Portugal,2000.0,3968.0
+sensitivity: Portugal,2010.0,3578.0
+sensitivity: Portugal,2020.0,4284.0
+sensitivity: Portugal,2030.0,4274.0
+sensitivity: Portugal,2040.0,3756.0
+sensitivity: Portugal,2050.0,3552.0
+sensitivity: Portugal,2060.0,3242.0
+sensitivity: Portugal,2070.0,3404.0
+sensitivity: Portugal,2080.0,3932.0
+sensitivity: Portugal,2090.0,3354.0
+sensitivity: Portugal,2100.0,2338.0
+sensitivity: Portugal,2110.0,3383.0
+sensitivity: Portugal,2120.0,3146.0
+sensitivity: Portugal,2130.0,2664.0
+sensitivity: Portugal,2140.0,3626.0
+sensitivity: Portugal,2150.0,3692.0
+sensitivity: Portugal,2160.0,2376.0
+sensitivity: Portugal,2170.0,1660.0
+sensitivity: Portugal,2180.0,2099.0
+sensitivity: Portugal,2190.0,1492.0
+sensitivity: Portugal,2200.0,2182.0
+sensitivity: Portugal,2210.0,2202.0
+sensitivity: Portugal,2220.0,3896.0
+sensitivity: Portugal,2230.0,2143.0
+sensitivity: Portugal,2240.0,2212.0
+sensitivity: Portugal,2250.0,2656.0
+sensitivity: Portugal,2260.0,2012.0
+sensitivity: Portugal,2270.0,1969.0
+sensitivity: Portugal,2280.0,2022.0
+sensitivity: Portugal,2290.0,1772.0
+sensitivity: Portugal,2300.0,3025.0
+sensitivity: Portugal,2310.0,3039.0
+sensitivity: Portugal,2320.0,3249.0
+sensitivity: Portugal,2330.0,2520.0
+sensitivity: Portugal,2340.0,3541.0
+sensitivity: Portugal,2350.0,2946.0
+sensitivity: Portugal,2360.0,2343.0
+sensitivity: Portugal,2370.0,2145.0
+sensitivity: Portugal,2380.0,2307.0
+sensitivity: Portugal,2390.0,2994.0
+sensitivity: Portugal,2400.0,2725.0
+sensitivity: Portugal,2410.0,2447.0
+sensitivity: Portugal,2420.0,2379.0
+sensitivity: Portugal,2430.0,1941.0
+sensitivity: Portugal,2440.0,1653.0
+sensitivity: Portugal,2450.0,3035.0
+sensitivity: Portugal,2460.0,2938.0
+sensitivity: Portugal,2470.0,3061.0
+sensitivity: Portugal,2480.0,3996.0
+sensitivity: Portugal,2490.0,4232.0
+sensitivity: Portugal,2500.0,4242.0
+sensitivity: Portugal,2510.0,4240.0
+sensitivity: Portugal,2520.0,4230.0
+sensitivity: Portugal,2530.0,3755.0
+sensitivity: Portugal,2540.0,2592.0
+sensitivity: Portugal,2550.0,3018.0
+sensitivity: Portugal,2560.0,3678.0
+sensitivity: Portugal,2570.0,1837.0
+sensitivity: Portugal,2580.0,1005.0
+sensitivity: Portugal,2590.0,2736.0
+sensitivity: Portugal,2600.0,3235.0
+sensitivity: Portugal,2610.0,2515.0
+sensitivity: Portugal,2620.0,1609.0
+sensitivity: Portugal,2630.0,3011.0
+sensitivity: Portugal,2640.0,3451.0
+sensitivity: Portugal,2650.0,4542.0
+sensitivity: Portugal,2660.0,4720.0
+sensitivity: Portugal,2670.0,4708.0
+sensitivity: Portugal,2680.0,4224.0
+sensitivity: Portugal,2690.0,4060.0
+sensitivity: Portugal,2700.0,3910.0
+sensitivity: Portugal,2710.0,3847.0
+sensitivity: Portugal,2720.0,3830.0
+sensitivity: Portugal,2730.0,3848.0
+sensitivity: Portugal,2740.0,4105.0
+sensitivity: Portugal,2750.0,4048.0
+sensitivity: Portugal,2760.0,4136.0
+sensitivity: Portugal,2770.0,4122.0
+sensitivity: Portugal,2780.0,3812.0
+sensitivity: Portugal,2790.0,3553.0
+sensitivity: Portugal,2800.0,3534.0
+sensitivity: Portugal,2810.0,3462.0
+sensitivity: Portugal,2820.0,3286.0
+sensitivity: Portugal,2830.0,3406.0
+sensitivity: Portugal,2840.0,3317.0
+sensitivity: Portugal,2850.0,3200.0
+sensitivity: Portugal,2860.0,3040.0
+sensitivity: Portugal,2870.0,3177.0
+sensitivity: Portugal,2880.0,3108.0
+sensitivity: Portugal,2890.0,2980.0
+sensitivity: Portugal,2900.0,3116.0
+sensitivity: Portugal,2910.0,2810.0
+sensitivity: Portugal,2920.0,2642.0
+sensitivity: Portugal,2930.0,2854.0
+sensitivity: Portugal,2940.0,2714.0
+sensitivity: Portugal,2950.0,2946.0
+sensitivity: Portugal,2960.0,2989.0
+sensitivity: Portugal,2970.0,2856.0
+sensitivity: Portugal,2980.0,2901.0
+sensitivity: Portugal,2990.0,2936.0
+sensitivity: Portugal,3000.0,3054.0
+sensitivity: Portugal,3010.0,3025.0
+sensitivity: Portugal,3020.0,3004.0
+sensitivity: Portugal,3030.0,2836.0
+sensitivity: Portugal,3040.0,2666.0
+sensitivity: Portugal,3050.0,2919.0
+sensitivity: Portugal,3060.0,2883.0
+sensitivity: Portugal,3070.0,2520.0
+sensitivity: Portugal,3080.0,2306.0
+sensitivity: Portugal,3090.0,2720.0
+sensitivity: Portugal,3100.0,2393.0
+sensitivity: Portugal,3110.0,2156.0
+sensitivity: Portugal,3120.0,2495.0
+sensitivity: Portugal,3130.0,2706.0
+sensitivity: Portugal,3140.0,2428.0
+sensitivity: Portugal,3150.0,1805.0
+sensitivity: Portugal,3160.0,1446.0
+sensitivity: Portugal,3170.0,1180.0
+sensitivity: Portugal,3180.0,1286.0
+sensitivity: Portugal,3190.0,1126.0
+sensitivity: Portugal,3200.0,1115.0
+sensitivity: Portugal,3210.0,1143.0
+sensitivity: Portugal,3220.0,1214.0
+sensitivity: Portugal,3230.0,1276.0
+sensitivity: Portugal,3240.0,1353.0
+sensitivity: Portugal,3250.0,1675.0
+sensitivity: Portugal,3260.0,1604.0
+sensitivity: Portugal,3270.0,1777.0
+sensitivity: Portugal,3280.0,1680.0
+sensitivity: Portugal,3290.0,1845.0
+sensitivity: Portugal,3300.0,1800.0
+sensitivity: Portugal,3310.0,1633.0
+sensitivity: Portugal,3320.0,1503.0
+sensitivity: Portugal,3330.0,1462.0
+sensitivity: Portugal,3340.0,1360.0
+sensitivity: Portugal,3350.0,1390.0
+sensitivity: Portugal,3360.0,1254.0
+sensitivity: Portugal,3370.0,1247.0
+sensitivity: Portugal,3380.0,1342.0
+sensitivity: Portugal,3390.0,1296.0
+sensitivity: Portugal,3400.0,942.0
+sensitivity: Portugal,3410.0,873.0
+sensitivity: Portugal,3420.0,944.0
+sensitivity: Portugal,3430.0,1004.0
+sensitivity: Portugal,3440.0,1143.0
+sensitivity: Portugal,3450.0,1312.0
+sensitivity: Portugal,3460.0,1542.0
+sensitivity: Portugal,3470.0,1965.0
+sensitivity: Portugal,3480.0,1651.0
+sensitivity: Portugal,3490.0,1503.0
+sensitivity: Portugal,3500.0,1642.0
+sensitivity: Portugal,3510.0,1266.0
+sensitivity: Portugal,3520.0,673.0
+sensitivity: Portugal,3530.0,2188.0
+sensitivity: Portugal,3540.0,2738.0
+sensitivity: Portugal,3550.0,2820.0
+sensitivity: Portugal,3560.0,2840.0
+sensitivity: Portugal,3570.0,2620.0
+sensitivity: Portugal,3580.0,2629.0
+sensitivity: Portugal,3590.0,2594.0
+sensitivity: Portugal,3600.0,2559.0
+sensitivity: Portugal,3610.0,2559.0
+sensitivity: Portugal,3620.0,2543.0
+sensitivity: Portugal,3630.0,2566.0
+sensitivity: Portugal,3640.0,2608.0
+sensitivity: Portugal,3650.0,2588.0
+sensitivity: Portugal,3660.0,2582.0
+sensitivity: Portugal,3670.0,2594.0
+sensitivity: Portugal,3680.0,2610.0
+sensitivity: Portugal,3690.0,2594.0
+sensitivity: Portugal,3700.0,2606.0
+sensitivity: Portugal,3710.0,2622.0
+sensitivity: Portugal,3720.0,2620.0
+sensitivity: Portugal,3730.0,2638.0
+sensitivity: Portugal,3740.0,2685.0
+sensitivity: Portugal,3750.0,2700.0
+sensitivity: Portugal,3760.0,2738.0
+sensitivity: Portugal,3770.0,2752.0
+sensitivity: Portugal,3780.0,2727.0
+sensitivity: Portugal,3790.0,2646.0
+sensitivity: Portugal,3800.0,2622.0
+sensitivity: Portugal,3810.0,2590.0
+sensitivity: Portugal,3820.0,2579.0
+sensitivity: Portugal,3830.0,2556.0
+sensitivity: Portugal,3840.0,2544.0
+sensitivity: Portugal,3850.0,2502.0
+sensitivity: Portugal,3860.0,2453.0
+sensitivity: Portugal,3870.0,2425.0
+sensitivity: Portugal,3880.0,2382.0
+sensitivity: Portugal,3890.0,2318.0
+sensitivity: Portugal,3900.0,2226.0
+sensitivity: Portugal,3910.0,2186.0
+sensitivity: Portugal,3920.0,2121.0
+sensitivity: Portugal,3930.0,2110.0
+sensitivity: Portugal,3940.0,1984.0
+sensitivity: Portugal,3950.0,1916.0
+sensitivity: Portugal,3960.0,2067.0
+sensitivity: Portugal,3970.0,1741.0
+sensitivity: Portugal,3980.0,1441.0
+sensitivity: Portugal,3990.0,1117.0
+sensitivity: Portugal,4000.0,993.0
+sensitivity: Portugal,4010.0,956.0
+sensitivity: Portugal,4020.0,752.0
+sensitivity: Portugal,4030.0,713.0
+sensitivity: Portugal,4040.0,380.0
+sensitivity: Portugal,4050.0,282.0
+sensitivity: Portugal,4060.0,272.0
+sensitivity: Portugal,4070.0,338.0
+sensitivity: Portugal,4080.0,568.0
+sensitivity: Portugal,4090.0,682.0
+sensitivity: Portugal,4100.0,836.0
+sensitivity: Portugal,4110.0,830.0
+sensitivity: Portugal,4120.0,718.0
+sensitivity: Portugal,4130.0,594.0
+sensitivity: Portugal,4140.0,587.0
+sensitivity: Portugal,4150.0,628.0
+sensitivity: Portugal,4160.0,684.0
+sensitivity: Portugal,4170.0,678.0
+sensitivity: Portugal,4180.0,842.0
+sensitivity: Portugal,4190.0,1068.0
+sensitivity: Portugal,4200.0,1336.0
+sensitivity: Portugal,4210.0,1606.0
+sensitivity: Portugal,4220.0,1540.0
+sensitivity: Portugal,4230.0,1236.0
+sensitivity: Portugal,4240.0,1238.0
+sensitivity: Portugal,4250.0,1596.0
+sensitivity: Portugal,4260.0,2076.0
+sensitivity: Portugal,4270.0,2102.0
+sensitivity: Portugal,4280.0,1828.0
+sensitivity: Portugal,4290.0,1703.0
+sensitivity: Portugal,4300.0,1726.0
+sensitivity: Portugal,4310.0,1905.0
+sensitivity: Portugal,4320.0,1804.0
+sensitivity: Portugal,4330.0,1954.0
+sensitivity: Portugal,4340.0,2054.0
+sensitivity: Portugal,4350.0,1990.0
+sensitivity: Portugal,4360.0,2080.0
+sensitivity: Portugal,4370.0,2124.0
+sensitivity: Portugal,4380.0,2108.0
+sensitivity: Portugal,4390.0,2138.0
+sensitivity: Portugal,4400.0,2238.0
+sensitivity: Portugal,4410.0,2326.0
+sensitivity: Portugal,4420.0,2332.0
+sensitivity: Portugal,4430.0,2280.0
+sensitivity: Portugal,4440.0,2239.0
+sensitivity: Portugal,4450.0,2230.0
+sensitivity: Portugal,4460.0,2264.0
+sensitivity: Portugal,4470.0,2333.0
+sensitivity: Portugal,4480.0,2355.0
+sensitivity: Portugal,4490.0,2362.0
+sensitivity: Portugal,4500.0,2412.0
+sensitivity: Portugal,4510.0,2442.0
+sensitivity: Portugal,4520.0,2471.0
+sensitivity: Portugal,4530.0,2378.0
+sensitivity: Portugal,4540.0,2486.0
+sensitivity: Portugal,4550.0,2603.0
+sensitivity: Portugal,4560.0,2659.0
+sensitivity: Portugal,4570.0,2643.0
+sensitivity: Portugal,4580.0,2634.0
+sensitivity: Portugal,4590.0,2604.0
+sensitivity: Portugal,4600.0,2496.0
+sensitivity: Portugal,4610.0,2546.0
+sensitivity: Portugal,4620.0,2528.0
+sensitivity: Portugal,4630.0,2370.0
+sensitivity: Portugal,4640.0,2290.0
+sensitivity: Portugal,4650.0,2334.0
+sensitivity: Portugal,4660.0,2167.0
+sensitivity: Portugal,4670.0,2770.0
+sensitivity: Portugal,4680.0,2390.0
+sensitivity: Portugal,4690.0,2535.0
+sensitivity: Portugal,4700.0,2758.0
+sensitivity: Portugal,4710.0,1983.0
+sensitivity: Portugal,4720.0,1769.0
+sensitivity: Portugal,4730.0,2230.0
+sensitivity: Portugal,4740.0,2008.0
+sensitivity: Portugal,4750.0,2023.0
+sensitivity: Portugal,4760.0,2414.0
+sensitivity: Portugal,4770.0,2441.0
+sensitivity: Portugal,4780.0,2395.0
+sensitivity: Portugal,4790.0,2452.0
+sensitivity: Portugal,4800.0,2575.0
+sensitivity: Portugal,4810.0,2746.0
+sensitivity: Portugal,4820.0,2933.0
+sensitivity: Portugal,4830.0,3014.0
+sensitivity: Portugal,4840.0,3016.0
+sensitivity: Portugal,4850.0,3000.0
+sensitivity: Portugal,4860.0,3008.0
+sensitivity: Portugal,4870.0,2998.0
+sensitivity: Portugal,4880.0,3008.0
+sensitivity: Portugal,4890.0,2914.0
+sensitivity: Portugal,4900.0,2802.0
+sensitivity: Portugal,4910.0,2751.0
+sensitivity: Portugal,4920.0,2678.0
+sensitivity: Portugal,4930.0,2577.0
+sensitivity: Portugal,4940.0,2515.0
+sensitivity: Portugal,4950.0,2444.0
+sensitivity: Portugal,4960.0,2344.0
+sensitivity: Portugal,4970.0,2259.0
+sensitivity: Portugal,4980.0,2180.0
+sensitivity: Portugal,4990.0,2090.0
+sensitivity: Portugal,5000.0,1986.0
+sensitivity: Portugal,5010.0,1896.0
+sensitivity: Portugal,5020.0,1762.0
+sensitivity: Portugal,5030.0,1627.0
+sensitivity: Portugal,5040.0,1277.0
+sensitivity: Portugal,5050.0,95.0
+sensitivity: Portugal,5060.0,41.0
+sensitivity: Portugal,5070.0,253.0
+sensitivity: Portugal,5080.0,326.0
+sensitivity: Portugal,5090.0,649.0
+sensitivity: Portugal,5100.0,907.0
+sensitivity: Portugal,5110.0,961.0
+sensitivity: Portugal,5120.0,1095.0
+sensitivity: Portugal,5130.0,1090.0
+sensitivity: Portugal,5140.0,1105.0
+sensitivity: Portugal,5150.0,1128.0
+sensitivity: Portugal,5160.0,1188.0
+sensitivity: Portugal,5170.0,743.0
+sensitivity: Portugal,5180.0,789.0
+sensitivity: Portugal,5190.0,103.0
+sensitivity: Portugal,5200.0,156.0
+sensitivity: Portugal,5210.0,263.0
+sensitivity: Portugal,5220.0,693.0
+sensitivity: Portugal,5230.0,429.0
+sensitivity: Portugal,5240.0,1698.0
+sensitivity: Portugal,5250.0,1783.0
+sensitivity: Portugal,5260.0,1432.0
+sensitivity: Portugal,5270.0,1462.0
+sensitivity: Portugal,5280.0,302.0
+sensitivity: Portugal,5290.0,181.0
+sensitivity: Portugal,5300.0,207.0
+sensitivity: Portugal,5310.0,363.0
+sensitivity: Portugal,5320.0,1425.0
+sensitivity: Portugal,5330.0,1494.0
+sensitivity: Portugal,5340.0,1664.0
+sensitivity: Portugal,5350.0,1849.0
+sensitivity: Portugal,5360.0,1876.0
+sensitivity: Portugal,5370.0,1910.0
+sensitivity: Portugal,5380.0,1892.0
+sensitivity: Portugal,5390.0,1826.0
+sensitivity: Portugal,5400.0,1782.0
+sensitivity: Portugal,5410.0,1822.0
+sensitivity: Portugal,5420.0,1950.0
+sensitivity: Portugal,5430.0,2170.0
+sensitivity: Portugal,5440.0,2380.0
+sensitivity: Portugal,5450.0,2877.0
+sensitivity: Portugal,5460.0,2915.0
+sensitivity: Portugal,5470.0,2486.0
+sensitivity: Portugal,5480.0,2087.0
+sensitivity: Portugal,5490.0,2022.0
+sensitivity: Portugal,5500.0,2026.0
+sensitivity: Portugal,5510.0,2050.0
+sensitivity: Portugal,5520.0,2006.0
+sensitivity: Portugal,5530.0,1817.0
+sensitivity: Portugal,5540.0,1976.0
+sensitivity: Portugal,5550.0,1854.0
+sensitivity: Portugal,5560.0,2180.0
+sensitivity: Portugal,5570.0,2813.0
+sensitivity: Portugal,5580.0,2519.0
+sensitivity: Portugal,5590.0,2462.0
+sensitivity: Portugal,5600.0,2108.0
+sensitivity: Portugal,5610.0,2724.0
+sensitivity: Portugal,5620.0,2572.0
+sensitivity: Portugal,5630.0,2740.0
+sensitivity: Portugal,5640.0,2627.0
+sensitivity: Portugal,5650.0,2892.0
+sensitivity: Portugal,5660.0,2186.0
+sensitivity: Portugal,5670.0,2073.0
+sensitivity: Portugal,5680.0,2573.0
+sensitivity: Portugal,5690.0,2558.0
+sensitivity: Portugal,5700.0,2441.0
+sensitivity: Portugal,5710.0,2347.0
+sensitivity: Portugal,5720.0,2431.0
+sensitivity: Portugal,5730.0,2432.0
+sensitivity: Portugal,5740.0,2250.0
+sensitivity: Portugal,5750.0,1996.0
+sensitivity: Portugal,5760.0,1626.0
+sensitivity: Portugal,5770.0,1116.0
+sensitivity: Portugal,5780.0,817.0
+sensitivity: Portugal,5790.0,624.0
+sensitivity: Portugal,5800.0,629.0
+sensitivity: Portugal,5810.0,696.0
+sensitivity: Portugal,5820.0,883.0
+sensitivity: Portugal,5830.0,1110.0
+sensitivity: Portugal,5840.0,1419.0
+sensitivity: Portugal,5850.0,1286.0
+sensitivity: Portugal,5860.0,1394.0
+sensitivity: Portugal,5870.0,1722.0
+sensitivity: Portugal,5880.0,2485.0
+sensitivity: Portugal,5890.0,2698.0
+sensitivity: Portugal,5900.0,2929.0
+sensitivity: Portugal,5910.0,3066.0
+sensitivity: Portugal,5920.0,3040.0
+sensitivity: Portugal,5930.0,2990.0
+sensitivity: Portugal,5940.0,3192.0
+sensitivity: Portugal,5950.0,3386.0
+sensitivity: Portugal,5960.0,3352.0
+sensitivity: Portugal,5970.0,3132.0
+sensitivity: Portugal,5980.0,3115.0
+sensitivity: Portugal,5990.0,3120.0
+sensitivity: Portugal,6000.0,3116.0
+sensitivity: Portugal,6010.0,2762.0
+sensitivity: Portugal,6020.0,2863.0
+sensitivity: Portugal,6030.0,2696.0
+sensitivity: Portugal,6040.0,2398.0
+sensitivity: Portugal,6050.0,2462.0
+sensitivity: Portugal,6060.0,2412.0
+sensitivity: Portugal,6070.0,2470.0
+sensitivity: Portugal,6080.0,2478.0
+sensitivity: Portugal,6090.0,2350.0
+sensitivity: Portugal,6100.0,2304.0
+sensitivity: Portugal,6110.0,2517.0
+sensitivity: Portugal,6120.0,2556.0
+sensitivity: Portugal,6130.0,1606.0
+sensitivity: Portugal,6140.0,1696.0
+sensitivity: Portugal,6150.0,2363.0
+sensitivity: Portugal,6160.0,1921.0
+sensitivity: Portugal,6170.0,2293.0
+sensitivity: Portugal,6180.0,1527.0
+sensitivity: Portugal,6190.0,743.0
+sensitivity: Portugal,6200.0,728.0
+sensitivity: Portugal,6210.0,453.0
+sensitivity: Portugal,6220.0,122.0
+sensitivity: Portugal,6230.0,95.0
+sensitivity: Portugal,6240.0,49.0
+sensitivity: Portugal,6250.0,55.0
+sensitivity: Portugal,6260.0,82.0
+sensitivity: Portugal,6270.0,125.0
+sensitivity: Portugal,6280.0,154.0
+sensitivity: Portugal,6290.0,190.0
+sensitivity: Portugal,6300.0,199.0
+sensitivity: Portugal,6310.0,216.0
+sensitivity: Portugal,6320.0,179.0
+sensitivity: Portugal,6330.0,165.0
+sensitivity: Portugal,6340.0,142.0
+sensitivity: Portugal,6350.0,70.0
+"long, around Scotland",0.0,0.0
+"long, around Scotland",10.0,13.0
+"long, around Scotland",20.0,14.0
+"long, around Scotland",30.0,14.0
+"long, around Scotland",40.0,11.0
+"long, around Scotland",50.0,14.0
+"long, around Scotland",60.0,19.0
+"long, around Scotland",70.0,30.0
+"long, around Scotland",80.0,36.0
+"long, around Scotland",90.0,43.0
+"long, around Scotland",100.0,54.0
+"long, around Scotland",110.0,88.0
+"long, around Scotland",120.0,804.0
+"long, around Scotland",130.0,1826.0
+"long, around Scotland",140.0,2531.0
+"long, around Scotland",150.0,2944.0
+"long, around Scotland",160.0,3247.0
+"long, around Scotland",170.0,3236.0
+"long, around Scotland",180.0,3196.0
+"long, around Scotland",190.0,2974.0
+"long, around Scotland",200.0,2736.0
+"long, around Scotland",210.0,2439.0
+"long, around Scotland",220.0,2551.0
+"long, around Scotland",230.0,3004.0
+"long, around Scotland",240.0,3348.0
+"long, around Scotland",250.0,3045.0
+"long, around Scotland",260.0,1514.0
+"long, around Scotland",270.0,1067.0
+"long, around Scotland",280.0,2645.0
+"long, around Scotland",290.0,3488.0
+"long, around Scotland",300.0,3769.0
+"long, around Scotland",310.0,3796.0
+"long, around Scotland",320.0,3817.0
+"long, around Scotland",330.0,3828.0
+"long, around Scotland",340.0,3856.0
+"long, around Scotland",350.0,3876.0
+"long, around Scotland",360.0,3896.0
+"long, around Scotland",370.0,3924.0
+"long, around Scotland",380.0,3962.0
+"long, around Scotland",390.0,3996.0
+"long, around Scotland",400.0,4048.0
+"long, around Scotland",410.0,4090.0
+"long, around Scotland",420.0,4127.0
+"long, around Scotland",430.0,4150.0
+"long, around Scotland",440.0,4163.0
+"long, around Scotland",450.0,4174.0
+"long, around Scotland",460.0,4199.0
+"long, around Scotland",470.0,4233.0
+"long, around Scotland",480.0,4271.0
+"long, around Scotland",490.0,4308.0
+"long, around Scotland",500.0,4351.0
+"long, around Scotland",510.0,4365.0
+"long, around Scotland",520.0,4384.0
+"long, around Scotland",530.0,4402.0
+"long, around Scotland",540.0,4415.0
+"long, around Scotland",550.0,4431.0
+"long, around Scotland",560.0,4457.0
+"long, around Scotland",570.0,4476.0
+"long, around Scotland",580.0,4487.0
+"long, around Scotland",590.0,4446.0
+"long, around Scotland",600.0,4367.0
+"long, around Scotland",610.0,4177.0
+"long, around Scotland",620.0,3824.0
+"long, around Scotland",630.0,4028.0
+"long, around Scotland",640.0,4166.0
+"long, around Scotland",650.0,4266.0
+"long, around Scotland",660.0,4345.0
+"long, around Scotland",670.0,4394.0
+"long, around Scotland",680.0,4422.0
+"long, around Scotland",690.0,4439.0
+"long, around Scotland",700.0,4450.0
+"long, around Scotland",710.0,4459.0
+"long, around Scotland",720.0,4368.0
+"long, around Scotland",730.0,4255.0
+"long, around Scotland",740.0,4500.0
+"long, around Scotland",750.0,4498.0
+"long, around Scotland",760.0,4445.0
+"long, around Scotland",770.0,4219.0
+"long, around Scotland",780.0,4262.0
+"long, around Scotland",790.0,4256.0
+"long, around Scotland",800.0,4123.0
+"long, around Scotland",810.0,3950.0
+"long, around Scotland",820.0,4284.0
+"long, around Scotland",830.0,4531.0
+"long, around Scotland",840.0,4537.0
+"long, around Scotland",850.0,4177.0
+"long, around Scotland",860.0,3821.0
+"long, around Scotland",870.0,3773.0
+"long, around Scotland",880.0,3371.0
+"long, around Scotland",890.0,3478.0
+"long, around Scotland",900.0,3366.0
+"long, around Scotland",910.0,3128.0
+"long, around Scotland",920.0,3105.0
+"long, around Scotland",930.0,3092.0
+"long, around Scotland",940.0,3048.0
+"long, around Scotland",950.0,3065.0
+"long, around Scotland",960.0,2745.0
+"long, around Scotland",970.0,2922.0
+"long, around Scotland",980.0,2778.0
+"long, around Scotland",990.0,2684.0
+"long, around Scotland",1000.0,3023.0
+"long, around Scotland",1010.0,2846.0
+"long, around Scotland",1020.0,2684.0
+"long, around Scotland",1030.0,3382.0
+"long, around Scotland",1040.0,3436.0
+"long, around Scotland",1050.0,3099.0
+"long, around Scotland",1060.0,2624.0
+"long, around Scotland",1070.0,2492.0
+"long, around Scotland",1080.0,2676.0
+"long, around Scotland",1090.0,2903.0
+"long, around Scotland",1100.0,2331.0
+"long, around Scotland",1110.0,3210.0
+"long, around Scotland",1120.0,2873.0
+"long, around Scotland",1130.0,3154.0
+"long, around Scotland",1140.0,3189.0
+"long, around Scotland",1150.0,3076.0
+"long, around Scotland",1160.0,2930.0
+"long, around Scotland",1170.0,3142.0
+"long, around Scotland",1180.0,3108.0
+"long, around Scotland",1190.0,2994.0
+"long, around Scotland",1200.0,3231.0
+"long, around Scotland",1210.0,3598.0
+"long, around Scotland",1220.0,3643.0
+"long, around Scotland",1230.0,3033.0
+"long, around Scotland",1240.0,3152.0
+"long, around Scotland",1250.0,3432.0
+"long, around Scotland",1260.0,3829.0
+"long, around Scotland",1270.0,3864.0
+"long, around Scotland",1280.0,3157.0
+"long, around Scotland",1290.0,2693.0
+"long, around Scotland",1300.0,3626.0
+"long, around Scotland",1310.0,3724.0
+"long, around Scotland",1320.0,3294.0
+"long, around Scotland",1330.0,3745.0
+"long, around Scotland",1340.0,3770.0
+"long, around Scotland",1350.0,3794.0
+"long, around Scotland",1360.0,3797.0
+"long, around Scotland",1370.0,3914.0
+"long, around Scotland",1380.0,3822.0
+"long, around Scotland",1390.0,3964.0
+"long, around Scotland",1400.0,3325.0
+"long, around Scotland",1410.0,3596.0
+"long, around Scotland",1420.0,3882.0
+"long, around Scotland",1430.0,4242.0
+"long, around Scotland",1440.0,4338.0
+"long, around Scotland",1450.0,3917.0
+"long, around Scotland",1460.0,3585.0
+"long, around Scotland",1470.0,3976.0
+"long, around Scotland",1480.0,3971.0
+"long, around Scotland",1490.0,4054.0
+"long, around Scotland",1500.0,4109.0
+"long, around Scotland",1510.0,4158.0
+"long, around Scotland",1520.0,4114.0
+"long, around Scotland",1530.0,3792.0
+"long, around Scotland",1540.0,2188.0
+"long, around Scotland",1550.0,3377.0
+"long, around Scotland",1560.0,3955.0
+"long, around Scotland",1570.0,3602.0
+"long, around Scotland",1580.0,3794.0
+"long, around Scotland",1590.0,4329.0
+"long, around Scotland",1600.0,4305.0
+"long, around Scotland",1610.0,3974.0
+"long, around Scotland",1620.0,4274.0
+"long, around Scotland",1630.0,4168.0
+"long, around Scotland",1640.0,2540.0
+"long, around Scotland",1650.0,3429.0
+"long, around Scotland",1660.0,2744.0
+"long, around Scotland",1670.0,612.0
+"long, around Scotland",1680.0,3017.0
+"long, around Scotland",1690.0,3910.0
+"long, around Scotland",1700.0,4006.0
+"long, around Scotland",1710.0,4263.0
+"long, around Scotland",1720.0,4149.0
+"long, around Scotland",1730.0,2773.0
+"long, around Scotland",1740.0,3670.0
+"long, around Scotland",1750.0,4155.0
+"long, around Scotland",1760.0,4248.0
+"long, around Scotland",1770.0,4226.0
+"long, around Scotland",1780.0,3031.0
+"long, around Scotland",1790.0,3826.0
+"long, around Scotland",1800.0,3940.0
+"long, around Scotland",1810.0,3726.0
+"long, around Scotland",1820.0,3970.0
+"long, around Scotland",1830.0,4115.0
+"long, around Scotland",1840.0,4138.0
+"long, around Scotland",1850.0,4000.0
+"long, around Scotland",1860.0,4020.0
+"long, around Scotland",1870.0,3973.0
+"long, around Scotland",1880.0,4185.0
+"long, around Scotland",1890.0,4467.0
+"long, around Scotland",1900.0,3104.0
+"long, around Scotland",1910.0,2537.0
+"long, around Scotland",1920.0,2554.0
+"long, around Scotland",1930.0,2896.0
+"long, around Scotland",1940.0,2177.0
+"long, around Scotland",1950.0,3455.0
+"long, around Scotland",1960.0,4289.0
+"long, around Scotland",1970.0,4209.0
+"long, around Scotland",1980.0,4202.0
+"long, around Scotland",1990.0,4247.0
+"long, around Scotland",2000.0,3968.0
+"long, around Scotland",2010.0,3578.0
+"long, around Scotland",2020.0,4284.0
+"long, around Scotland",2030.0,4274.0
+"long, around Scotland",2040.0,3756.0
+"long, around Scotland",2050.0,3552.0
+"long, around Scotland",2060.0,3242.0
+"long, around Scotland",2070.0,3404.0
+"long, around Scotland",2080.0,3932.0
+"long, around Scotland",2090.0,3354.0
+"long, around Scotland",2100.0,2338.0
+"long, around Scotland",2110.0,3383.0
+"long, around Scotland",2120.0,3146.0
+"long, around Scotland",2130.0,2664.0
+"long, around Scotland",2140.0,3626.0
+"long, around Scotland",2150.0,3692.0
+"long, around Scotland",2160.0,2376.0
+"long, around Scotland",2170.0,1660.0
+"long, around Scotland",2180.0,2099.0
+"long, around Scotland",2190.0,1492.0
+"long, around Scotland",2200.0,2182.0
+"long, around Scotland",2210.0,2202.0
+"long, around Scotland",2220.0,3896.0
+"long, around Scotland",2230.0,2143.0
+"long, around Scotland",2240.0,2212.0
+"long, around Scotland",2250.0,2656.0
+"long, around Scotland",2260.0,2012.0
+"long, around Scotland",2270.0,1969.0
+"long, around Scotland",2280.0,2022.0
+"long, around Scotland",2290.0,1772.0
+"long, around Scotland",2300.0,3025.0
+"long, around Scotland",2310.0,3039.0
+"long, around Scotland",2320.0,3249.0
+"long, around Scotland",2330.0,2520.0
+"long, around Scotland",2340.0,3541.0
+"long, around Scotland",2350.0,2946.0
+"long, around Scotland",2360.0,2343.0
+"long, around Scotland",2370.0,2145.0
+"long, around Scotland",2380.0,2307.0
+"long, around Scotland",2390.0,2994.0
+"long, around Scotland",2400.0,2725.0
+"long, around Scotland",2410.0,2447.0
+"long, around Scotland",2420.0,2379.0
+"long, around Scotland",2430.0,1941.0
+"long, around Scotland",2440.0,1653.0
+"long, around Scotland",2450.0,3035.0
+"long, around Scotland",2460.0,2938.0
+"long, around Scotland",2470.0,3061.0
+"long, around Scotland",2480.0,3996.0
+"long, around Scotland",2490.0,4232.0
+"long, around Scotland",2500.0,4242.0
+"long, around Scotland",2510.0,4240.0
+"long, around Scotland",2520.0,4230.0
+"long, around Scotland",2530.0,3755.0
+"long, around Scotland",2540.0,2592.0
+"long, around Scotland",2550.0,3018.0
+"long, around Scotland",2560.0,3678.0
+"long, around Scotland",2570.0,1837.0
+"long, around Scotland",2580.0,1005.0
+"long, around Scotland",2590.0,2736.0
+"long, around Scotland",2600.0,3235.0
+"long, around Scotland",2610.0,2515.0
+"long, around Scotland",2620.0,1609.0
+"long, around Scotland",2630.0,3011.0
+"long, around Scotland",2640.0,3451.0
+"long, around Scotland",2650.0,4542.0
+"long, around Scotland",2660.0,4720.0
+"long, around Scotland",2670.0,4708.0
+"long, around Scotland",2680.0,4224.0
+"long, around Scotland",2690.0,4060.0
+"long, around Scotland",2700.0,3910.0
+"long, around Scotland",2710.0,3847.0
+"long, around Scotland",2720.0,3830.0
+"long, around Scotland",2730.0,3848.0
+"long, around Scotland",2740.0,4105.0
+"long, around Scotland",2750.0,4048.0
+"long, around Scotland",2760.0,4136.0
+"long, around Scotland",2770.0,4122.0
+"long, around Scotland",2780.0,3812.0
+"long, around Scotland",2790.0,3553.0
+"long, around Scotland",2800.0,3534.0
+"long, around Scotland",2810.0,3462.0
+"long, around Scotland",2820.0,3286.0
+"long, around Scotland",2830.0,3406.0
+"long, around Scotland",2840.0,3317.0
+"long, around Scotland",2850.0,3200.0
+"long, around Scotland",2860.0,3040.0
+"long, around Scotland",2870.0,3177.0
+"long, around Scotland",2880.0,3108.0
+"long, around Scotland",2890.0,2980.0
+"long, around Scotland",2900.0,3116.0
+"long, around Scotland",2910.0,2810.0
+"long, around Scotland",2920.0,2642.0
+"long, around Scotland",2930.0,2854.0
+"long, around Scotland",2940.0,2714.0
+"long, around Scotland",2950.0,2946.0
+"long, around Scotland",2960.0,2989.0
+"long, around Scotland",2970.0,2856.0
+"long, around Scotland",2980.0,2901.0
+"long, around Scotland",2990.0,2936.0
+"long, around Scotland",3000.0,3054.0
+"long, around Scotland",3010.0,3025.0
+"long, around Scotland",3020.0,3004.0
+"long, around Scotland",3030.0,2836.0
+"long, around Scotland",3040.0,2666.0
+"long, around Scotland",3050.0,2919.0
+"long, around Scotland",3060.0,2883.0
+"long, around Scotland",3070.0,2520.0
+"long, around Scotland",3080.0,2306.0
+"long, around Scotland",3090.0,2720.0
+"long, around Scotland",3100.0,2393.0
+"long, around Scotland",3110.0,2156.0
+"long, around Scotland",3120.0,2495.0
+"long, around Scotland",3130.0,2706.0
+"long, around Scotland",3140.0,2428.0
+"long, around Scotland",3150.0,1805.0
+"long, around Scotland",3160.0,1446.0
+"long, around Scotland",3170.0,1180.0
+"long, around Scotland",3180.0,1286.0
+"long, around Scotland",3190.0,1126.0
+"long, around Scotland",3200.0,1115.0
+"long, around Scotland",3210.0,1143.0
+"long, around Scotland",3220.0,1214.0
+"long, around Scotland",3230.0,1276.0
+"long, around Scotland",3240.0,1353.0
+"long, around Scotland",3250.0,1675.0
+"long, around Scotland",3260.0,1604.0
+"long, around Scotland",3270.0,1777.0
+"long, around Scotland",3280.0,1680.0
+"long, around Scotland",3290.0,1845.0
+"long, around Scotland",3300.0,1800.0
+"long, around Scotland",3310.0,1633.0
+"long, around Scotland",3320.0,1503.0
+"long, around Scotland",3330.0,1462.0
+"long, around Scotland",3340.0,1360.0
+"long, around Scotland",3350.0,1390.0
+"long, around Scotland",3360.0,1254.0
+"long, around Scotland",3370.0,1247.0
+"long, around Scotland",3380.0,1342.0
+"long, around Scotland",3390.0,1296.0
+"long, around Scotland",3400.0,942.0
+"long, around Scotland",3410.0,873.0
+"long, around Scotland",3420.0,944.0
+"long, around Scotland",3430.0,1004.0
+"long, around Scotland",3440.0,1143.0
+"long, around Scotland",3450.0,1312.0
+"long, around Scotland",3460.0,1542.0
+"long, around Scotland",3470.0,1965.0
+"long, around Scotland",3480.0,1651.0
+"long, around Scotland",3490.0,1503.0
+"long, around Scotland",3500.0,1642.0
+"long, around Scotland",3510.0,1266.0
+"long, around Scotland",3520.0,673.0
+"long, around Scotland",3530.0,2188.0
+"long, around Scotland",3540.0,2738.0
+"long, around Scotland",3550.0,2820.0
+"long, around Scotland",3560.0,2840.0
+"long, around Scotland",3570.0,2620.0
+"long, around Scotland",3580.0,2629.0
+"long, around Scotland",3590.0,2594.0
+"long, around Scotland",3600.0,2559.0
+"long, around Scotland",3610.0,2559.0
+"long, around Scotland",3620.0,2543.0
+"long, around Scotland",3630.0,2566.0
+"long, around Scotland",3640.0,2608.0
+"long, around Scotland",3650.0,2588.0
+"long, around Scotland",3660.0,2582.0
+"long, around Scotland",3670.0,2594.0
+"long, around Scotland",3680.0,2610.0
+"long, around Scotland",3690.0,2594.0
+"long, around Scotland",3700.0,2606.0
+"long, around Scotland",3710.0,2622.0
+"long, around Scotland",3720.0,2620.0
+"long, around Scotland",3730.0,2638.0
+"long, around Scotland",3740.0,2685.0
+"long, around Scotland",3750.0,2700.0
+"long, around Scotland",3760.0,2738.0
+"long, around Scotland",3770.0,2752.0
+"long, around Scotland",3780.0,2727.0
+"long, around Scotland",3790.0,2646.0
+"long, around Scotland",3800.0,2622.0
+"long, around Scotland",3810.0,2590.0
+"long, around Scotland",3820.0,2579.0
+"long, around Scotland",3830.0,2556.0
+"long, around Scotland",3840.0,2544.0
+"long, around Scotland",3850.0,2502.0
+"long, around Scotland",3860.0,2453.0
+"long, around Scotland",3870.0,2425.0
+"long, around Scotland",3880.0,2382.0
+"long, around Scotland",3890.0,2318.0
+"long, around Scotland",3900.0,2226.0
+"long, around Scotland",3910.0,2186.0
+"long, around Scotland",3920.0,2121.0
+"long, around Scotland",3930.0,2110.0
+"long, around Scotland",3940.0,1984.0
+"long, around Scotland",3950.0,1916.0
+"long, around Scotland",3960.0,2067.0
+"long, around Scotland",3970.0,1741.0
+"long, around Scotland",3980.0,1441.0
+"long, around Scotland",3990.0,1117.0
+"long, around Scotland",4000.0,993.0
+"long, around Scotland",4010.0,956.0
+"long, around Scotland",4020.0,752.0
+"long, around Scotland",4030.0,713.0
+"long, around Scotland",4040.0,380.0
+"long, around Scotland",4050.0,282.0
+"long, around Scotland",4060.0,272.0
+"long, around Scotland",4070.0,338.0
+"long, around Scotland",4080.0,568.0
+"long, around Scotland",4090.0,682.0
+"long, around Scotland",4100.0,836.0
+"long, around Scotland",4110.0,830.0
+"long, around Scotland",4120.0,718.0
+"long, around Scotland",4130.0,594.0
+"long, around Scotland",4140.0,587.0
+"long, around Scotland",4150.0,628.0
+"long, around Scotland",4160.0,684.0
+"long, around Scotland",4170.0,678.0
+"long, around Scotland",4180.0,842.0
+"long, around Scotland",4190.0,1068.0
+"long, around Scotland",4200.0,1336.0
+"long, around Scotland",4210.0,1606.0
+"long, around Scotland",4220.0,1540.0
+"long, around Scotland",4230.0,1236.0
+"long, around Scotland",4240.0,1238.0
+"long, around Scotland",4250.0,1596.0
+"long, around Scotland",4260.0,2076.0
+"long, around Scotland",4270.0,2102.0
+"long, around Scotland",4280.0,1828.0
+"long, around Scotland",4290.0,1703.0
+"long, around Scotland",4300.0,1726.0
+"long, around Scotland",4310.0,1905.0
+"long, around Scotland",4320.0,1804.0
+"long, around Scotland",4330.0,1954.0
+"long, around Scotland",4340.0,2054.0
+"long, around Scotland",4350.0,1990.0
+"long, around Scotland",4360.0,2080.0
+"long, around Scotland",4370.0,2124.0
+"long, around Scotland",4380.0,2108.0
+"long, around Scotland",4390.0,2138.0
+"long, around Scotland",4400.0,2238.0
+"long, around Scotland",4410.0,2326.0
+"long, around Scotland",4420.0,2332.0
+"long, around Scotland",4430.0,2280.0
+"long, around Scotland",4440.0,2239.0
+"long, around Scotland",4450.0,2230.0
+"long, around Scotland",4460.0,2264.0
+"long, around Scotland",4470.0,2333.0
+"long, around Scotland",4480.0,2355.0
+"long, around Scotland",4490.0,2362.0
+"long, around Scotland",4500.0,2412.0
+"long, around Scotland",4510.0,2442.0
+"long, around Scotland",4520.0,2471.0
+"long, around Scotland",4530.0,2378.0
+"long, around Scotland",4540.0,2486.0
+"long, around Scotland",4550.0,2603.0
+"long, around Scotland",4560.0,2659.0
+"long, around Scotland",4570.0,2643.0
+"long, around Scotland",4580.0,2634.0
+"long, around Scotland",4590.0,2604.0
+"long, around Scotland",4600.0,2496.0
+"long, around Scotland",4610.0,2546.0
+"long, around Scotland",4620.0,2528.0
+"long, around Scotland",4630.0,2370.0
+"long, around Scotland",4640.0,2290.0
+"long, around Scotland",4650.0,2334.0
+"long, around Scotland",4660.0,2167.0
+"long, around Scotland",4670.0,2770.0
+"long, around Scotland",4680.0,2390.0
+"long, around Scotland",4690.0,2535.0
+"long, around Scotland",4700.0,2758.0
+"long, around Scotland",4710.0,1983.0
+"long, around Scotland",4720.0,1769.0
+"long, around Scotland",4730.0,2230.0
+"long, around Scotland",4740.0,2008.0
+"long, around Scotland",4750.0,2023.0
+"long, around Scotland",4760.0,2414.0
+"long, around Scotland",4770.0,2441.0
+"long, around Scotland",4780.0,2395.0
+"long, around Scotland",4790.0,2452.0
+"long, around Scotland",4800.0,2575.0
+"long, around Scotland",4810.0,2746.0
+"long, around Scotland",4820.0,2933.0
+"long, around Scotland",4830.0,3014.0
+"long, around Scotland",4840.0,3016.0
+"long, around Scotland",4850.0,3000.0
+"long, around Scotland",4860.0,3008.0
+"long, around Scotland",4870.0,2998.0
+"long, around Scotland",4880.0,3008.0
+"long, around Scotland",4890.0,2914.0
+"long, around Scotland",4900.0,2802.0
+"long, around Scotland",4910.0,2751.0
+"long, around Scotland",4920.0,2678.0
+"long, around Scotland",4930.0,2577.0
+"long, around Scotland",4940.0,2515.0
+"long, around Scotland",4950.0,2444.0
+"long, around Scotland",4960.0,2344.0
+"long, around Scotland",4970.0,2259.0
+"long, around Scotland",4980.0,2180.0
+"long, around Scotland",4990.0,2090.0
+"long, around Scotland",5000.0,1986.0
+"long, around Scotland",5010.0,1896.0
+"long, around Scotland",5020.0,1762.0
+"long, around Scotland",5030.0,1627.0
+"long, around Scotland",5040.0,1277.0
+"long, around Scotland",5050.0,95.0
+"long, around Scotland",5060.0,41.0
+"long, around Scotland",5070.0,253.0
+"long, around Scotland",5080.0,326.0
+"long, around Scotland",5090.0,649.0
+"long, around Scotland",5100.0,907.0
+"long, around Scotland",5110.0,961.0
+"long, around Scotland",5120.0,1095.0
+"long, around Scotland",5130.0,1090.0
+"long, around Scotland",5140.0,1105.0
+"long, around Scotland",5150.0,1128.0
+"long, around Scotland",5160.0,1188.0
+"long, around Scotland",5170.0,743.0
+"long, around Scotland",5180.0,789.0
+"long, around Scotland",5190.0,103.0
+"long, around Scotland",5200.0,156.0
+"long, around Scotland",5210.0,263.0
+"long, around Scotland",5220.0,693.0
+"long, around Scotland",5230.0,429.0
+"long, around Scotland",5240.0,1698.0
+"long, around Scotland",5250.0,1783.0
+"long, around Scotland",5260.0,1432.0
+"long, around Scotland",5270.0,1462.0
+"long, around Scotland",5280.0,302.0
+"long, around Scotland",5290.0,181.0
+"long, around Scotland",5300.0,207.0
+"long, around Scotland",5310.0,363.0
+"long, around Scotland",5320.0,1425.0
+"long, around Scotland",5330.0,1494.0
+"long, around Scotland",5340.0,1664.0
+"long, around Scotland",5350.0,1849.0
+"long, around Scotland",5360.0,1876.0
+"long, around Scotland",5370.0,1910.0
+"long, around Scotland",5380.0,1892.0
+"long, around Scotland",5390.0,1826.0
+"long, around Scotland",5400.0,1782.0
+"long, around Scotland",5410.0,1822.0
+"long, around Scotland",5420.0,1950.0
+"long, around Scotland",5430.0,2170.0
+"long, around Scotland",5440.0,2380.0
+"long, around Scotland",5450.0,2877.0
+"long, around Scotland",5460.0,2915.0
+"long, around Scotland",5470.0,2486.0
+"long, around Scotland",5480.0,2087.0
+"long, around Scotland",5490.0,2022.0
+"long, around Scotland",5500.0,2026.0
+"long, around Scotland",5510.0,2050.0
+"long, around Scotland",5520.0,2006.0
+"long, around Scotland",5530.0,1817.0
+"long, around Scotland",5540.0,1976.0
+"long, around Scotland",5550.0,1854.0
+"long, around Scotland",5560.0,2180.0
+"long, around Scotland",5570.0,2813.0
+"long, around Scotland",5580.0,2519.0
+"long, around Scotland",5590.0,2462.0
+"long, around Scotland",5600.0,2108.0
+"long, around Scotland",5610.0,2724.0
+"long, around Scotland",5620.0,2572.0
+"long, around Scotland",5630.0,2740.0
+"long, around Scotland",5640.0,2627.0
+"long, around Scotland",5650.0,2892.0
+"long, around Scotland",5660.0,2186.0
+"long, around Scotland",5670.0,2073.0
+"long, around Scotland",5680.0,2573.0
+"long, around Scotland",5690.0,2558.0
+"long, around Scotland",5700.0,2441.0
+"long, around Scotland",5710.0,2347.0
+"long, around Scotland",5720.0,2431.0
+"long, around Scotland",5730.0,2432.0
+"long, around Scotland",5740.0,2250.0
+"long, around Scotland",5750.0,1996.0
+"long, around Scotland",5760.0,1626.0
+"long, around Scotland",5770.0,1116.0
+"long, around Scotland",5780.0,817.0
+"long, around Scotland",5790.0,624.0
+"long, around Scotland",5800.0,629.0
+"long, around Scotland",5810.0,696.0
+"long, around Scotland",5820.0,883.0
+"long, around Scotland",5830.0,1110.0
+"long, around Scotland",5840.0,1419.0
+"long, around Scotland",5850.0,1286.0
+"long, around Scotland",5860.0,1394.0
+"long, around Scotland",5870.0,1722.0
+"long, around Scotland",5880.0,2485.0
+"long, around Scotland",5890.0,2698.0
+"long, around Scotland",5900.0,2929.0
+"long, around Scotland",5910.0,3066.0
+"long, around Scotland",5920.0,3040.0
+"long, around Scotland",5930.0,2990.0
+"long, around Scotland",5940.0,3192.0
+"long, around Scotland",5950.0,3386.0
+"long, around Scotland",5960.0,3352.0
+"long, around Scotland",5970.0,3132.0
+"long, around Scotland",5980.0,3115.0
+"long, around Scotland",5990.0,3120.0
+"long, around Scotland",6000.0,3116.0
+"long, around Scotland",6010.0,2762.0
+"long, around Scotland",6020.0,2863.0
+"long, around Scotland",6030.0,2696.0
+"long, around Scotland",6040.0,2398.0
+"long, around Scotland",6050.0,2462.0
+"long, around Scotland",6060.0,2412.0
+"long, around Scotland",6070.0,2470.0
+"long, around Scotland",6080.0,2478.0
+"long, around Scotland",6090.0,2350.0
+"long, around Scotland",6100.0,2304.0
+"long, around Scotland",6110.0,2517.0
+"long, around Scotland",6120.0,2556.0
+"long, around Scotland",6130.0,1606.0
+"long, around Scotland",6140.0,1696.0
+"long, around Scotland",6150.0,2363.0
+"long, around Scotland",6160.0,1921.0
+"long, around Scotland",6170.0,2293.0
+"long, around Scotland",6180.0,1527.0
+"long, around Scotland",6190.0,743.0
+"long, around Scotland",6200.0,728.0
+"long, around Scotland",6210.0,453.0
+"long, around Scotland",6220.0,122.0
+"long, around Scotland",6230.0,95.0
+"long, around Scotland",6240.0,49.0
+"long, around Scotland",6250.0,55.0
+"long, around Scotland",6260.0,82.0
+"long, around Scotland",6270.0,125.0
+"long, around Scotland",6280.0,154.0
+"long, around Scotland",6290.0,190.0
+"long, around Scotland",6300.0,199.0
+"long, around Scotland",6310.0,216.0
+"long, around Scotland",6320.0,179.0
+"long, around Scotland",6330.0,165.0
+"long, around Scotland",6340.0,152.0
+"long, around Scotland",6350.0,154.0
+"long, around Scotland",6360.0,144.0
+"long, around Scotland",6370.0,149.0
+"long, around Scotland",6380.0,281.0
+"long, around Scotland",6390.0,344.0
+"long, around Scotland",6400.0,132.0
+"long, around Scotland",6410.0,704.0
+"long, around Scotland",6420.0,114.0
+"long, around Scotland",6430.0,104.0
+"long, around Scotland",6440.0,88.0
+"long, around Scotland",6450.0,44.0
+"long, around Scotland",6460.0,57.0
+"long, around Scotland",6470.0,86.0
+"long, around Scotland",6480.0,60.0
+"long, around Scotland",6490.0,52.0
+"long, around Scotland",6500.0,63.0
+"long, around Scotland",6510.0,70.0
+"long, around Scotland",6520.0,44.0
+"long, around Scotland",6530.0,83.0
+"long, around Scotland",6540.0,247.0
+"long, around Scotland",6550.0,160.0
+"long, around Scotland",6560.0,140.0
+"long, around Scotland",6570.0,135.0
+"long, around Scotland",6580.0,136.0
+"long, around Scotland",6590.0,140.0
+"long, around Scotland",6600.0,148.0
+"long, around Scotland",6610.0,150.0
+"long, around Scotland",6620.0,156.0
+"long, around Scotland",6630.0,155.0
+"long, around Scotland",6640.0,154.0
+"long, around Scotland",6650.0,1220.0
+"long, around Scotland",6660.0,2234.0
+"long, around Scotland",6670.0,2620.0
+"long, around Scotland",6680.0,2464.0
+"long, around Scotland",6690.0,1299.0
+"long, around Scotland",6700.0,1335.0
+"long, around Scotland",6710.0,1539.0
+"long, around Scotland",6720.0,1664.0
+"long, around Scotland",6730.0,2131.0
+"long, around Scotland",6740.0,2741.0
+"long, around Scotland",6750.0,2426.0
+"long, around Scotland",6760.0,1942.0
+"long, around Scotland",6770.0,1750.0
+"long, around Scotland",6780.0,1584.0
+"long, around Scotland",6790.0,1360.0
+"long, around Scotland",6800.0,1529.0
+"long, around Scotland",6810.0,1396.0
+"long, around Scotland",6820.0,1354.0
+"long, around Scotland",6830.0,1114.0
+"long, around Scotland",6840.0,837.0
+"long, around Scotland",6850.0,865.0
+"long, around Scotland",6860.0,1235.0
+"long, around Scotland",6870.0,1293.0
+"long, around Scotland",6880.0,350.0
+"long, around Scotland",6890.0,161.0
+"long, around Scotland",6900.0,168.0
+"long, around Scotland",6910.0,174.0
+"long, around Scotland",6920.0,182.0
+"long, around Scotland",6930.0,138.0
+"long, around Scotland",6940.0,110.0
+"long, around Scotland",6950.0,100.0
+"long, around Scotland",6960.0,101.0
+"long, around Scotland",6970.0,126.0
+"long, around Scotland",6980.0,170.0
+"long, around Scotland",6990.0,175.0
+"long, around Scotland",7000.0,191.0
+"long, around Scotland",7010.0,201.0
+"long, around Scotland",7020.0,311.0
+"long, around Scotland",7030.0,312.0
+"long, around Scotland",7040.0,302.0
+"long, around Scotland",7050.0,315.0
+"long, around Scotland",7060.0,302.0
+"long, around Scotland",7070.0,283.0
+"long, around Scotland",7080.0,256.0
+"long, around Scotland",7090.0,209.0
+"long, around Scotland",7100.0,227.0
+"long, around Scotland",7110.0,200.0
+"long, around Scotland",7120.0,206.0
+"long, around Scotland",7130.0,192.0
+"long, around Scotland",7140.0,138.0
+"long, around Scotland",7150.0,184.0
+"long, around Scotland",7160.0,128.0
+"long, around Scotland",7170.0,525.0
+"long, around Scotland",7180.0,405.0
+"long, around Scotland",7190.0,1434.0
+"long, around Scotland",7200.0,1556.0
+"long, around Scotland",7210.0,1520.0
+"long, around Scotland",7220.0,1794.0
+"long, around Scotland",7230.0,2498.0
+"long, around Scotland",7240.0,2886.0
+"long, around Scotland",7250.0,3642.0
+"long, around Scotland",7260.0,2568.0
+"long, around Scotland",7270.0,1754.0
+"long, around Scotland",7280.0,1967.0
+"long, around Scotland",7290.0,2436.0
+"long, around Scotland",7300.0,2040.0
+"long, around Scotland",7310.0,2062.0
+"long, around Scotland",7320.0,994.0
+"long, around Scotland",7330.0,654.0
+"long, around Scotland",7340.0,456.0
+"long, around Scotland",7350.0,494.0
+"long, around Scotland",7360.0,513.0
+"long, around Scotland",7370.0,609.0
+"long, around Scotland",7380.0,1102.0
+"long, around Scotland",7390.0,1878.0
+"long, around Scotland",7400.0,1998.0
+"long, around Scotland",7410.0,2402.0
+"long, around Scotland",7420.0,4003.0
+"long, around Scotland",7430.0,2480.0
+"long, around Scotland",7440.0,2414.0
+"long, around Scotland",7450.0,3476.0
+"long, around Scotland",7460.0,3119.0
+"long, around Scotland",7470.0,3041.0
+"long, around Scotland",7480.0,3310.0
+"long, around Scotland",7490.0,3085.0
+"long, around Scotland",7500.0,2976.0
+"long, around Scotland",7510.0,2612.0
+"long, around Scotland",7520.0,2092.0
+"long, around Scotland",7530.0,2413.0
+"long, around Scotland",7540.0,3565.0
+"long, around Scotland",7550.0,3111.0
+"long, around Scotland",7560.0,3297.0
+"long, around Scotland",7570.0,3068.0
+"long, around Scotland",7580.0,2124.0
+"long, around Scotland",7590.0,1847.0
+"long, around Scotland",7600.0,344.0
+"long, around Scotland",7610.0,168.0
+"long, around Scotland",7620.0,150.0
+"long, around Scotland",7630.0,140.0
+"long, around Scotland",7640.0,135.0
+"long, around Scotland",7650.0,132.0
+"long, around Scotland",7660.0,128.0
+"long, around Scotland",7670.0,122.0
+"long, around Scotland",7680.0,123.0
+"long, around Scotland",7690.0,124.0
+"long, around Scotland",7700.0,121.0
+"long, around Scotland",7710.0,118.0
+"long, around Scotland",7720.0,111.0
+"long, around Scotland",7730.0,113.0
+"long, around Scotland",7740.0,114.0
+"long, around Scotland",7750.0,111.0
+"long, around Scotland",7760.0,115.0
+"long, around Scotland",7770.0,115.0
+"long, around Scotland",7780.0,118.0
+"long, around Scotland",7790.0,116.0
+"long, around Scotland",7800.0,116.0
+"long, around Scotland",7810.0,115.0
+"long, around Scotland",7820.0,114.0
+"long, around Scotland",7830.0,114.0
+"long, around Scotland",7840.0,110.0
+"long, around Scotland",7850.0,111.0
+"long, around Scotland",7860.0,102.0
+"long, around Scotland",7870.0,101.0
+"long, around Scotland",7880.0,102.0
+"long, around Scotland",7890.0,104.0
+"long, around Scotland",7900.0,101.0
+"long, around Scotland",7910.0,84.0
+"long, around Scotland",7920.0,74.0
+"long, around Scotland",7930.0,64.0
+"long, around Scotland",7940.0,31.0
+"long, around Scotland",7950.0,32.0
+"long, around Scotland",7960.0,69.0
+"long, around Scotland",7970.0,78.0
+"long, around Scotland",7980.0,68.0
+"long, around Scotland",7990.0,76.0
+"long, around Scotland",8000.0,88.0
+"long, around Scotland",8010.0,96.0
+"long, around Scotland",8020.0,109.0
+"long, around Scotland",8030.0,106.0
+"long, around Scotland",8040.0,104.0
+"long, around Scotland",8050.0,102.0
+"long, around Scotland",8060.0,104.0
+"long, around Scotland",8070.0,104.0
+"long, around Scotland",8080.0,103.0
+"long, around Scotland",8090.0,102.0
+"long, around Scotland",8100.0,100.0
+"long, around Scotland",8110.0,98.0
+"long, around Scotland",8120.0,96.0
+"long, around Scotland",8130.0,93.0
+"long, around Scotland",8140.0,93.0
+"long, around Scotland",8150.0,88.0
+"long, around Scotland",8160.0,83.0
+"long, around Scotland",8170.0,78.0
+"long, around Scotland",8180.0,70.0
+"long, around Scotland",8190.0,62.0
+"long, around Scotland",8200.0,57.0
+"long, around Scotland",8210.0,48.0
+"long, around Scotland",8220.0,45.0
+"long, around Scotland",8230.0,62.0
+"long, around Scotland",8240.0,65.0
+"long, around Scotland",8250.0,71.0
+"long, around Scotland",8260.0,77.0
+"long, around Scotland",8270.0,81.0
+"long, around Scotland",8280.0,82.0
+"long, around Scotland",8290.0,83.0
+"long, around Scotland",8300.0,82.0
+"long, around Scotland",8310.0,83.0
+"long, around Scotland",8320.0,82.0
+"long, around Scotland",8330.0,82.0
+"long, around Scotland",8340.0,84.0
+"long, around Scotland",8350.0,81.0
+"long, around Scotland",8360.0,84.0
+"long, around Scotland",8370.0,94.0
+"long, around Scotland",8380.0,122.0
+"long, around Scotland",8390.0,111.0
+"long, around Scotland",8400.0,114.0
+"long, around Scotland",8410.0,100.0
+"long, around Scotland",8420.0,100.0
+"long, around Scotland",8430.0,94.0
+"long, around Scotland",8440.0,89.0
+"long, around Scotland",8450.0,85.0
+"long, around Scotland",8460.0,84.0
+"long, around Scotland",8470.0,70.0
+"long, around Scotland",8480.0,66.0
+"long, around Scotland",8490.0,62.0
+"long, around Scotland",8500.0,68.0
+"long, around Scotland",8510.0,45.0
+"long, around Scotland",8520.0,27.0
+"long, around Scotland",8530.0,17.0
+"long, around Scotland",8540.0,13.0
+"long, around Scotland",8550.0,46.0
+"long, around Scotland",8560.0,35.0
+"long, around Scotland",8570.0,79.0
+"long, around Scotland",8580.0,66.0
+"long, around Scotland",8590.0,66.0
+"long, around Scotland",8600.0,66.0
+"long, around Scotland",8610.0,64.0
+"long, around Scotland",8620.0,53.0
+"long, around Scotland",8630.0,48.0
+"long, around Scotland",8640.0,39.0
+"long, around Scotland",8650.0,34.0
+"long, around Scotland",8660.0,27.0
+"long, around Scotland",8670.0,43.0
+"long, around Scotland",8680.0,30.0
+"long, around Scotland",8690.0,34.0
+"long, around Scotland",8700.0,42.0
+"long, around Scotland",8710.0,45.0
+"long, around Scotland",8720.0,32.0
+"long, around Scotland",8730.0,72.0
+"long, around Scotland",8740.0,109.0
+"long, around Scotland",8750.0,107.0
+"long, around Scotland",8760.0,89.0
+"long, around Scotland",8770.0,128.0
+"long, around Scotland",8780.0,134.0
+"long, around Scotland",8790.0,106.0
+"long, around Scotland",8800.0,169.0
+"long, around Scotland",8810.0,200.0
+"long, around Scotland",8820.0,103.0
+"long, around Scotland",8830.0,92.0
+"long, around Scotland",8840.0,68.0
+"long, around Scotland",8850.0,56.0
+"long, around Scotland",8860.0,36.0
+"long, around Scotland",8870.0,71.0
+"long, around Scotland",8880.0,56.0
+"long, around Scotland",8890.0,49.0
+"long, around Scotland",8900.0,54.0
+"long, around Scotland",8910.0,64.0
+"long, around Scotland",8920.0,67.0
+"long, around Scotland",8930.0,46.0
+"long, around Scotland",8940.0,46.0
+"long, around Scotland",8950.0,48.0
+"long, around Scotland",8960.0,82.0
+"long, around Scotland",8970.0,76.0
+"long, around Scotland",8980.0,101.0
+"long, around Scotland",8990.0,74.0
+"long, around Scotland",9000.0,88.0
+"long, around Scotland",9010.0,30.0
+"long, around Scotland",9020.0,106.0
+"long, around Scotland",9030.0,84.0
+"long, around Scotland",9040.0,86.0
+"long, around Scotland",9050.0,68.0
+"long, around Scotland",9060.0,84.0
+"long, around Scotland",9070.0,180.0
+"long, around Scotland",9080.0,149.0
+"long, around Scotland",9090.0,80.0
+"long, around Scotland",9100.0,74.0
+"long, around Scotland",9110.0,66.0
+"long, around Scotland",9120.0,83.0
+"long, around Scotland",9130.0,124.0
+"long, around Scotland",9140.0,106.0
+"long, around Scotland",9150.0,127.0
+"long, around Scotland",9160.0,117.0
+"long, around Scotland",9170.0,116.0
+"long, around Scotland",9180.0,109.0
+"long, around Scotland",9190.0,108.0
+"long, around Scotland",9200.0,129.0
+"long, around Scotland",9210.0,116.0
+"long, around Scotland",9220.0,89.0
+"long, around Scotland",9230.0,90.0
+"long, around Scotland",9240.0,85.0
+"long, around Scotland",9250.0,79.0
+"long, around Scotland",9260.0,79.0
+"long, around Scotland",9270.0,68.0
+"long, around Scotland",9280.0,81.0
+"long, around Scotland",9290.0,90.0
+"long, around Scotland",9300.0,94.0
+"long, around Scotland",9310.0,74.0
+"long, around Scotland",9320.0,100.0
+"long, around Scotland",9330.0,82.0
+"long, around Scotland",9340.0,72.0
+"long, around Scotland",9350.0,90.0
+"long, around Scotland",9360.0,74.0
+"long, around Scotland",9370.0,75.0
+"long, around Scotland",9380.0,56.0
+"long, around Scotland",9390.0,67.0
+"long, around Scotland",9400.0,67.0
+"long, around Scotland",9410.0,73.0
+"long, around Scotland",9420.0,70.0
+"long, around Scotland",9430.0,85.0
+"long, around Scotland",9440.0,94.0
+"long, around Scotland",9450.0,103.0
+"long, around Scotland",9460.0,110.0
+"long, around Scotland",9470.0,109.0
+"long, around Scotland",9480.0,94.0
+"long, around Scotland",9490.0,116.0
+"long, around Scotland",9500.0,127.0
+"long, around Scotland",9510.0,128.0
+"long, around Scotland",9520.0,118.0
+"long, around Scotland",9530.0,120.0
+"long, around Scotland",9540.0,140.0
+"long, around Scotland",9550.0,146.0
+"long, around Scotland",9560.0,144.0
+"long, around Scotland",9570.0,136.0
+"long, around Scotland",9580.0,143.0
+"long, around Scotland",9590.0,140.0
+"long, around Scotland",9600.0,111.0
+"long, around Scotland",9610.0,111.0
+"long, around Scotland",9620.0,113.0
+"long, around Scotland",9630.0,113.0
+"long, around Scotland",9640.0,116.0
+"long, around Scotland",9650.0,110.0
+"long, around Scotland",9660.0,102.0
+"long, around Scotland",9670.0,98.0
+"long, around Scotland",9680.0,100.0
+"long, around Scotland",9690.0,103.0
+"long, around Scotland",9700.0,109.0
+"long, around Scotland",9710.0,116.0
+"long, around Scotland",9720.0,107.0
+"long, around Scotland",9730.0,103.0
+"long, around Scotland",9740.0,105.0
+"long, around Scotland",9750.0,112.0
+"long, around Scotland",9760.0,114.0
+"long, around Scotland",9770.0,114.0
+"long, around Scotland",9780.0,134.0
+"long, around Scotland",9790.0,109.0
+"long, around Scotland",9800.0,90.0
+"long, around Scotland",9810.0,92.0
+"long, around Scotland",9820.0,99.0
+"long, around Scotland",9830.0,92.0
+"long, around Scotland",9840.0,85.0
+"long, around Scotland",9850.0,70.0
+"long, around Scotland",9860.0,74.0
+"long, around Scotland",9870.0,73.0
+"long, around Scotland",9880.0,80.0
+"long, around Scotland",9890.0,77.0
+"long, around Scotland",9900.0,70.0
+"long, around Scotland",9910.0,59.0
+"long, around Scotland",9920.0,53.0
+"long, around Scotland",9930.0,63.0
+"long, around Scotland",9940.0,59.0
+"long, around Scotland",9950.0,62.0
+"long, around Scotland",9960.0,60.0
+"long, around Scotland",9970.0,60.0
+"long, around Scotland",9980.0,60.0
+"long, around Scotland",9990.0,60.0
+"long, around Scotland",10000.0,56.0
+"long, around Scotland",10010.0,52.0
+"long, around Scotland",10020.0,49.0
+"long, around Scotland",10030.0,44.0
+"long, around Scotland",10040.0,48.0
+"long, around Scotland",10050.0,47.0
+"long, around Scotland",10060.0,45.0
+"long, around Scotland",10070.0,47.0
+"long, around Scotland",10080.0,44.0
+"long, around Scotland",10090.0,43.0
+"long, around Scotland",10100.0,45.0
+"long, around Scotland",10110.0,44.0
+"long, around Scotland",10120.0,40.0
+"long, around Scotland",10130.0,43.0
+"long, around Scotland",10140.0,40.0
+"long, around Scotland",10150.0,35.0
+"long, around Scotland",10160.0,40.0
+"long, around Scotland",10170.0,40.0
+"long, around Scotland",10180.0,34.0
+"long, around Scotland",10190.0,36.0
+"long, around Scotland",10200.0,32.0
+"long, around Scotland",10210.0,27.0
+"long, around Scotland",10220.0,26.0
+"long, around Scotland",10230.0,26.0
+"long, around Scotland",10240.0,27.0
+"long, around Scotland",10250.0,28.0
+"long, around Scotland",10260.0,25.0
+"long, around Scotland",10270.0,25.0
+"long, around Scotland",10280.0,26.0
+"long, around Scotland",10290.0,28.0
+"long, around Scotland",10300.0,35.0
+"long, around Scotland",10310.0,41.0
+"long, around Scotland",10320.0,38.0
+"long, around Scotland",10330.0,30.0
+"long, around Scotland",10340.0,10.0
+"long, around Scotland",10350.0,10.0
+"long, around Scotland",10360.0,0.0
+"long, around Scotland",10370.0,9.0
+"long, around Scotland",10380.0,0.0

@@ -143,6 +143,18 @@ if __name__ == "__main__":
         logger.info(f"No investment in first horizon {current_horizon}")
         freeze_expansion(n)
 
+    # Workshop: Brazil-Germany cable (Role 1); off unless brazil_cable.enable.
+    import importlib.util
+    from pathlib import Path
+
+    _spec = importlib.util.spec_from_file_location(
+        "add_brazil_cable",
+        Path(__file__).resolve().parents[1] / "workshop/cable/add_brazil_cable.py",
+    )
+    _cable = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_cable)
+    _cable.add_brazil_cable(n, snakemake.config, current_horizon, nyears)
+
     sanitize_custom_columns(n)
     sanitize_carriers(n, params.nice_names, params.tech_colors)
     sanitize_locations(n)
