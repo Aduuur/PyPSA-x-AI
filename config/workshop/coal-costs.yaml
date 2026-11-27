@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Scenario (role 3): corrected fuel prices for hard coal and lignite, so the
+# 2025 merit order matches reality (lignite and gas before hard coal) instead
+# of the TYNDP 2024 scenario values in the cost data (coal 7.82, lignite 7.94
+# EUR/MWh_th in 2025). Only the fuel price changes; one value for every horizon.
+# List after the workshop config:
+#
+#   sh workshop/economics/link_inputs.sh de10-coal
+#   pixi run snakemake results/de10-coal/networks/solved_2050.nc -c4 \
+#     --configfile config/config.workshop.yaml config/workshop/coal-costs.yaml \
+#     --allowed-rules process_cost_data compose_network solve_network
+
+run:
+  name: de10-coal
+
+costs:
+  overwrites:
+    fuel:                   # EUR/MWh_th
+      # Hard coal, traded import price. World Bank Commodity Markets (Pink Sheet),
+      # coal (Australia, 6000 kcal/kg), 2024 average about 135 USD/t; with about
+      # 25 GJ/t and 0.85 EUR/USD -> about 16 EUR/MWh_th. Same source family as
+      # the gas price in the cost data. To verify against the Pink Sheet.
+      coal: 16.0
+      # Lignite is mined next to the plants and not traded; a low mine-mouth
+      # transfer price (typical modelling range 1-3 EUR/MWh_th).
+      lignite: 2.0
