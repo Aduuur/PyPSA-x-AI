@@ -155,6 +155,39 @@ the capacity behind it was too small.
   directly into the cost per MWh.
 - The scaling factor belongs in the sensitivity analysis.
 
+### Open questions for role 4 (please answer, needed for the Brazilian costs)
+
+Role 2 will derive CAPEX, FOM and VOM for the Brazilian generators. To keep
+them comparable with the German ones, these points from
+`workshop/economics/STUDY_DESIGN.md` need a decision (several are marked
+_to agree with role 2_ there):
+
+1. **Price base.** `STUDY_DESIGN.md` says "EUR, price base of the cost data",
+   but the `currency_year` column in
+   `data/costs/archive/v0.15.0/costs_<year>.csv` is mixed (e.g. 2015, 2020,
+   2025). Which EUR year is the common base, and are Brazilian costs converted
+   to it?
+2. **BRL to EUR.** Proposal: annual mean of the ECB reference rate in the
+   price-base year, one fixed rate for all Brazilian costs. Agreed, or another
+   source (e.g. purchasing power parity)?
+3. **Cost of capital.** Role 2 delivers investment, FOM, VOM and lifetime only;
+   role 4 sets the rate. Do Brazilian plants use the harmonised 7 %, or their
+   own rate (country risk)? If their own: does it come through role 4's config
+   layer in `workshop/private/`, so that role 2 does not touch it?
+4. **Lifetimes.** Proposal: as in the cost data (onshore wind 30 years,
+   utility PV 40 years), so Brazil and Germany are treated alike.
+5. **Source of the costs.** Either (a) the European values of the cost data
+   (`onwind`, `solar-utility single-axis tracking`) unchanged, or (b) Brazilian
+   sources (e.g. EPE, IRENA) converted to EUR at the common price base. Role 2
+   proposes (b) with (a) as comparison. Any objection?
+6. **Commissioning and naming.** Brazilian generators are available from the
+   cable's commissioning year (`cable_parameters.yaml`: 2040 central, range
+   2035–2045) and have `Brazil` in their names, as `STUDY_DESIGN.md` asks.
+   Agreed?
+
+Until these are settled, any Brazilian costs in the model are placeholders from
+the cost data and marked as such.
+
 ## Sources
 
 ERA5 (CC-BY-4.0), ONS Dados Abertos (CC-BY-4.0), Copernicus LC100 (free with
