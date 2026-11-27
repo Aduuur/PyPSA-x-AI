@@ -1,0 +1,6 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+# SPDX-License-Identifier: MIT
+# Block commits that contain confidential workshop data. See AGENTS.md.
+root=$(git rev-parse --show-toplevel)
+exec python3 "$root/workshop/guard/confidential_guard.py" message "$1"

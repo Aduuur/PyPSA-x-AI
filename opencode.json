@@ -1,0 +1,41 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "ask",
+      "workshop/inputs/*": "ask",
+      "*/workshop/inputs/*": "ask",
+      "workshop/private/*": "ask",
+      "*/workshop/private/*": "ask"
+    },
+    "edit": {
+      "*": "allow",
+      "workshop/inputs/*": "deny",
+      "*/workshop/inputs/*": "deny",
+      "workshop/guard/*": "deny",
+      "*/workshop/guard/*": "deny",
+      "workshop/githooks/*": "deny",
+      "*/workshop/githooks/*": "deny",
+      ".gitignore": "deny",
+      "*/.gitignore": "deny",
+      "opencode.json": "deny",
+      "*/opencode.json": "deny"
+    },
+    "bash": {
+      "*": "allow",
+      "*workshop/inputs*": "ask",
+      "*workshop/private*": "ask",
+      "git push*": "ask",
+      "git commit*": "ask",
+      "*--no-verify*": "deny",
+      "*core.hooksPath*": "deny",
+      "git add -f*": "deny",
+      "git add --force*": "deny",
+      "git config core.hooksPath workshop/githooks": "allow",
+      "git config --get core.hooksPath": "allow",
+      "git config core.hooksPath": "allow"
+    },
+    "webfetch": "ask"
+  }
+}

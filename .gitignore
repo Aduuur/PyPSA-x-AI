@@ -105,5 +105,7 @@ doc/img/intro-workflow.svg
 # workshop inputs: landowner contact data, confidential financing terms,
 # vendor budget quote. Every participant has them locally.
 /workshop/inputs/
+# anything derived from the workshop inputs (see AGENTS.md)
+/workshop/private/
 # licensed data (GADM: no redistribution), symlink to /data/brazil
 /data-brazil
