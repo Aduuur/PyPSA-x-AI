@@ -100,3 +100,10 @@ doc/img/intro-workflow.svg
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+
+# workshop: not for the public team repo
+# workshop inputs: landowner contact data, confidential financing terms,
+# vendor budget quote. Every participant has them locally.
+/workshop/inputs/
+# licensed data (GADM: no redistribution), symlink to /data/brazil
+/data-brazil
