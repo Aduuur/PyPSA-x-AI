@@ -15,9 +15,9 @@ pushing to `main`. Details further below.
 
 | # | To | Request | Status |
 |---|---|---|---|
-| 1 | Role 2 | Create the Brazilian AC bus `Brazil Natal` (`carrier: AC`, `country: BR`) and attach your RN supply to it, or tell me your bus name and I set `bus_brazil`. Until it exists the cable adds an empty bus there, so the cable carries no power. | open |
-| 2 | Role 2 | If you add Brazil in `scripts/compose_network.py`, put your call **before** the cable call (marked `Workshop: Brazil-Germany cable (Role 1)`), so the bus exists when the cable is added. | open |
-| 3 | Role 2 | Your README gives ~73 km from the RN cells to the coast. The cable cost covers the sea route only; the onshore connection from your sites to the converter at Natal is yours (or tell me if I should add it). | open |
+| 1 | Role 2 | Create the Brazilian AC bus `Brazil Natal` (`carrier: AC`, `country: BR`) and attach your RN supply to it, or tell me your bus name and I set `bus_brazil`. Until it exists the cable adds an empty bus there, so the cable carries no power. | agreed (role 2): bus `Brazil Natal` (`carrier: AC`, `country: BR`) at the Natal coordinates; role 2 creates it and attaches the RN supply; `bus_brazil` stays at its default |
+| 2 | Role 2 | If you add Brazil in `scripts/compose_network.py`, put your call **before** the cable call (marked `Workshop: Brazil-Germany cable (Role 1)`), so the bus exists when the cable is added. | agreed (role 2): role 2's call goes into `scripts/compose_network.py` before the cable call, in its own file under `workshop/brazil/`, off by default |
+| 3 | Role 2 | Your README gives ~73 km from the RN cells to the coast. The cable cost covers the sea route only; the onshore connection from your sites to the converter at Natal is yours (or tell me if I should add it). | agreed (role 2): role 2 takes the onshore connection from the generators to the converter at Natal; the cable cost stays sea route plus converters |
 | 4 | Role 3 | Confirm `DE0 7AC` (nearest node to Wilhelmshaven) as the German node. | open |
 | 5 | Role 3 | Does the German grid at `DE0 7AC` need reinforcement for 4 GW (6 GW in the high case)? | open |
 | 6 | Role 3 | The 2050 decision: the cable result in 2050 depends on it (see `workshop/README.md`). | open |
@@ -25,6 +25,7 @@ pushing to `main`. Details further below.
 | 8 | Role 4 | Commissioning 2040 central (2035–2045), size 4 GW (2–6 GW worth studying). Confirm, or say which of these you want to vary. | confirmed (role 4): 2040 and 4 GW in all main runs; build year 2035/2045 and 2/6 GW are the next sensitivities if time allows |
 | 9 | Role 4 | `cable-wacc`: set `brazil_cable.discount_rate` in that scenario; it overrides the harmonised 7 % for the cable only. | answered (role 4): the main runs keep the harmonised 7 %. The project-finance rate is derived from a confidential document, so it must not go into a shared scenario config; role 4 passes it as an extra config layer from `workshop/private/` (`cable-project`). No change needed in your code. |
 | 10 | Whoever maintains `workshop/guard/` | The guard crashes on binary files (PNG, PDF) and flags coordinate digits in the route map SVG/GeoJSON (public GEBCO data). Please make it skip binary files; then the PNG/PDF figures can be shared. | with the group (role 4): `workshop/guard/` is protected by the group's rules, so it is not changed by an agent; the decision is with the person maintaining it |
+| 11 | Roles 3, 4 | Risk assessment in [RISKS.md](RISKS.md): the model cannot show N-1 security, sabotage or political interruption. Please count the cable as energy, not as secured capacity, and discuss the risk-sharing table with role 4 (financing). | open |
 
 ## Agreed
 
@@ -42,7 +43,10 @@ pushing to `main`. Details further below.
 | `routes_all.csv` | all computed routes (3 Brazilian x 2 German landing points x 4 variants + Sines) |
 | `depth_profiles_10km.csv` | water depth along the four cases, every 10 km |
 | `cost_estimate.csv` | cost, losses, availability for every case and level (low / central / high) |
-| `depth_profile.svg`, `cost_breakdown.svg` | figures |
+| `risk_exposure.csv`, `risk_exposure_by_eez.csv` | measured risk exposure per case: shelf, depth, slope, km per country's waters |
+| `depth_profile.svg`, `cost_breakdown.svg`, `risk_matrix.svg` | figures |
+
+Risk assessment: [RISKS.md](RISKS.md) (register in `risk_register.csv`).
 
 PNG and PDF versions, the route map and the route geometry are written to
 `results/cable/` (git-ignored) when you run the scripts. Run them yourself to

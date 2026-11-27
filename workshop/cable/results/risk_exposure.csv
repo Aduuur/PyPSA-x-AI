@@ -1,0 +1,5 @@
+case,length_km,km_shelf_le200m,km_slope_200_2150m,km_beyond_laid_2150m,km_beyond_qualified_3000m,km_steep_slope_gt10pct,km_high_seas,km_in_foreign_eez,n_foreign_eez,foreign_eez,min_dist_Fernando_de_Noronha_km,min_dist_Atol_das_Rocas_km,min_dist_St_Peter_and_St_Paul_km
+reference,9275.0,2391.0,2372.0,4512.0,2358.0,1620.0,1311.0,6410.0,11,"Spain, Western Sahara, Portugal, United Kingdom, Morocco, France, Senegal, Mauritania, Guinea-Bissau, Netherlands, Gambia",277.0,138.0,164.0
+"short, deep",8304.0,1536.0,92.0,6676.0,6422.0,514.0,4674.0,2920.0,5,"Portugal, United Kingdom, Spain, France, Netherlands",306.0,151.0,648.0
+"long, around Scotland",10385.0,3499.0,2374.0,4512.0,2358.0,1620.0,1311.0,7452.0,13,"United Kingdom, Spain, Western Sahara, Portugal, Morocco, France, Senegal, Mauritania, Norway, Guinea-Bissau, Ireland, Denmark, Gambia",277.0,138.0,164.0
+sensitivity: Portugal,6356.0,298.0,1816.0,4242.0,2238.0,1188.0,1304.0,3652.0,8,"Western Sahara, Morocco, Spain, Senegal, Mauritania, Portugal, Guinea-Bissau, Gambia",277.0,138.0,164.0

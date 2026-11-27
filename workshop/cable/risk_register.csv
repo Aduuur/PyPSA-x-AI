@@ -1,0 +1,18 @@
+id,category,risk,likelihood,impact,model_treatment
+R1,Technical,Cable design and laying beyond the qualified depth (2358 km deeper than 3000 m),4,5,cost level (depth premium); high case
+R2,Technical,Laying tension and vessel limits on steep slopes (about 1600 km steeper than 10 %),3,4,cost level (contingency)
+R3,Technical,Converter and protection for a 9300 km DC link (fault clearing; line resonance; control),2,3,cost level (converter range)
+R4,Availability,Faults in shelf water from anchors and fishing (about 2400 km at 200 m or less),4,3,p_max_pu (availability)
+R5,Availability,Deep-water repair: few vessels; months per repair; no precedent below 3000 m,3,5,p_max_pu (availability); high case
+R6,Availability,Single point of failure: 4 GW infeed exceeds the 3 GW reference incident of Continental Europe,4,4,not modelled; design as 2 or more bipoles
+R7,Security,Deliberate damage and sabotage (Baltic incidents 2023-2024),3,5,not modelled; scenario without cable
+R8,Political,Consent and permits in 11 foreign EEZs on the reference route,4,4,construction time (build_year range)
+R9,Political,Route off Western Sahara (disputed territory; about 800 km),3,4,route alternative (high seas detour)
+R10,Political,Offtake and long-term political support in Germany and Brazil (Xlinks lost its CfD in 2025),3,5,scenario without cable; cost of capital (Role 4)
+R11,Political,Brazil prioritises domestic demand and hydrogen in dry years or grid stress,3,3,not modelled (Role 2 / Role 4)
+R12,Ecology,Wadden Sea World Heritage site at the German landfall,4,3,cost level (contingency); construction time
+R13,Ecology,Brazilian marine protected areas near the route (Atol das Rocas about 140 km),2,3,route survey; not modelled
+R14,Ecology,Shelf habitats (reefs; seagrass; fishing grounds) along West Africa and Iberia; EMF and heat,3,2,not modelled
+R15,Supply chain,Cable factory and vessel capacity: about 9300 km of HVDC cable in one project,4,4,construction time (build_year 2035-2045)
+R16,Economic,Cost overrun of a first-of-a-kind megaproject,4,4,cost levels low / central / high
+R17,Economic,Low utilisation (Brazilian supply or German prices do not fill the cable),3,4,model result (cable flow)

@@ -1,0 +1,49 @@
+case,zone,km
+reference,Brazil,1400
+reference,High seas,1311
+reference,Spain,1306
+reference,Western Sahara,810
+reference,Portugal,764
+reference,United Kingdom,704
+reference,Morocco,630
+reference,France,592
+reference,Senegal,528
+reference,Mauritania,486
+reference,Guinea-Bissau,270
+reference,Netherlands,262
+reference,Germany,154
+reference,Gambia,58
+"short, deep",High seas,4674
+"short, deep",Portugal,894
+"short, deep",United Kingdom,702
+"short, deep",Brazil,554
+"short, deep",Spain,542
+"short, deep",France,520
+"short, deep",Netherlands,262
+"short, deep",Germany,156
+"long, around Scotland",Brazil,1400
+"long, around Scotland",United Kingdom,1344
+"long, around Scotland",High seas,1311
+"long, around Scotland",Spain,1306
+"long, around Scotland",Western Sahara,810
+"long, around Scotland",Portugal,764
+"long, around Scotland",Morocco,630
+"long, around Scotland",France,538
+"long, around Scotland",Senegal,528
+"long, around Scotland",Mauritania,486
+"long, around Scotland",Norway,352
+"long, around Scotland",Guinea-Bissau,270
+"long, around Scotland",Germany,222
+"long, around Scotland",Ireland,198
+"long, around Scotland",Denmark,168
+"long, around Scotland",Gambia,58
+sensitivity: Portugal,Brazil,1400
+sensitivity: Portugal,High seas,1304
+sensitivity: Portugal,Western Sahara,810
+sensitivity: Portugal,Morocco,630
+sensitivity: Portugal,Spain,542
+sensitivity: Portugal,Senegal,528
+sensitivity: Portugal,Mauritania,486
+sensitivity: Portugal,Portugal,328
+sensitivity: Portugal,Guinea-Bissau,270
+sensitivity: Portugal,Gambia,58
