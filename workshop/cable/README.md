@@ -13,19 +13,22 @@ Hand-over to roles 2, 3 and 4. Status: first version, public assumptions only.
 Please answer by editing this table (or the section in your own README) and
 pushing to `main`. Details further below.
 
+Roles 3 and 4: Massimo (role 4) now takes the open requests to both roles
+(from 27 November 2026). Role 3 has confirmed the German node (request 4).
+
 | # | To | Request | Status |
 |---|---|---|---|
 | 1 | Role 2 | Create the Brazilian AC bus `Brazil Natal` (`carrier: AC`, `country: BR`) and attach your RN supply to it, or tell me your bus name and I set `bus_brazil`. Until it exists the cable adds an empty bus there, so the cable carries no power. | agreed (role 2): bus `Brazil Natal` (`carrier: AC`, `country: BR`) at the Natal coordinates; role 2 creates it and attaches the RN supply; `bus_brazil` stays at its default |
 | 2 | Role 2 | If you add Brazil in `scripts/compose_network.py`, put your call **before** the cable call (marked `Workshop: Brazil-Germany cable (Role 1)`), so the bus exists when the cable is added. | agreed (role 2): role 2's call goes into `scripts/compose_network.py` before the cable call, in its own file under `workshop/brazil/`, off by default |
 | 3 | Role 2 | Your README gives ~73 km from the RN cells to the coast. The cable cost covers the sea route only; the onshore connection from your sites to the converter at Natal is yours (or tell me if I should add it). | agreed (role 2): role 2 takes the onshore connection from the generators to the converter at Natal; the cable cost stays sea route plus converters |
-| 4 | Role 3 | Confirm `DE0 7AC` (nearest node to Wilhelmshaven) as the German node. | open |
-| 5 | Role 3 | Does the German grid at `DE0 7AC` need reinforcement for 4 GW (6 GW in the high case)? | open |
-| 6 | Role 3 | The 2050 decision: the cable result in 2050 depends on it (see `workshop/README.md`). | open |
+| 4 | Role 3 | Confirm `DE0 7AC` (nearest node to Wilhelmshaven) as the German node. | confirmed (role 3): `DE0 7AC` is the nearest of the 10 nodes to Wilhelmshaven (about 111 km; `DE0 8AC` follows at about 115 km) |
+| 5 | Role 3 | Does the German grid at `DE0 7AC` need reinforcement for 4 GW (6 GW in the high case)? | handed to Massimo (role 4) |
+| 6 | Role 3 | The 2050 decision: the cable result in 2050 depends on it (see `workshop/README.md`). | handed to Massimo (role 4) |
 | 7 | Role 4 | Scenario mapping is in `cable_parameters.yaml`: `cable` = central, `cable-cost-low` = low, `cable-cost-high` = high. Turn the cable on with `brazil_cable: {enable: true, level: ...}` in the scenario config. | done (role 4): `config/workshop/cable.yaml`, `cable-cost-low.yaml`, `cable-cost-high.yaml`, `cable-cap2050-relaxed.yaml` use `brazil_cable: {enable: true, level: ...}` |
 | 8 | Role 4 | Commissioning 2040 central (2035–2045), size 4 GW (2–6 GW worth studying). Confirm, or say which of these you want to vary. | confirmed (role 4): 2040 and 4 GW in all main runs; build year 2035/2045 and 2/6 GW are the next sensitivities if time allows |
 | 9 | Role 4 | `cable-wacc`: set `brazil_cable.discount_rate` in that scenario; it overrides the harmonised 7 % for the cable only. | answered (role 4): the main runs keep the harmonised 7 %. The project-finance rate is derived from a confidential document, so it must not go into a shared scenario config; role 4 passes it as an extra config layer from `workshop/private/` (`cable-project`). No change needed in your code. |
 | 10 | Whoever maintains `workshop/guard/` | The guard crashes on binary files (PNG, PDF) and flags coordinate digits in the route map SVG/GeoJSON (public GEBCO data). Please make it skip binary files; then the PNG/PDF figures can be shared. Details and a suggested fix: section "Request to the guard maintainer" below. Role 1 needs the route map. | with the group (role 4): `workshop/guard/` is protected by the group's rules, so it is not changed by an agent; the decision is with the person maintaining it |
-| 11 | Roles 3, 4 | Risk assessment in [RISKS.md](RISKS.md): the model cannot show N-1 security, sabotage or political interruption. Please count the cable as energy, not as secured capacity, and discuss the risk-sharing table with role 4 (financing). | open |
+| 11 | Roles 3, 4 | Risk assessment in [RISKS.md](RISKS.md): the model cannot show N-1 security, sabotage or political interruption. Please count the cable as energy, not as secured capacity, and discuss the risk-sharing table with role 4 (financing). | handed to Massimo (role 4) |
 
 ## Request to the guard maintainer: route map blocked
 
