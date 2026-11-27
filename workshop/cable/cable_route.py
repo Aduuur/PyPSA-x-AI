@@ -63,10 +63,23 @@ LANDING_BR = {
     "Natal (RN)": (-5.78, -35.20),
     "Sao Luis (MA)": (-2.53, -44.30),
 }
-# Germany: North Sea coast, near existing HVDC landfalls; node to be agreed with Role 3.
+# European end: German North Sea coast, near existing HVDC landfalls. Proposed:
+# Wilhelmshaven, model node DE0 7AC (nearest AC bus in the de10 baseline); to be
+# confirmed by Role 3. Sines (PT) is a sensitivity only: shorter cable, but the
+# power still has to cross Spain and France, which the baseline does not model.
 LANDING_DE = {
     "Wilhelmshaven": (53.52, 8.13),
     "Buesum": (54.13, 8.86),
+}
+LANDING_ALT = {"Sines (PT)": (37.95, -8.87)}
+DE_NODE = "DE0 7AC"
+
+# Cases handed to the rest of the study: (brazil, europe, corridor, variant).
+CASES = {
+    "reference": (BR_AGREED, "Wilhelmshaven", "Channel", "shallow"),
+    "short, deep": (BR_AGREED, "Wilhelmshaven", "Channel", "shortest"),
+    "long, around Scotland": (BR_AGREED, "Wilhelmshaven", "Scotland", "shallow"),
+    "sensitivity: Portugal": (BR_AGREED, "Sines (PT)", "Channel", "shallow"),
 }
 # Box closed to force the route around Scotland (Dover Strait).
 DOVER_BOX = dict(lat=(50.6, 51.4), lon=(0.9, 2.1))
@@ -136,7 +149,8 @@ def main():
     for corridor, block in [("Channel", False), ("Scotland", True)]:
         for variant in ["shortest", "shallow"]:
             g, sea = build_graph(lat, lon, elev, variant, block)
-            for de_name, (dla, dlo) in LANDING_DE.items():
+            ends = LANDING_DE | (LANDING_ALT if corridor == "Channel" else {})
+            for de_name, (dla, dlo) in ends.items():
                 (iy, ix), shore_de = nearest_sea(lat, lon, sea, dla, dlo)
                 src = iy * nx + ix
                 dist, pred = dijkstra(g, indices=src, return_predecessors=True)
@@ -176,71 +190,85 @@ def main():
                     profiles.append(pd.DataFrame(dict(route=name, km=s, depth_m=depth)))
 
     df = pd.DataFrame(rows).round(0)
+    key = df[["brazil", "germany", "corridor", "variant"]].apply(tuple, axis=1)
+    df.insert(1, "case", key.map({v: k for k, v in CASES.items()}).fillna(""))
     df.to_csv(OUT / "routes.csv", index=False)
     gpd.GeoDataFrame(lines, crs="EPSG:4326").to_file(OUT / "routes.gpkg")
     prof = pd.concat(profiles)
     prof.to_csv(OUT / "profiles.csv", index=False)
+    cases = df[df.case != ""].set_index("case").loc[list(CASES)]
+    cols = ["route", "length_km", "max_depth_m", "km_deeper_3000m", "km_deeper_5000m"]
+    cases[cols].to_csv(OUT / "cases.csv")
     pd.set_option("display.width", 250)
-    print(df.drop(columns=["route"]).to_string(index=False))
-    plot(fine, gpd.read_file(OUT / "routes.gpkg"), prof, df)
+    print(cases[cols].to_string())
+    print(f"German node (proposal, to be confirmed by Role 3): {DE_NODE}")
+    plot(fine, gpd.read_file(OUT / "routes.gpkg"), prof, cases)
 
 
-def plot(fine, routes, prof, df):
+def plot(fine, routes, prof, cases):
+    """Map of the four cases and depth profiles; saved to results/cable/ and
+    to workshop/cable/figures/ (public data only, so they may be committed)."""
+    figdir = ROOT / "workshop/cable/figures"
+    figdir.mkdir(parents=True, exist_ok=True)
+    cable = st.GROUPS["Brazil cable"]
+    style = {  # case -> colour, width, dash
+        "reference": (cable, 1.6, "-"),
+        "short, deep": ("#222222", 0.7, (0, (2, 1.5))),
+        "long, around Scotland": ("#222222", 0.7, "-"),
+        "sensitivity: Portugal": ("#6e6e6e", 0.9, (0, (4, 1.5, 1, 1.5))),
+    }
+    geom = routes.set_index("route").geometry
     st.use()
-    # map
     sub = fine.coarsen(lat=8, lon=8, boundary="trim").mean()
-    fig = plt.figure(figsize=(5.6, 6.2), layout="none")
+    fig = plt.figure(figsize=(5.6, 6.4), layout="none")
     ax = fig.add_axes([0.02, 0.12, 0.96, 0.82])
     cax = fig.add_axes([0.25, 0.06, 0.5, 0.015])
     depth = (-sub).where(sub < 0)
     m = ax.pcolormesh(sub.lon, sub.lat, depth, cmap="Blues", vmin=0, vmax=6500, shading="auto",
                       rasterized=True)
-    ax.pcolormesh(sub.lon, sub.lat, sub.where(sub >= 0) * 0, cmap="Greys", vmin=-1, vmax=8,
+    ax.pcolormesh(sub.lon, sub.lat, (sub >= 0).where(sub >= 0), cmap="Greys", vmin=0, vmax=12,
                   shading="auto", rasterized=True)
     ax.contour(sub.lon, sub.lat, depth, levels=[DEPTH_QUALIFIED], colors="#222222", linewidths=0.3)
     ax.set_aspect(1 / np.cos(np.radians(15)))
-    cable = st.GROUPS["Brazil cable"]
-    # other landing points in neutral grey underneath, the agreed one on top
-    for agreed in (False, True):
-        for _, r in routes.iterrows():
-            if r.route.startswith(BR_AGREED) != agreed or "Wilhelmshaven" not in r.route:
-                continue
-            ch = ", Channel," in r.route
-            sh = r.route.endswith("shallow")
-            col = (cable if ch else "#222222") if agreed else st.NEUTRAL
-            ax.plot(*r.geometry.xy, color=col, lw=(1.0 if sh else 0.7) if agreed else 0.4,
-                    ls="-" if sh else (0, (2, 1.5)), zorder=3 if agreed else 2)
-    for name, (la, lo) in {**LANDING_BR, **LANDING_DE}.items():
-        ax.plot(lo, la, "o", ms=3, color="#222222", zorder=4)
+    for case in reversed(list(CASES)):
+        c, lw, ls = style[case]
+        ax.plot(*geom[cases.loc[case, "route"]].xy, color=c, lw=lw, ls=ls, zorder=3)
+    for name, (la, lo) in {BR_AGREED: LANDING_BR[BR_AGREED], "Wilhelmshaven": LANDING_DE["Wilhelmshaven"],
+                           **LANDING_ALT}.items():
+        ax.plot(lo, la, "o", ms=3.5, color="#222222", zorder=4)
+        ax.annotate(name.split(" (")[0], (lo, la), xytext=(-5, 0), textcoords="offset points",
+                    ha="right", va="center", fontsize=7.5, color="#222222")
     st.map_axes(ax)
-    ax.set_title("Candidate cable routes Natal-Wilhelmshaven", loc="left")
-    st.legend_squares(ax, [(cable, "via English Channel"), ("#222222", "around Scotland"),
-                           (st.NEUTRAL, "other Brazilian landing points")], loc="lower left")
-    ax.text(0.01, 0.15, "solid: depth-aware, dashed: shortest; thin line: 3,000 m isobath",
+    ax.set_title("Cable route Natal-Wilhelmshaven and alternatives", loc="left")
+    st.legend_squares(ax, [(style[k][0], f"{k}, {cases.loc[k, 'length_km']:,.0f} km") for k in CASES],
+                      loc="lower left")
+    ax.text(0.01, 0.20, "thin black line: 3,000 m isobath (deepest qualified cable)",
             transform=ax.transAxes, fontsize=7, color="#aaaaaa")
     st.colorbar(fig, m, cax, "Water depth, m")
-    fig.savefig(OUT / "routes_map.png", dpi=300)
+    for d in (OUT, figdir):
+        fig.savefig(d / "routes_map.png", dpi=200)
     fig.savefig(OUT / "routes_map.pdf")
 
-    # depth profiles of the four Natal-Wilhelmshaven variants, one panel each
-    sel = df[(df.brazil == BR_AGREED) & (df.germany == "Wilhelmshaven")]
-    fig, axes = plt.subplots(4, 1, figsize=(5.6, 6.4), sharex=True, sharey=True)
-    for ax, (_, r) in zip(axes, sel.sort_values(["corridor", "variant"]).iterrows()):
+    # depth profiles, one panel per case
+    fig, axes = plt.subplots(len(CASES), 1, figsize=(5.6, 6.4), sharex=True, sharey=True)
+    for ax, case in zip(axes, CASES):
+        r = cases.loc[case]
         p = prof[prof.route == r.route]
-        ax.fill_between(p.km, p.depth_m, color=cable if r.corridor == "Channel" else "#222222",
-                        lw=0, alpha=0.85)
-        ax.text(0.99, 0.08, f"{r.corridor}, {'depth-aware' if r.variant == 'shallow' else 'shortest'}: "
-                f"{r.length_km:,.0f} km, max {r.max_depth_m:,.0f} m",
+        ax.fill_between(p.km, p.depth_m, color=style[case][0], lw=0, alpha=0.85)
+        ax.text(0.99, 0.1, f"{case}: {r.length_km:,.0f} km, max {r.max_depth_m:,.0f} m, "
+                f"{r.km_deeper_3000m:,.0f} km below 3,000 m",
                 transform=ax.transAxes, ha="right", fontsize=7.5, color="#222222")
-        for d in (DEPTH_LAID, DEPTH_QUALIFIED):
-            ax.axhline(d, color="#aaaaaa", lw=0.6, ls=(0, (2, 2)))
+        for dd in (DEPTH_LAID, DEPTH_QUALIFIED):
+            ax.axhline(dd, color="#aaaaaa", lw=0.6, ls=(0, (2, 2)))
         ax.set_ylim(7000, 0)
     axes[0].text(50, DEPTH_LAID - 150, "deepest laid, 2,150 m", fontsize=7, color="#aaaaaa")
     axes[0].text(50, DEPTH_QUALIFIED + 650, "deepest qualified, 3,000 m", fontsize=7, color="#aaaaaa")
-    axes[0].set_title("Water depth along the cable route Natal-Wilhelmshaven, m", loc="left")
+    axes[0].set_title("Water depth along the cable route from Natal, m", loc="left")
     axes[-1].set_xlabel("Distance from Natal, km")
-    fig.savefig(OUT / "depth_profile.png", dpi=300)
+    for d in (OUT, figdir):
+        fig.savefig(d / "depth_profile.png", dpi=200)
     fig.savefig(OUT / "depth_profile.pdf")
+
 
 
 if __name__ == "__main__":
