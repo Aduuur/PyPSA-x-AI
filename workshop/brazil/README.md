@@ -74,6 +74,8 @@ brazil_supply:
   # start_year: 2040        # default: the cable's build year
   # carriers: [onwind, solar-hsat]
   # connection_cost: true
+  # costs: brazil           # brazil (EPE, default) | europe (cost data)
+  # cost_level: central     # low | central | high, EPE's range
 ```
 
 Run `build_rn_potential.py` once first (the inputs are git-ignored, and
@@ -86,16 +88,15 @@ Snakemake does not track them: after rebuilding them add
   `Brazil Natal onwind 2-2040`. Earlier builds are carried over by the
   brownfield step and subtracted from the potential.
 - Profiles averaged to the model's snapshots as PyPSA-Eur does it.
-- Capital cost: processed cost data of the horizon (`onwind`, `solar-hsat`)
-  plus the onshore connection above. EUR 2025, 7 % in the main runs (agreed
-  with role 4, below). **Placeholder** for the Brazilian sources: for now the
-  European cost data (role 4's comparison case).
+- Capital cost: Brazilian costs (below) plus the onshore connection above,
+  annualised as `scripts/process_cost_data.py` does (lifetime and discount
+  rate of the cost data: 7 % in the main runs).
 - No Brazilian demand, storage or grid: what the cable cannot take is
   curtailed.
 
-Test run with the cable at central level, 2025–2050 (`run: brazil-test`,
-cost placeholders): all horizons solve; 2045 ends "imprecise", like the
-baseline's 2050.
+Test runs with the cable at central level (`run: brazil-test`). With the
+European cost data, 2025–2050: all horizons solve; 2045 ends "imprecise", like
+the baseline's 2050.
 
 | | 2040 | 2045 | 2050 |
 |---|---|---|---|
@@ -104,9 +105,63 @@ baseline's 2050.
 | Delivered to Germany (TWh) | 21.2 | 15.8 | 16.9 |
 | Total system cost, baseline / with cable (bn EUR/a) | 64.5 / 75.5 | 74.1 / 84.6 | 93.3 / 103.6 |
 
-The model builds only the best wind class and some solar. The cable's
+With the Brazilian costs (EPE, central), 2040 only: 6.2 GW wind (best class)
+and 1.3 GW solar, 22.1 TWh delivered, system cost 75.3 bn EUR/a. The cable's
 annualised cost (about 12 bn EUR/a at central level) is far larger than what
-it saves; this is a first check, not the study result (role 4).
+it saves; cheaper Brazilian generation changes that little. A first check,
+not the study result (role 4).
+
+## Brazilian costs
+
+`costs_brazil.yaml` (public values, with source and conversion), applied by
+`add_brazil_supply.py` at runtime.
+
+**Source:** EPE, *Power Generation Costs Report* (Caderno de Preços da
+Geração), 2021, Table 13: CAPEX and O&M ranges from projects qualified for the
+Brazilian regulated auctions 2010–2020, in BRL of December 2020. CAPEX includes
+the grid connection and excludes interest during construction.
+
+**Conversion to the agreed basis (role 4):**
+
+1. IPCA (Banco Central do Brasil, series 433) from December 2020 to the 2025
+   mean: × 1.3130.
+2. ECB reference rate, annual mean 2025: 6.3072 BRL/EUR.
+3. Grid connection removed (about 10 % of CAPEX for both technologies, EPE
+   Figs. 7 and 18), so the definition matches the cost data; the onshore
+   connection to Natal is added separately.
+4. Later horizons: the 2025 value follows the relative change of the same
+   technology in the cost data (`onwind`, `solar-utility single-axis
+   tracking`).
+5. O&M (fixed and variable together, BRL/kW/a) as FOM in % of the central
+   plant investment; no separate VOM.
+
+| | Unit | low | central | high | Cost data (Europe) |
+|---|---|---|---|---|---|
+| Onshore wind, 2025 | EUR/kW | 712 | 871 | 1,030 | 1,439 |
+| Onshore wind, 2040 | EUR/kW | 646 | 791 | 935 | 1,306 |
+| Onshore wind FOM | %/a | 2.15 | 2.15 | 2.15 | 1.19 |
+| Solar, tracking, 2025 | EUR/kW | 525 | 684 | 843 | 695 |
+| Solar, tracking, 2040 | EUR/kW | 365 | 476 | 587 | 483 |
+| Solar FOM | %/a | 1.52 | 1.52 | 1.52 | 2.45 |
+
+`central` is the midpoint of EPE's range, `low` and `high` its ends. Set
+`costs: europe` for role 4's comparison case (the cost data unchanged).
+
+Limitations:
+
+- **One source, 2020 prices.** Wind turbine prices rose after 2020; EPE's
+  newer studies (PDE) may give higher values and should be checked.
+- **EPE does not separate fixed and tracking PV.** The range is applied to
+  tracking PV, which is the common design in north-east Brazil, but it may
+  include fixed-tilt plants (slightly cheaper).
+- **PV per AC capacity.** EPE gives BRL per kW of inverter (AC) capacity; the
+  cost data and the profiles are per kW as well, but the DC/AC ratio is not
+  stated.
+- **Learning from European data.** The decline to 2050 is taken from the cost
+  data, not from a Brazilian projection.
+- Wind CAPEX in Brazil is about 40 % below the European cost data at the
+  nominal exchange rate. EPE notes that at purchasing power parity Brazilian
+  costs are within the international range; role 4 runs PPP as a sensitivity.
 
 ## Single wind profile (calibration)
 
@@ -212,19 +267,18 @@ Method as PyPSA-Eur does it for offshore wind (`attach_wind_and_solar` in
 `scripts/add_electricity.py`): connection cost = distance × length factor ×
 line cost, added to the generator's capital cost.
 
-| Class | Distance (km) | Connection, central (EUR/MW) | Share of generator investment |
+| Class | Distance (km) | Connection, 2040 (EUR/MW) | Share of plant investment, cost data / Brazil (EPE central) |
 |---|---|---|---|
-| onwind 0 | 204 | about 173,000 | about 13 % |
-| onwind 1 | 148 | about 126,000 | about 10 % |
-| onwind 2 | 120 | about 102,000 | about 8 % |
-| solar-hsat | 179 | about 152,000 | about 32 % |
+| onwind 0 | 204 | about 173,000 | about 13 % / 22 % |
+| onwind 1 | 148 | about 126,000 | about 10 % / 16 % |
+| onwind 2 | 120 | about 102,000 | about 8 % / 13 % |
+| solar-hsat | 179 | about 152,000 | about 32 % / 32 % |
 
-Central case with values from `data/costs/archive/v0.15.0/costs_2040.csv`
-(EUR 2025, the agreed price base; the European values stay until the Brazilian
-sources are in, see below):
-`HVAC overhead` 680 EUR/MW/km, length factor 1.25 (`lines.length_factor` in
-`config/config.default.yaml`), investment `onwind` and
-`solar-utility single-axis tracking`.
+Values from `data/costs/archive/v0.15.0/costs_2040.csv` (EUR 2025):
+`HVAC overhead` 680 EUR/MW/km (European line cost; no Brazilian line cost is
+used), length factor 1.25 (`lines.length_factor` in
+`config/config.default.yaml`). Plant investment: the cost data and the
+Brazilian costs below.
 
 - The distances are straight lines to one point. They do not include the
   collector grid inside a wind or solar farm, nor a substation.
@@ -269,11 +323,13 @@ maps every carrier containing "Brazil" to the cable group. Please map only
 technology groups (or to a Brazil group), and tell Brazilian plants by the
 bus country in `analyse_runs.py` as planned.
 
-The costs in the model are still the European cost data (comparison case 5a)
-until the Brazilian sources are in; marked as placeholders.
+The Brazilian costs (case 5b, EPE) are in; the European cost data stay
+available as the comparison (`costs: europe`). See "Brazilian costs" above.
 
 ## Sources
 
 ERA5 (CC-BY-4.0), ONS Dados Abertos (CC-BY-4.0), Copernicus LC100 (free with
 attribution), WDPA (non-commercial use), GADM 4.1 state borders. WDPA and GADM
-are only read from `data-brazil/` and not redistributed.
+are only read from `data-brazil/` and not redistributed. Costs: EPE Power
+Generation Costs Report 2021 (CC-BY-4.0, EPE website), IPCA from Banco Central
+do Brasil (SGS 433), ECB reference exchange rates; all retrieved 2026-11-27.

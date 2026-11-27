@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC-BY-4.0
+
+# Brazilian generation costs (role 2), public sources only. Read at runtime by
+# workshop/brazil/add_brazil_supply.py. Cost basis agreed with role 4
+# (workshop/economics/STUDY_DESIGN.md): EUR 2025, ECB annual mean 2025, IPCA,
+# lifetimes and discount rate of the cost data, same definition as the cost
+# data (overnight investment without grid connection beyond the plant).
+
+source:
+  name: "EPE, Power Generation Costs Report (Caderno de Precos da Geracao), 2021, English version 2022, Table 13"
+  url: "https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/caderno-de-precos-da-geracao"
+  basis: "BRL of December 2020 (IPCA-updated by EPE); CAPEX incl. grid connection, without interest during construction; O&M incl. fixed and variable"
+  sample: "projects qualified for Brazilian regulated energy auctions 2010-2020 (EPE AEGE system)"
+
+# EPE Table 13: CAPEX min and max (BRL/kW), O&M (BRL/kW/a)
+technologies:
+  onwind:
+    capex_brl_per_kw: {low: 3800, high: 5500}
+    om_brl_per_kw_year: 90
+    grid_connection_share: 0.10   # EPE Fig. 7: grid connection about 10 % of CAPEX
+  solar-hsat:
+    capex_brl_per_kw: {low: 2800, high: 4500}   # EPE: AC capacity; does not split fixed and tracking
+    om_brl_per_kw_year: 50
+    grid_connection_share: 0.10   # EPE Fig. 18: grid connection about 10 % of CAPEX
+
+conversion:
+  # IPCA (Banco Central do Brasil, SGS series 433, monthly), Dec 2020 level ->
+  # mean level of 2025: product of the monthly rates Jan 2021 to the month,
+  # averaged over the 12 months of 2025. Retrieved 2026-11-27.
+  ipca_dec2020_to_2025: 1.3130
+  # ECB reference rate BRL per EUR, annual mean 2025 (series EXR.A.BRL.EUR.SP00.A).
+  # Retrieved 2026-11-27.
+  brl_per_eur_2025: 6.3072
+
+# Later horizons: the Brazilian 2025 level follows the relative change of the
+# same technology in the cost data (cost-data technology, its 2025 value as base).
+learning:
+  reference_technology: {onwind: onwind, solar-hsat: solar-utility single-axis tracking}
+  base_year: 2025
+
+# EPE's range end points are the low and high cases; central is their midpoint.
+levels: [low, central, high]
