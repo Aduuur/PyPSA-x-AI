@@ -48,7 +48,9 @@ ROOT = Path(__file__).resolve().parents[2]
 PARAMS = ROOT / "workshop/cable/cable_parameters.yaml"
 PRIVATE = ROOT / "workshop/private/cable_parameters_private.yaml"
 
-NAME = "Brazil cable"
+# Link and carrier need different names: PyPSA component names must be unique
+# across component types (checked in scripts/compose_network.py).
+NAME = "Brazil cable Natal-Wilhelmshaven"
 CARRIER = "Brazil cable"
 DEFAULT_BUS_BRAZIL = "Brazil Natal"
 NATAL = (-35.20, -5.78)  # lon, lat of the landing point (public town)

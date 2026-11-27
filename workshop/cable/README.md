@@ -128,7 +128,8 @@ brownfield and the first-horizon freeze, before the sanity checks. Roles 2 and
     # bus_brazil: Brazil Natal
   ```
 
-- **One link** `Brazil cable`, carrier `Brazil cable`, from `bus_brazil` to
+- **One link** `Brazil cable Natal-Wilhelmshaven`, carrier `Brazil cable`
+  (link and carrier need different names in PyPSA), from `bus_brazil` to
   `DE0 7AC`, Brazil to Germany only, fixed size, built in `build_year` and kept
   in every later horizon (myopic brownfield carries it over).
 - **Costs** are annualised like in `scripts/process_cost_data.py`:
