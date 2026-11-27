@@ -24,8 +24,34 @@ pushing to `main`. Details further below.
 | 7 | Role 4 | Scenario mapping is in `cable_parameters.yaml`: `cable` = central, `cable-cost-low` = low, `cable-cost-high` = high. Turn the cable on with `brazil_cable: {enable: true, level: ...}` in the scenario config. | done (role 4): `config/workshop/cable.yaml`, `cable-cost-low.yaml`, `cable-cost-high.yaml`, `cable-cap2050-relaxed.yaml` use `brazil_cable: {enable: true, level: ...}` |
 | 8 | Role 4 | Commissioning 2040 central (2035–2045), size 4 GW (2–6 GW worth studying). Confirm, or say which of these you want to vary. | confirmed (role 4): 2040 and 4 GW in all main runs; build year 2035/2045 and 2/6 GW are the next sensitivities if time allows |
 | 9 | Role 4 | `cable-wacc`: set `brazil_cable.discount_rate` in that scenario; it overrides the harmonised 7 % for the cable only. | answered (role 4): the main runs keep the harmonised 7 %. The project-finance rate is derived from a confidential document, so it must not go into a shared scenario config; role 4 passes it as an extra config layer from `workshop/private/` (`cable-project`). No change needed in your code. |
-| 10 | Whoever maintains `workshop/guard/` | The guard crashes on binary files (PNG, PDF) and flags coordinate digits in the route map SVG/GeoJSON (public GEBCO data). Please make it skip binary files; then the PNG/PDF figures can be shared. | with the group (role 4): `workshop/guard/` is protected by the group's rules, so it is not changed by an agent; the decision is with the person maintaining it |
+| 10 | Whoever maintains `workshop/guard/` | The guard crashes on binary files (PNG, PDF) and flags coordinate digits in the route map SVG/GeoJSON (public GEBCO data). Please make it skip binary files; then the PNG/PDF figures can be shared. Details and a suggested fix: section "Request to the guard maintainer" below. Role 1 needs the route map. | with the group (role 4): `workshop/guard/` is protected by the group's rules, so it is not changed by an agent; the decision is with the person maintaining it |
 | 11 | Roles 3, 4 | Risk assessment in [RISKS.md](RISKS.md): the model cannot show N-1 security, sabotage or political interruption. Please count the cable as energy, not as secured capacity, and discuss the risk-sharing table with role 4 (financing). | open |
+
+## Request to the guard maintainer: route map blocked
+
+Role 1 needs to share the cable route map (`routes_map.png` / `.pdf`), made from
+public data only (GEBCO_2025 bathymetry and public town coordinates). The guard
+blocks it in every format, and nobody may bypass it, so it needs a fix by the
+person who maintains `workshop/guard/`:
+
+1. **Binary files crash the guard.** `confidential_guard.py staged` runs
+   `git diff --cached --text` and decodes the output as UTF-8; a PNG or PDF in
+   the commit raises `UnicodeDecodeError` and the commit is blocked. Suggested
+   fix: leave out binary files (`git diff --cached --numstat` shows `-` for
+   them, or check for a NUL byte), or decode with `errors="replace"`.
+   Then any PNG/PDF figure can be committed. Note that a binary file is then not
+   scanned; if the group wants images checked too, that needs a separate rule
+   (for example: figures only from scripts in the repo).
+2. **Possible false matches in the map SVG.** The SVG of the map holds
+   thousands of numbers (path coordinates of the bathymetry); the guard reports
+   5 matches against one role's confidential file. The map contains no
+   confidential data, so these are most likely coincidental numbers. Please
+   check them with the guard's owner of that file (role 2), without
+   showing the values.
+
+Once 1 is fixed, role 1 commits `workshop/cable/results/routes_map.png` and the
+other PNG/PDF figures. Until then the map is shared outside git, or anyone can
+build it with `pixi run python workshop/cable/cable_route.py` (about 3 minutes).
 
 ## Agreed
 
