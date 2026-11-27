@@ -17,6 +17,9 @@ Follows PyPSA-Eur (``determine_availability_matrix_MD_UA.py`` and
   ``build_rn_onwind_profile.py`` (the same factor for every class).
 - Solar with single-axis tracking (horizontal north-south axis), one class,
   not scaled: there is no measured solar generation in RN for 2013.
+- Layout-weighted straight-line distance of each class to the cable converter
+  at Natal, as ``average_distance`` in PyPSA-Eur; basis for the onshore
+  connection cost (role 2).
 
 Wind and solar compete for the same land: do not add their potentials.
 
@@ -50,6 +53,9 @@ from build_rn_onwind_profile import (  # noqa: E402
 )
 
 CRS_AREA = "ESRI:102033"  # South America Albers equal area
+# Cable converter at the Natal landing point (lon, lat), the point role 1 uses
+# in workshop/cable/add_brazil_cable.py (public town).
+CONVERTER = (-35.20, -5.78)
 ONWIND = dict(
     turbine="Vestas_V112_3MW",
     capacity_per_sqkm=3.0,
@@ -113,6 +119,24 @@ def weighted_profile(cf_t: xr.DataArray, weight: xr.DataArray) -> pd.Series:
     return profile.to_series()
 
 
+def distance_to_converter_km(cutout) -> xr.DataArray:
+    """Straight-line distance from each cell to the converter, km (y, x).
+
+    Like ``average_distance`` in build_renewable_profiles.py: representative
+    point of each cell, in an equal-area projection.
+    """
+    grid = cutout.grid.set_index(["y", "x"])
+    points = grid.representative_point().to_crs(CRS_AREA)
+    converter = gpd.GeoSeries.from_xy([CONVERTER[0]], [CONVERTER[1]], crs=4326)
+    converter = converter.to_crs(CRS_AREA).iloc[0]
+    return (points.distance(converter) / 1e3).to_xarray()
+
+
+def weighted_distance(distance: xr.DataArray, weight: xr.DataArray) -> float:
+    """Layout-weighted mean distance, km."""
+    return float((distance * weight).sum() / weight.sum())
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     snapshots = pd.date_range(f"{YEAR}-01-01", f"{YEAR}-12-31 23:00", freq="h")
@@ -130,6 +154,7 @@ def main():
     factor = measured.mean() / era5_state.loc[measured.index].mean()
 
     rows, profiles = [], {}
+    distance = distance_to_converter_km(cutout)
 
     # onshore wind, resource classes
     wind_t = cutout.wind(turbine=ONWIND["turbine"], aggregate_time=None)
@@ -157,6 +182,7 @@ def main():
                 * float(km2.where(in_class, 0.0).sum()),
                 "cf_unscaled": float(weighted_profile(wind_t, weight).mean()),
                 "cf": float(profiles[name].mean()),
+                "distance_to_converter_km": weighted_distance(distance, weight),
             }
         )
 
@@ -180,6 +206,7 @@ def main():
             "p_nom_max_mw": SOLAR_HSAT["capacity_per_sqkm"] * float(km2.sum()),
             "cf_unscaled": float(profiles["solar-hsat"].mean()),
             "cf": float(profiles["solar-hsat"].mean()),
+            "distance_to_converter_km": weighted_distance(distance, weight),
         }
     )
 
@@ -187,7 +214,7 @@ def main():
     table["eligible_share_of_state"] = table.eligible_km2 / state_km2
     table = table.round(
         {"eligible_km2": 0, "p_nom_max_mw": 0, "cf_unscaled": 3, "cf": 3,
-         "eligible_share_of_state": 3}
+         "eligible_share_of_state": 3, "distance_to_converter_km": 0}
     )
     table.to_csv(OUT / f"{STATE.lower()}_potential_{YEAR}.csv", index=False)
 
