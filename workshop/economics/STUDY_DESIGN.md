@@ -88,11 +88,15 @@ thing only.
 | Run | Differs from | in | Status |
 |---|---|---|---|
 | `de10-myopic` | – | baseline | solved |
-| `cable` | `de10-myopic` | the cable | waits for roles 1, 2 |
-| `cable-cost-high`, `cable-cost-low` | `cable` | cable cost | waits for role 1 |
-| `cable-wacc7` | `cable` | 7% instead of asset WACC | waits for `cable` |
+| `cable` | `de10-myopic` | the cable (role 1 central) | config ready, waits for the cable in `compose_network` |
+| `cable-cost-low`, `cable-cost-high` | `cable` | role 1 low / high level | config ready, waits as above |
+| `cable-wacc7` | `cable` | 7% instead of asset WACC | config ready, waits as above |
 | `cap2050-relaxed` | `de10-myopic` | 2050 cap | solved (2% of 1990, placeholder) |
-| `cable-cap2050-relaxed` | `cable` | 2050 cap | waits for `cable` |
+| `cable-cap2050-relaxed` | `cable` | 2050 cap | config ready, waits as above |
+
+The cable configs carry a `workshop_cable` block (`enable`, `parameters`,
+`level`, `route`, `financing`). The code in `compose_network` that adds the
+cable and Brazil reads it; see "Hand-over for the model code" below.
 
 A full run takes about 20 minutes, so keep the list short.
 
@@ -130,19 +134,29 @@ is compared with the reference.
 ## Screening before the model run (`workshop/economics/screening.py`)
 
 Until the cable is in the model, a per-MW screening answers whether it can pay
-at all: cost of a MWh delivered to Wilhelmshaven (RN wind + cable + converters
-+ losses) against its value there (hourly price at `DE0 7AC` in the runs
-without the cable, an upper bound because it ignores that the cable lowers
-those prices). It reads role 1's route lengths and role 2's RN wind profile
-at runtime; costs are the public PyPSA-Eur tables, times a factor for the deep
-Atlantic, until roles 1 and 2 deliver ranges. Public variant to
-`results/economics/screening/`; project-finance variant to `workshop/private/`.
+at all: cost of a MWh delivered to Wilhelmshaven (RN wind + cable + losses)
+against its value there (hourly price at `DE0 7AC` in the runs without the
+cable, an upper bound because it ignores that the cable lowers those prices).
+It reads at runtime role 1's cable parameters (investment, FOM, lifetime,
+end-to-end efficiency, availability per level and route) and role 2's RN wind
+profile; wind costs are the public PyPSA-Eur `onwind` entry until role 2
+delivers. Public variant to `results/economics/screening/`; project-finance
+variant to `workshop/private/`.
 
 ```bash
 pixi run python workshop/cable/cable_route.py
+pixi run python workshop/cable/cable_cost.py
 pixi run python workshop/brazil/build_rn_onwind_profile.py
 pixi run python workshop/economics/screening.py
 ```
+
+First result (reference route, wind sized to the cable, 7%, run without the
+cable): a MWh delivered costs about 670 / 1,200 / 2,600 EUR at role 1's low /
+central / high cable cost, against a value of 90–112 EUR/MWh. The cable would
+have to cost 4–7% of role 1's central to low estimate to pay. Main drivers:
+the cable is used 35% of the time (wind only) and the investment per MW. 2050
+does not change the picture: the RN wind does not blow in the German price
+peaks. Oversizing the wind 1.5x lowers the cost by about 30%.
 
 ## Inputs from the other roles (status)
 
@@ -150,10 +164,11 @@ pixi run python workshop/economics/screening.py
 |---|---|---|---|
 | Role 1 | landing points Natal (RN) and Wilhelmshaven, node `DE0 7AC` | `workshop/cable/cable_route.py` | screening |
 | Role 1 | route lengths and depth per case (reference via the Channel, shortest/deep, around Scotland, Sines) | `results/cable/cases.csv` | screening |
-| Role 1 | cable cost, losses, lifetime, size range | _open_ | |
+| Role 1 | cable cost, losses, availability, lifetime per level; size range 2/4/6 GW; build year 2040 (2035–2045) | `workshop/cable/cable_parameters.yaml` | screening, cable configs |
 | Role 2 | hourly RN onshore wind capacity factor, 2013, UTC | `resources/brazil/rn_onwind_cf_2013_utc.csv` | screening |
 | Role 2 | Brazilian costs (CAPEX, FOM, VOM), solar | _open_ | |
 | Role 3 | decision on 2050 | _open_ | |
+| Roles 1–3 | cable and Brazil in `compose_network` | _open, nobody assigned yet_ | all cable runs |
 
 ## What the other roles deliver
 
@@ -164,3 +179,20 @@ pixi run python workshop/economics/screening.py
   costs in EUR at the agreed rate.
 - **Role 3:** the decision on 2050 and whether the German model is good enough
   to judge the cable; how long a run takes.
+
+## Hand-over for the model code (`compose_network`)
+
+What the evaluation expects once the cable and Brazil are added, so that
+`analyse_runs.py` and the plot style recognise them:
+
+- one AC bus for Brazil whose name contains `Brazil`, with `country: BR`;
+- the cable as a link from the Brazil bus to `DE0 7AC`, name and carrier
+  containing `Brazil` (role 1 uses the carrier `Brazil cable`), efficiency and
+  `p_max_pu` from role 1's level, Brazil to Germany only;
+- Brazilian generators at the Brazil bus with names containing `Brazil`,
+  profile from role 2;
+- capital costs: `financing: project` uses `financing.load()` at runtime
+  (`idc_factor` and `wacc` per asset); `financing: harmonised` uses the
+  model's default discount rate. No value from the term sheet in code or
+  config.
+- added from role 1's build year on, read from the `workshop_cable` block.
