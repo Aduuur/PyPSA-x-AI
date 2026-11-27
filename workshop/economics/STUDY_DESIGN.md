@@ -36,13 +36,50 @@ One set for Germany, Brazil and the cable. Every role uses it.
 
 | Parameter | Value | Where |
 |---|---|---|
-| Currency and price base | EUR, price base of the cost data | `costs` |
-| Annuities (investment) | 7% unless set per asset | `costs.fill_values` / cost data |
+| Currency and price base | **EUR 2025** (see answer 1 below) | all roles |
+| Annuities (investment) | 7% (harmonised); asset rates only in the project-finance runs | `costs.fill_values` / `financing.py` |
 | Social discount rate (present value across horizons) | 2% | `costs.social_discountrate` |
 | Present value base year | 2025 | evaluation |
 | Each horizon stands for | the 5 years up to the next one | evaluation |
-| BRL to EUR | one fixed rate for all Brazilian costs | _to agree with role 2_ |
-| Lifetimes cable, converters, Brazilian plants | | _to agree with roles 1, 2_ |
+| BRL to EUR | ECB reference rate, annual mean 2025, one fixed rate | agreed with role 2 |
+| Lifetimes | as in the cost data (onshore wind 30, utility PV 40 years); cable from role 1 | agreed with roles 1, 2 |
+
+### Answers to role 2's questions (`workshop/brazil/README.md`)
+
+1. **Price base: EUR 2025.** In the cost data the model uses
+   (`data/costs/archive/v0.15.0`), the investment of every technology that
+   matters for this study (`onwind`, `solar-utility single-axis tracking`,
+   `HVDC submarine`, `HVDC inverter pair`) has `currency_year` 2025 in every
+   horizon. The model does not convert between currency years, so EUR 2025 is
+   the common base. FOM is a percentage of the investment, so its own currency
+   year does not matter. Brazilian costs are converted to EUR 2025: first
+   inflate BRL to 2025 with the Brazilian price index (IPCA) where a source is
+   older, then convert at the rate in answer 2. Role 1 is already on this base.
+2. **BRL to EUR: agreed.** ECB reference rate, annual mean 2025, one fixed rate
+   for all Brazilian costs. State the rate and its source next to the costs.
+   Purchasing power parity only as a sensitivity, not in the main case. (The
+   rate in the financing term sheet is confidential and is not used for this.)
+3. **Cost of capital: role 2 delivers no rate.** Investment, FOM, VOM and
+   lifetime only. The main runs use the harmonised 7% for Brazil as for
+   Germany. The project-finance runs use an own rate for Brazilian generation
+   (country risk), set by role 4 at runtime through the private layer in
+   `workshop/private/`; role 2 does not touch it.
+4. **Lifetimes: agreed.** As in the cost data (onshore wind 30, utility PV
+   40 years), Brazil and Germany alike.
+5. **Source: agreed.** (b) Brazilian sources (e.g. EPE, IRENA) converted to
+   EUR 2025 as the main case, (a) the European cost data unchanged as the
+   comparison. Same definition as the cost data: overnight investment without
+   interest during construction and without grid connection beyond the plant,
+   FOM in % of investment per year, VOM in EUR/MWh. A cost advantage of Brazil
+   must come from the sources, not from a different definition.
+6. **Commissioning and naming: agreed.** Brazilian generators are available
+   from the cable's build year (role 1: 2040 central, 2035–2045 as range),
+   attached to the bus `Brazil Natal` (role 1's proposal, `country: BR`),
+   with `Brazil` in every component name (e.g. `Brazil onwind class 2`). The
+   carrier stays the plain technology (`onwind`, `solar-hsat`), not
+   `Brazil ...`: the plot style maps every carrier containing "Brazil" to the
+   cable's colour. The evaluation will tell Brazilian from German plants by
+   the bus country (to be added to `analyse_runs.py` by role 4).
 
 Asset-specific costs of capital that come from confidential documents are
 **not** written into any shared config. A script reads them at runtime and
@@ -185,11 +222,11 @@ peaks. Oversizing the wind 1.5x lowers the cost by about 30%.
 What the evaluation expects once the cable and Brazil are added, so that
 `analyse_runs.py` and the plot style recognise them:
 
-- one AC bus for Brazil whose name contains `Brazil`, with `country: BR`;
+- one AC bus `Brazil Natal` (role 1's proposal), with `country: BR`;
 - the cable as a link from the Brazil bus to `DE0 7AC`, name and carrier
   containing `Brazil` (role 1 uses the carrier `Brazil cable`), efficiency and
   `p_max_pu` from role 1's level, Brazil to Germany only;
-- Brazilian generators at the Brazil bus with names containing `Brazil`,
+- Brazilian generators at the Brazil bus with names containing `Brazil` and the plain technology as carrier,
   profile from role 2;
 - capital costs: `financing: project` uses `financing.load()` at runtime
   (`idc_factor` and `wacc` per asset); `financing: harmonised` uses the
