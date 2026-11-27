@@ -30,12 +30,13 @@ does not track these files: after rebuilding them, rerun with
 Costs (basis agreed with role 4: EUR 2025, lifetimes and discount rate of the
 cost data, i.e. 7 % in the main runs):
 
-- ``costs: brazil`` (default): investment and O&M from EPE (public, in
-  ``workshop/brazil/costs_brazil.yaml``), BRL of Dec 2020 inflated with IPCA to
-  2025 and converted at the ECB annual mean 2025; grid connection share removed
-  (the onshore connection is added separately); later horizons follow the
-  relative change of the same technology in the cost data. ``cost_level``
-  picks EPE's low end, the midpoint (central) or the high end.
+- ``costs: brazil`` (default): investment and O&M from EPE's PDE 2035 cost
+  parameters (public, in ``workshop/brazil/costs_brazil.yaml``), BRL of Dec
+  2024 inflated with IPCA to 2025 and converted at the ECB annual mean 2025;
+  grid connection share removed (the onshore connection is added separately);
+  later horizons follow the relative change of the same technology in the cost
+  data. ``cost_level`` picks EPE's lowest level, the mean of its levels
+  (central) or the highest level.
 - ``costs: europe``: the processed cost data of the horizon unchanged (role 4's
   comparison case).
 
@@ -129,13 +130,15 @@ def brazil_costs(tech: str, horizon: int, level: str) -> dict:
     spec = yaml.safe_load(BRAZIL_COSTS.read_text())
     t = spec["technologies"][tech]
     conv = spec["conversion"]
-    to_eur = conv["ipca_dec2020_to_2025"] / conv["brl_per_eur_2025"]
-    lo, hi = t["capex_brl_per_kw"]["low"], t["capex_brl_per_kw"]["high"]
-    capex_brl = {"low": lo, "central": (lo + hi) / 2, "high": hi}[level]
+    to_eur = conv["ipca_to_2025"] / conv["brl_per_eur_2025"]
+    capex_levels = t["capex_levels_brl_per_kw"]
+    central = sum(capex_levels) / len(capex_levels)
+    capex_brl = {"low": min(capex_levels), "central": central,
+                 "high": max(capex_levels)}[level]
     plant_share = 1.0 - t["grid_connection_share"]
     investment_2025 = capex_brl * plant_share * to_eur  # EUR/kW
     # EPE's O&M (fixed and variable together) as % of the central plant investment
-    fom = 100 * t["om_brl_per_kw_year"] / ((lo + hi) / 2 * plant_share)
+    fom = 100 * t["om_brl_per_kw_year"] / (central * plant_share)
     ref = spec["learning"]["reference_technology"][tech]
     base = int(spec["learning"]["base_year"])
     learning = raw_investment(ref, horizon) / raw_investment(ref, base)

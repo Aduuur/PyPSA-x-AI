@@ -75,7 +75,7 @@ brazil_supply:
   # carriers: [onwind, solar-hsat]
   # connection_cost: true
   # costs: brazil           # brazil (EPE, default) | europe (cost data)
-  # cost_level: central     # low | central | high, EPE's range
+  # cost_level: central     # low | central | high, EPE's levels
 ```
 
 Run `build_rn_potential.py` once first (the inputs are git-ignored, and
@@ -94,41 +94,53 @@ Snakemake does not track them: after rebuilding them add
 - No Brazilian demand, storage or grid: what the cable cannot take is
   curtailed.
 
-Test runs with the cable at central level (`run: brazil-test`). With the
-European cost data, 2025–2050: all horizons solve; 2045 ends "imprecise", like
-the baseline's 2050.
+Test run `brazil-test`: cable at central level, Brazilian costs (EPE PDE 2035,
+central), 2025–2050. All horizons solve; 2045 ends "imprecise", like the
+baseline's 2050. Brazil enters from 2040 (the cable's build year).
 
 | | 2040 | 2045 | 2050 |
 |---|---|---|---|
-| Brazil onwind built (GW, cumulative) | 5.1 | 5.1 | 5.3 |
-| Brazil solar-hsat built (GW, cumulative) | 2.0 | 2.1 | 2.5 |
-| Delivered to Germany (TWh) | 21.2 | 15.8 | 16.9 |
-| Total system cost, baseline / with cable (bn EUR/a) | 64.5 / 75.5 | 74.1 / 84.6 | 93.3 / 103.6 |
+| Brazil onwind built (GW, cumulative, best class only) | 6.0 | 6.0 | 6.3 |
+| Brazil solar-hsat built (GW, cumulative) | 1.7 | 1.8 | 2.0 |
+| Brazilian generation (TWh) | 26.0 | 24.8 | 21.9 |
+| of it curtailed | 23 % | 28 % | 39 % |
+| Delivered to Germany (TWh) | 22.2 | 21.2 | 18.7 |
+| Cable utilisation (of 4 GW) | 0.74 | 0.71 | 0.62 |
+| Annualised cost: Brazilian generation / cable (bn EUR/a) | 0.6 / 12.1 | 0.6 / 12.1 | 0.7 / 12.1 |
+| Total system cost, baseline / with cable (bn EUR/a) | 64.5 / 75.3 | 74.1 / 84.4 | 93.3 / 103.4 |
+| Mean German price, baseline / with cable (EUR/MWh) | 82.9 / 81.8 | 95.3 / 94.3 | 99.6 / 99.2 |
 
-With the Brazilian costs (EPE, central), 2040 only: 6.2 GW wind (best class)
-and 1.3 GW solar, 22.1 TWh delivered, system cost 75.3 bn EUR/a. The cable's
-annualised cost (about 12 bn EUR/a at central level) is far larger than what
-it saves; cheaper Brazilian generation changes that little. A first check,
-not the study result (role 4).
+- The model oversizes Brazilian generation (about 7.7 GW for a 4 GW cable at
+  `p_max_pu` 0.846) and curtails the rest: cheap generation keeps the cable
+  full. Until 2045 all curtailment happens while the cable is at its limit; in
+  2050 about half happens while the cable has room but German prices are near
+  zero.
+- With the European cost data instead, results are close (2040: 5.1 GW wind,
+  2.0 GW solar, 21.2 TWh delivered, 75.5 bn EUR/a): the cable's annualised cost
+  of about 12 bn EUR/a dominates, the price of Brazilian generation changes
+  little.
+- A first check of the components, not the study result (role 4).
 
 ## Brazilian costs
 
 `costs_brazil.yaml` (public values, with source and conversion), applied by
 `add_brazil_supply.py` at runtime.
 
-**Source:** EPE, *Power Generation Costs Report* (Caderno de Preços da
-Geração), 2021, Table 13: CAPEX and O&M ranges from projects qualified for the
-Brazilian regulated auctions 2010–2020, in BRL of December 2020. CAPEX includes
-the grid connection and excludes interest during construction.
+**Source:** EPE, *PDE 2035 – Caderno de Parâmetros de Custos de Geração e
+Transmissão* (rev. 10 November 2025), CAPEX table p. 11: four CAPEX reference
+levels per technology (without interest during construction) and O&M, in BRL
+of December 2024, from Brazilian auction projects and international
+references. CAPEX includes the grid connection. This is the current
+planning basis of Brazil's ten-year plan.
 
 **Conversion to the agreed basis (role 4):**
 
-1. IPCA (Banco Central do Brasil, series 433) from December 2020 to the 2025
-   mean: × 1.3130.
+1. IPCA (Banco Central do Brasil, series 433) from December 2024 to the 2025
+   mean: × 1.0282.
 2. ECB reference rate, annual mean 2025: 6.3072 BRL/EUR.
 3. Grid connection removed (about 10 % of CAPEX for both technologies, EPE
-   Figs. 7 and 18), so the definition matches the cost data; the onshore
-   connection to Natal is added separately.
+   2021 report, Figs. 7 and 18), so the definition matches the cost data; the
+   onshore connection to Natal is added separately.
 4. Later horizons: the 2025 value follows the relative change of the same
    technology in the cost data (`onwind`, `solar-utility single-axis
    tracking`).
@@ -137,20 +149,31 @@ the grid connection and excludes interest during construction.
 
 | | Unit | low | central | high | Cost data (Europe) |
 |---|---|---|---|---|---|
-| Onshore wind, 2025 | EUR/kW | 712 | 871 | 1,030 | 1,439 |
-| Onshore wind, 2040 | EUR/kW | 646 | 791 | 935 | 1,306 |
-| Onshore wind FOM | %/a | 2.15 | 2.15 | 2.15 | 1.19 |
-| Solar, tracking, 2025 | EUR/kW | 525 | 684 | 843 | 695 |
-| Solar, tracking, 2040 | EUR/kW | 365 | 476 | 587 | 483 |
-| Solar FOM | %/a | 1.52 | 1.52 | 1.52 | 2.45 |
+| Onshore wind, 2025 | EUR/kW | 734 | 869 | 1,027 | 1,439 |
+| Onshore wind, 2040 | EUR/kW | 666 | 789 | 932 | 1,306 |
+| Onshore wind FOM | %/a | 2.06 | 2.06 | 2.06 | 1.19 |
+| Solar, tracking, 2025 | EUR/kW | 440 | 605 | 807 | 695 |
+| Solar, tracking, 2040 | EUR/kW | 306 | 421 | 561 | 483 |
+| Solar FOM | %/a | 1.62 | 1.62 | 1.62 | 2.45 |
 
-`central` is the midpoint of EPE's range, `low` and `high` its ends. Set
-`costs: europe` for role 4's comparison case (the cost data unchanged).
+`low` is EPE's lowest level, `central` the mean of its four levels, `high` its
+highest. Set `costs: europe` for role 4's comparison case (the cost data
+unchanged).
+
+**Check against the earlier EPE source.** EPE's *Power Generation Costs Report*
+2021 (BRL of December 2020, inflated to 2025 with IPCA × 1.3130) gives nearly
+the same wind cost (central 871 EUR/kW) and a higher solar cost (684 EUR/kW).
+Wind costs in BRL rose by about the inflation since 2020; in real terms they
+are unchanged. EPE's own USD figures (wind 820–1,200, solar 490–900 USD/kW at
+6.10 BRL/USD) are consistent with the conversion above.
+
+Not taken from EPE: its economic lifetimes (20 years wind, 25 years solar,
+from the auction contracts; the model uses the technical lifetimes of the cost
+data, agreed with role 4), its discount rate (8 % real; role 4 sets 7 %), and
+its taxes and grid fees (not in the cost data either).
 
 Limitations:
 
-- **One source, 2020 prices.** Wind turbine prices rose after 2020; EPE's
-  newer studies (PDE) may give higher values and should be checked.
 - **EPE does not separate fixed and tracking PV.** The range is applied to
   tracking PV, which is the common design in north-east Brazil, but it may
   include fixed-tilt plants (slightly cheaper).
@@ -272,7 +295,7 @@ line cost, added to the generator's capital cost.
 | onwind 0 | 204 | about 173,000 | about 13 % / 22 % |
 | onwind 1 | 148 | about 126,000 | about 10 % / 16 % |
 | onwind 2 | 120 | about 102,000 | about 8 % / 13 % |
-| solar-hsat | 179 | about 152,000 | about 32 % / 32 % |
+| solar-hsat | 179 | about 152,000 | about 32 % / 36 % |
 
 Values from `data/costs/archive/v0.15.0/costs_2040.csv` (EUR 2025):
 `HVAC overhead` 680 EUR/MW/km (European line cost; no Brazilian line cost is
@@ -323,13 +346,14 @@ maps every carrier containing "Brazil" to the cable group. Please map only
 technology groups (or to a Brazil group), and tell Brazilian plants by the
 bus country in `analyse_runs.py` as planned.
 
-The Brazilian costs (case 5b, EPE) are in; the European cost data stay
+The Brazilian costs (case 5b, EPE PDE 2035) are in; the European cost data stay
 available as the comparison (`costs: europe`). See "Brazilian costs" above.
 
 ## Sources
 
 ERA5 (CC-BY-4.0), ONS Dados Abertos (CC-BY-4.0), Copernicus LC100 (free with
 attribution), WDPA (non-commercial use), GADM 4.1 state borders. WDPA and GADM
-are only read from `data-brazil/` and not redistributed. Costs: EPE Power
-Generation Costs Report 2021 (CC-BY-4.0, EPE website), IPCA from Banco Central
-do Brasil (SGS 433), ECB reference exchange rates; all retrieved 2026-11-27.
+are only read from `data-brazil/` and not redistributed. Costs: EPE PDE 2035
+Caderno de Parâmetros de Custos (2025) and EPE Power Generation Costs Report
+2021 (both CC-BY-4.0, EPE website), IPCA from Banco Central do Brasil (SGS 433),
+ECB reference exchange rates; all retrieved 2026-11-27.
