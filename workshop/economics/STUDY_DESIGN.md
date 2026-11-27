@@ -49,6 +49,36 @@ Asset-specific costs of capital that come from confidential documents are
 writes a config layer to `workshop/private/` (git-ignored); see "Confidential
 data" in `AGENTS.md`. Only whole-model results are shared.
 
+### Cost of capital per asset (`workshop/economics/financing.py`)
+
+Three assets: German grid connection and onshore works (`germany`), Brazilian
+generation (`brazil`), subsea cable and converter stations (`cable`). For each,
+the module derives at runtime from the financing term sheet:
+
+- `wacc`: after-tax WACC, used for the annuity instead of the default 7%;
+- `idc_factor`: interest during construction, multiplies the overnight
+  investment before the annuity is applied;
+- for Brazil: the BRL/EUR rate for converting Brazilian costs.
+
+Roles 1 and 2 use it in `compose_network` when they add their components,
+never with values typed in:
+
+```python
+sys.path.insert(0, "workshop/economics")
+from financing import load, annuity
+fin = load()["cable"]
+capital_cost = investment * fin["idc_factor"] * (annuity(fin["wacc"], lifetime) + fom_share)  # FOM as a fraction
+```
+
+If the term sheet is not in a workspace, `load()` fails loudly; it does not
+fall back to a default. `pixi run python workshop/economics/financing.py`
+checks the figures for plausibility and writes `workshop/private/financing.yaml`
+without printing them.
+
+Comparison: the `cable` run uses these asset rates; `cable-wacc7` uses the
+default 7% for the cable and Brazil, so the effect of project finance on the
+result is visible on its own.
+
 ## Scenarios
 
 Each scenario is a config file in `config/workshop/`, layered on the workshop
@@ -60,7 +90,7 @@ thing only.
 | `de10-myopic` | – | baseline | solved |
 | `cable` | `de10-myopic` | the cable | waits for roles 1, 2 |
 | `cable-cost-high`, `cable-cost-low` | `cable` | cable cost | waits for role 1 |
-| `cable-wacc` | `cable` | cost of capital | waits for role 4 input |
+| `cable-wacc7` | `cable` | 7% instead of asset WACC | waits for `cable` |
 | `cap2050-relaxed` | `de10-myopic` | 2050 cap | solved (2% of 1990, placeholder) |
 | `cable-cap2050-relaxed` | `cable` | 2050 cap | waits for `cable` |
 
