@@ -32,12 +32,16 @@ densities from `config/config.default.yaml`.
 
 `resources/brazil/rn_potential_2013.csv`:
 
-| Carrier | Class | Eligible share of RN | Potential (GW) | CF unscaled | CF |
-|---|---|---|---|---|---|
-| onwind | 0 | 0.41 | 65 | 0.217 | 0.258 |
-| onwind | 1 | 0.31 | 48 | 0.346 | 0.410 |
-| onwind | 2 | 0.09 | 14 | 0.491 | 0.576 |
-| solar-hsat | 0 | 0.87 | 204 | 0.238 | 0.238 |
+| Carrier | Class | Eligible share of RN | Potential (GW) | CF unscaled | CF | Distance to converter (km) |
+|---|---|---|---|---|---|---|
+| onwind | 0 | 0.41 | 65 | 0.217 | 0.258 | 204 |
+| onwind | 1 | 0.31 | 48 | 0.346 | 0.410 | 148 |
+| onwind | 2 | 0.09 | 14 | 0.491 | 0.576 | 120 |
+| solar-hsat | 0 | 0.87 | 204 | 0.238 | 0.238 | 179 |
+
+Distance to converter: layout-weighted straight-line distance from the class
+to the cable converter at Natal (the landing point in
+`workshop/cable/add_brazil_cable.py`), like `average_distance` in PyPSA-Eur.
 
 `resources/brazil/rn_profiles_2013_utc.csv`: index `timestamp_utc` (as below),
 one column per row of the table (`onwind class 0` … `onwind class 2`,
@@ -145,8 +149,44 @@ the capacity behind it was too small.
 
 ## For role 1 (cable)
 
-- Median distance to the coast of the RN cells: about 73 km (coarse, from a
-  GEBCO grid of about 0.17°; not a route).
+### Answers to your requests 1–3 (`workshop/cable/README.md`)
+
+Please copy these into your table and set them to agreed.
+
+| # | Answer |
+|---|---|
+| 1 | **Agreed: bus `Brazil Natal`** (`carrier: AC`, `country: BR`), at your Natal coordinates. Role 2 creates it and attaches the RN supply; keep `bus_brazil` at its default. |
+| 2 | **Agreed:** role 2's call goes into `scripts/compose_network.py` **before** your cable call, in its own file under `workshop/brazil/`, same pattern as yours (off by default). |
+| 3 | **Role 2 takes the onshore connection** from the generators to the converter at Natal. Your cable cost stays sea route plus converters. |
+
+### Onshore connection (role 2)
+
+Method as PyPSA-Eur does it for offshore wind (`attach_wind_and_solar` in
+`scripts/add_electricity.py`): connection cost = distance × length factor ×
+line cost, added to the generator's capital cost.
+
+| Class | Distance (km) | Connection, central (EUR/MW) | Share of generator investment |
+|---|---|---|---|
+| onwind 0 | 204 | about 173,000 | about 13 % |
+| onwind 1 | 148 | about 126,000 | about 10 % |
+| onwind 2 | 120 | about 102,000 | about 8 % |
+| solar-hsat | 179 | about 152,000 | about 32 % |
+
+Central case with values from `data/costs/archive/v0.15.0/costs_2040.csv`
+(placeholders until role 4 has answered on the cost basis, see below):
+`HVAC overhead` 680 EUR/MW/km, length factor 1.25 (`lines.length_factor` in
+`config/config.default.yaml`), investment `onwind` and
+`solar-utility single-axis tracking`.
+
+- The distances are straight lines to one point. They do not include the
+  collector grid inside a wind or solar farm, nor a substation.
+- The share for solar is high because solar is cheap per MW and the eligible
+  land is spread over the whole state. Closer sites would lower it; the
+  potential (204 GW) is far larger than the cable, so the model could be
+  limited to sites near Natal.
+- The coast distance of about 73 km given in the first version of this README
+  is not used: it was the median distance of all RN cells to the sea, not a
+  connection length.
 
 ## For role 4 (economics)
 
