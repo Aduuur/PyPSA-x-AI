@@ -4,13 +4,60 @@ SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pyps
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Brazil (role 2): onshore wind profile for Rio Grande do Norte
+# Brazil (role 2): renewable supply in Rio Grande do Norte
 
-Hand-over to role 1 (cable) and role 4 (economics). Status: first version,
+Hand-over to role 1 (cable) and role 4 (economics). Status: second version,
 weather year 2013. Region RN is agreed with role 1 (landing point Natal region,
 see `workshop/cable/cable_route.py`).
 
-## Build the profile
+Two scripts, both read only `data-brazil/` and write to `resources/brazil/`
+(git-ignored):
+
+| Script | Output | Use |
+|---|---|---|
+| `build_rn_potential.py` | potential per technology and class, hourly profiles | **input for the model** |
+| `build_rn_onwind_profile.py` | one wind profile, state average | calibration and validation |
+
+## Potential and profiles for the model
+
+```bash
+pixi run python workshop/brazil/build_rn_potential.py
+```
+
+About 45 seconds, under 2 GB of memory. Method as in PyPSA-Eur
+(`determine_availability_matrix_MD_UA.py`, `build_renewable_profiles.py`):
+eligible land from Copernicus LC100 with PyPSA-Eur's class mapping, protected
+areas (WDPA) excluded, 1 km buffer around settlements for wind, capacity
+densities from `config/config.default.yaml`.
+
+`resources/brazil/rn_potential_2013.csv`:
+
+| Carrier | Class | Eligible share of RN | Potential (GW) | CF unscaled | CF |
+|---|---|---|---|---|---|
+| onwind | 0 | 0.41 | 65 | 0.217 | 0.258 |
+| onwind | 1 | 0.31 | 48 | 0.346 | 0.410 |
+| onwind | 2 | 0.09 | 14 | 0.491 | 0.576 |
+| solar-hsat | 0 | 0.87 | 204 | 0.238 | 0.238 |
+
+`resources/brazil/rn_profiles_2013_utc.csv`: index `timestamp_utc` (as below),
+one column per row of the table (`onwind class 0` … `onwind class 2`,
+`solar-hsat`), capacity factor per unit, 8760 hours.
+
+- **Onshore wind:** Vestas V112 3 MW, 3 MW/km², 3 classes of equal capacity
+  factor width as in the workshop baseline. Every class is scaled by the same
+  factor to the ONS-measured RN wind farms (see below). The factor comes from
+  the state average; for the best class it is an extrapolation, so its 0.576
+  is rather an upper value.
+- **Solar:** single-axis tracking (horizontal north-south axis), crystalline
+  silicon, 4.43 MW/km² as PyPSA-Eur's `solar-hsat`, one class (eligible cells
+  range from 0.217 to 0.257 only). Not scaled: there was no measured solar
+  generation in RN in 2013. Matches the cost entry
+  `solar-utility single-axis tracking`.
+- **Wind and solar compete for the same land.** Their potentials must not be
+  added; a shared land constraint is needed if both are built at scale.
+- Potential is not the bottleneck: the cable is far smaller than either.
+
+## Single wind profile (calibration)
 
 The profile is not committed as data: build it in your workspace from
 `data-brazil/` (about 10 seconds, under 1 GB of memory):
@@ -83,12 +130,18 @@ the capacity behind it was too small.
   whole coast. Not included: 3 farms that started feeding in during
   October/November 2013 (commissioning, register date 2014) and 1 farm that
   is missing from the register.
-- **State average, not a site.** Real projects would be built on the better
-  sites, with higher capacity factors.
+- **State average, not a site.** This single profile averages the whole state;
+  the classes in `build_rn_potential.py` resolve the better sites.
 - **No costs yet.** CAPEX, FOM and VOM for Brazil follow, on the same cost
   basis as Europe (cost year, currency, discount rate), agreed with role 4.
-- **Wind only.** Solar is not done yet. Unscaled ERA5 solar capacity factors
-  (fixed, latitude-optimal tilt) are 0.17 to 0.19 in all north-eastern states.
+- **Solar not validated.** ERA5 (Europe uses SARAH-3, which does not cover
+  western Brazil), no measured RN solar generation for 2013. PyPSA-Eur's default
+  orientation (south, 35°) is wrong in the southern hemisphere and would cost
+  about 17 % of the yield of fixed panels.
+- **Wind and solar together.** Hourly correlation of the two profiles is about
+  -0.1. ERA5 puts the wind maximum at night, which would complement solar; the
+  measured maximum is in the late afternoon, so the complementarity is weaker
+  than the profiles suggest.
 
 ## For role 1 (cable)
 
@@ -97,11 +150,13 @@ the capacity behind it was too small.
 
 ## For role 4 (economics)
 
-- Carry both mean values (0.352 scaled, 0.297 unscaled) as a range. The
-  difference of about 18 % feeds directly into the cost per MWh.
+- Carry the wind capacity factors with and without scaling as a range (column
+  `cf_unscaled` in the potential table). The difference of about 18 % feeds
+  directly into the cost per MWh.
 - The scaling factor belongs in the sensitivity analysis.
 
 ## Sources
 
-ERA5 (CC-BY-4.0), ONS Dados Abertos (CC-BY-4.0), GADM 4.1 state borders (used
-only to select the grid cells; not redistributed).
+ERA5 (CC-BY-4.0), ONS Dados Abertos (CC-BY-4.0), Copernicus LC100 (free with
+attribution), WDPA (non-commercial use), GADM 4.1 state borders. WDPA and GADM
+are only read from `data-brazil/` and not redistributed.
