@@ -1,0 +1,78 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Workshop refinement (role 3): trade with neighbouring countries at fixed
+# hourly prices, instead of Germany as an island. List after the workshop config:
+#
+#   sh workshop/economics/link_inputs.sh de10-trade
+#   pixi run snakemake results/de10-trade/networks/solved_2050.nc -c4 \
+#     --configfile config/config.workshop.yaml config/workshop/border-trade.yaml \
+#     --allowed-rules process_cost_data compose_network solve_network
+#
+# Code: scripts/add_border_trade.py (components), data/custom_extra_functionality.py
+# (optional net import limit). Without this file, or with enable: false, the
+# model is the unchanged baseline. To combine with another scenario (e.g. the
+# cable), list both files and give the combination its own run name.
+
+run:
+  name: de10-trade
+
+border_trade:
+  enable: true
+
+  # Hourly day-ahead prices per bidding zone, 2024, EUR/MWh, UTC.
+  # Source: energy-charts.info API (Fraunhofer ISE), data from Bundesnetzagentur |
+  # SMARD.de, CC BY 4.0, downloaded 2026-11-27 with workshop/data/fetch_border_prices.py.
+  # Moved onto the 2013 weather year with matching weekdays; the weather behind
+  # the prices is 2024's, not 2013's.
+  prices: workshop/data/border_prices_2024.csv
+
+  # Factor on the 2024 prices per horizon (role 4 lever). 1.0 = 2024 level.
+  price_scaling:
+    2025: 1.0
+    2030: 1.0
+    2035: 1.0
+    2040: 1.0
+    2045: 1.0
+    2050: 1.0
+
+  # Factor on all transfer capacities per horizon (role 4 lever, e.g. TYNDP grid expansion).
+  capacity_scaling:
+    2025: 1.0
+    2030: 1.0
+    2035: 1.0
+    2040: 1.0
+    2045: 1.0
+    2050: 1.0
+
+  hurdle_cost: 1.0          # EUR/MWh added to imports and taken off exports; avoids zero-cost churn
+  price_floor:              # EUR/MWh, empty = keep negative prices
+  price_cap:                # EUR/MWh, empty = no cap
+
+  # Annual net imports in TWh, one number or {horizon: number}; empty = no limit.
+  net_import_limit:
+
+  # Transfer capacities in MW (p_nom_in = into Germany, p_nom_out = out of it).
+  # PLACEHOLDERS, rounded from memory of typical ENTSO-E NTC values around
+  # 2024 (DE total about 30 GW); verify against the ENTSO-E Transparency
+  # Platform (forecasted transfer capacities) or the TYNDP 2024 reference grid.
+  # Interconnector landing points decide the node, e.g. NordLink at Wilster
+  # (DE0 8AC), Kontek at Bentwisch (DE0 0AC), ALEGrO at Oberzier (DE0 2AC).
+  borders:
+    NL north: {zone: NL,  bus: DE0 7AC, p_nom: 1500}  # Diele - Meeden
+    NL south: {zone: NL,  bus: DE0 2AC, p_nom: 3500}  # Gronau, Niederrhein, Rommerskirchen
+    BE:       {zone: BE,  bus: DE0 2AC, p_nom: 1000}  # ALEGrO HVDC
+    FR north: {zone: FR,  bus: DE0 5AC, p_nom: 1800}  # Ensdorf / Uchtelfangen - Vigy
+    FR south: {zone: FR,  bus: DE0 1AC, p_nom: 1200}  # Eichstetten - Muhlbach
+    CH:       {zone: CH,  bus: DE0 1AC, p_nom: 4000}  # Laufenburg, Tiengen
+    AT west:  {zone: AT,  bus: DE0 1AC, p_nom: 1000}  # Leupolz - Westtirol
+    AT east:  {zone: AT,  bus: DE0 4AC, p_nom: 4000}  # Altheim, Pirach, St. Peter
+    CZ west:  {zone: CZ,  bus: DE0 4AC, p_nom: 1000}  # Etzenricht - Hradec / Prestice
+    CZ north: {zone: CZ,  bus: DE0 9AC, p_nom: 1300}  # Röhrsdorf - Hradec
+    PL north: {zone: PL,  bus: DE0 0AC, p_nom: 1000}  # Vierraden - Krajnik
+    PL south: {zone: PL,  bus: DE0 9AC, p_nom: 1000}  # Hagenwerder - Mikulowa
+    DK1:      {zone: DK1, bus: DE0 8AC, p_nom: 3000}  # Audorf - Kassø, West Coast Line
+    DK2:      {zone: DK2, bus: DE0 0AC, p_nom: 1000}  # Kontek, Kriegers Flak CGS
+    NO2:      {zone: NO2, bus: DE0 8AC, p_nom: 1400}  # NordLink
+    SE4:      {zone: SE4, bus: DE0 8AC, p_nom: 600}   # Baltic Cable (Lübeck)

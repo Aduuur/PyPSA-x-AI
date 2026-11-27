@@ -18,6 +18,7 @@ from scripts._helpers import (
     set_scenario_config,
 )
 from scripts.add_brownfield import adjust_renewable_capacity_limits
+from scripts.add_border_trade import add_border_trade
 from scripts.add_brownfield import main as apply_brownfield
 from scripts.add_electricity import main as add_electricity_components
 from scripts.add_electricity import (
@@ -154,6 +155,11 @@ if __name__ == "__main__":
     _cable = importlib.util.module_from_spec(_spec)
     _spec.loader.exec_module(_cable)
     _cable.add_brazil_cable(n, snakemake.config, current_horizon, nyears)
+
+    # Workshop: exogenous trade with neighbours (off unless border_trade.enable)
+    border_trade = params.border_trade or {}
+    if border_trade.get("enable", False):
+        add_border_trade(n, inputs.border_trade_prices, border_trade, current_horizon)
 
     sanitize_custom_columns(n)
     sanitize_carriers(n, params.nice_names, params.tech_colors)

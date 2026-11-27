@@ -67,3 +67,36 @@ def custom_extra_functionality(n, snapshots, snakemake):
         m._solver_dir = solver_dir
 
     # Your own constraints go here, e.g. m.add_constraints(...).
+
+    if snakemake is not None:
+        add_border_trade_limit(n, snapshots, snakemake)
+
+
+def add_border_trade_limit(n, snapshots, snakemake):
+    """
+    Optional cap on annual net imports over all borders (scripts/add_border_trade.py).
+
+    Config: border_trade.net_import_limit, in TWh per year, either one number
+    or {horizon: number}; empty or null means no limit. Negative values force
+    net exports.
+    """
+    cfg = snakemake.config.get("border_trade", {}) or {}
+    limit = cfg.get("net_import_limit")
+    if not cfg.get("enable", False) or limit in (None, {}, ""):
+        return
+    if isinstance(limit, dict):
+        limit = {int(k): v for k, v in limit.items()}.get(int(snakemake.wildcards.horizon))
+        if limit is None:
+            return
+
+    gens = n.generators.index[n.generators.carrier.str.startswith("border trade")]
+    if gens.empty:
+        return
+    w = n.snapshot_weightings.generators.loc[snapshots]
+    nyears = w.sum() / 8760.0
+    p = n.model["Generator-p"].loc[snapshots, gens]
+    lhs = (p * xr.DataArray(w.values, coords={"snapshot": snapshots})).sum()
+    n.model.add_constraints(
+        lhs <= float(limit) * 1e6 * nyears, name="border_trade_net_import_limit"
+    )
+    print(f"Border trade: net imports limited to {limit} TWh/a", flush=True)

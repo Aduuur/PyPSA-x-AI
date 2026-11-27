@@ -53,6 +53,12 @@ def get_compose_inputs(w):
             if "solar" in cfg["electricity"]["renewable_carriers"]
             else []
         ),
+        # workshop: exogenous trade with neighbours (scripts/add_border_trade.py)
+        border_trade_prices=(
+            cfg["border_trade"]["prices"]
+            if cfg.get("border_trade", {}).get("enable", False)
+            else []
+        ),
     )
 
     # Sector-specific inputs (only when sector coupling is enabled)
@@ -178,6 +184,7 @@ def get_compose_inputs(w):
     # imported by compose_network.py; listed so code changes trigger reruns
     inputs["code_dependencies"] = code_dependencies(
         "scripts/compose_network.py",
+        "scripts/add_border_trade.py",
         "scripts/add_electricity.py",
         "scripts/add_existing_baseyear.py",
         "scripts/add_brownfield.py",
@@ -256,6 +263,7 @@ rule compose_network:
         ),
         co2_budget=config_provider("co2_budget"),
         adjustments=config_provider("adjustments"),
+        border_trade=config_provider("border_trade", default={}),
         nice_names=config_provider("plotting", "nice_names"),
         tech_colors=config_provider("plotting", "tech_colors"),
     message:
