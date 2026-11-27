@@ -127,6 +127,34 @@ and rent of the Brazil cable, consumer cost, producer surplus by group,
 congestion rent. Present values for all horizons and for 2035–2045. Every run
 is compared with the reference.
 
+## Screening before the model run (`workshop/economics/screening.py`)
+
+Until the cable is in the model, a per-MW screening answers whether it can pay
+at all: cost of a MWh delivered to Wilhelmshaven (RN wind + cable + converters
++ losses) against its value there (hourly price at `DE0 7AC` in the runs
+without the cable, an upper bound because it ignores that the cable lowers
+those prices). It reads role 1's route lengths and role 2's RN wind profile
+at runtime; costs are the public PyPSA-Eur tables, times a factor for the deep
+Atlantic, until roles 1 and 2 deliver ranges. Public variant to
+`results/economics/screening/`; project-finance variant to `workshop/private/`.
+
+```bash
+pixi run python workshop/cable/cable_route.py
+pixi run python workshop/brazil/build_rn_onwind_profile.py
+pixi run python workshop/economics/screening.py
+```
+
+## Inputs from the other roles (status)
+
+| From | What | Where | Used in |
+|---|---|---|---|
+| Role 1 | landing points Natal (RN) and Wilhelmshaven, node `DE0 7AC` | `workshop/cable/cable_route.py` | screening |
+| Role 1 | route lengths and depth per case (reference via the Channel, shortest/deep, around Scotland, Sines) | `results/cable/cases.csv` | screening |
+| Role 1 | cable cost, losses, lifetime, size range | _open_ | |
+| Role 2 | hourly RN onshore wind capacity factor, 2013, UTC | `resources/brazil/rn_onwind_cf_2013_utc.csv` | screening |
+| Role 2 | Brazilian costs (CAPEX, FOM, VOM), solar | _open_ | |
+| Role 3 | decision on 2050 | _open_ | |
+
 ## What the other roles deliver
 
 - **Role 1:** the cable as a link whose name contains `Brazil` (the evaluation
