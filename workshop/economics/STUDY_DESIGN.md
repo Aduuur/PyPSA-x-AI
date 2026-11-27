@@ -112,9 +112,8 @@ fall back to a default. `pixi run python workshop/economics/financing.py`
 checks the figures for plausibility and writes `workshop/private/financing.yaml`
 without printing them.
 
-Comparison: the `cable` run uses these asset rates; `cable-wacc7` uses the
-default 7% for the cable and Brazil, so the effect of project finance on the
-result is visible on its own.
+Comparison: the `cable` run uses the harmonised 7%; `cable-project` uses the
+asset rates and IDC, so the effect of project finance is visible on its own.
 
 ## Scenarios
 
@@ -127,13 +126,15 @@ thing only.
 | `de10-myopic` | – | baseline | solved |
 | `cable` | `de10-myopic` | the cable (role 1 central) | config ready, waits for the cable in `compose_network` |
 | `cable-cost-low`, `cable-cost-high` | `cable` | role 1 low / high level | config ready, waits as above |
-| `cable-wacc7` | `cable` | 7% instead of asset WACC | config ready, waits as above |
+| `cable-project` | `cable` | asset WACC and IDC from `financing.py` instead of 7% | to do: private layer for role 1's parameter file |
 | `cap2050-relaxed` | `de10-myopic` | 2050 cap | solved (2% of 1990, placeholder) |
 | `cable-cap2050-relaxed` | `cable` | 2050 cap | config ready, waits as above |
 
-The cable configs carry a `workshop_cable` block (`enable`, `parameters`,
-`level`, `route`, `financing`). The code in `compose_network` that adds the
-cable and Brazil reads it; see "Hand-over for the model code" below.
+The cable configs turn on role 1's code with `brazil_cable: {enable: true,
+level: ...}` (`workshop/cable/add_brazil_cable.py`). Commissioning 2040 and
+4 GW as in role 1's central case; build year (2035/2045) and size (2/6 GW) are
+the next sensitivities if time allows. The main runs use the harmonised 7%;
+project finance is a sensitivity (`cable-project`).
 
 A full run takes about 20 minutes, so keep the list short.
 
@@ -232,4 +233,4 @@ What the evaluation expects once the cable and Brazil are added, so that
   (`idc_factor` and `wacc` per asset); `financing: harmonised` uses the
   model's default discount rate. No value from the term sheet in code or
   config.
-- added from role 1's build year on, read from the `workshop_cable` block.
+- added from role 1's build year on (`brazil_cable` block, role 1's code).
