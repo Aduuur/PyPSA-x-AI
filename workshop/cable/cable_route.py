@@ -63,10 +63,12 @@ LANDING_BR = {
     "Natal (RN)": (-5.78, -35.20),
     "Sao Luis (MA)": (-2.53, -44.30),
 }
-# European end: German North Sea coast, near existing HVDC landfalls. Proposed:
-# Wilhelmshaven, model node DE0 7AC (nearest AC bus in the de10 baseline); to be
-# confirmed by Role 3. Sines (PT) is a sensitivity only: shorter cable, but the
-# power still has to cross Spain and France, which the baseline does not model.
+# European end: German North Sea coast, near existing HVDC landfalls. Agreed in
+# the group: Wilhelmshaven, model node DE0 7AC (nearest AC bus in the de10
+# baseline). Buesum stays in for comparison. Sines (PT) is a sensitivity only:
+# shorter cable, but the power still has to cross Spain and France, which the
+# baseline does not model.
+DE_AGREED = "Wilhelmshaven"
 LANDING_DE = {
     "Wilhelmshaven": (53.52, 8.13),
     "Buesum": (54.13, 8.86),
@@ -76,9 +78,9 @@ DE_NODE = "DE0 7AC"
 
 # Cases handed to the rest of the study: (brazil, europe, corridor, variant).
 CASES = {
-    "reference": (BR_AGREED, "Wilhelmshaven", "Channel", "shallow"),
-    "short, deep": (BR_AGREED, "Wilhelmshaven", "Channel", "shortest"),
-    "long, around Scotland": (BR_AGREED, "Wilhelmshaven", "Scotland", "shallow"),
+    "reference": (BR_AGREED, DE_AGREED, "Channel", "shallow"),
+    "short, deep": (BR_AGREED, DE_AGREED, "Channel", "shortest"),
+    "long, around Scotland": (BR_AGREED, DE_AGREED, "Scotland", "shallow"),
     "sensitivity: Portugal": (BR_AGREED, "Sines (PT)", "Channel", "shallow"),
 }
 # Box closed to force the route around Scotland (Dover Strait).
@@ -201,7 +203,7 @@ def main():
     cases[cols].to_csv(OUT / "cases.csv")
     pd.set_option("display.width", 250)
     print(cases[cols].to_string())
-    print(f"German node (proposal, to be confirmed by Role 3): {DE_NODE}")
+    print(f"German landing point and node (agreed): {DE_AGREED}, {DE_NODE}")
     plot(fine, gpd.read_file(OUT / "routes.gpkg"), prof, cases)
 
 
