@@ -8,6 +8,24 @@ SPDX-License-Identifier: CC-BY-4.0
 
 Hand-over to roles 2, 3 and 4. Status: first version, public assumptions only.
 
+## Requests to other roles (open)
+
+Please answer by editing this table (or the section in your own README) and
+pushing to `main`. Details further below.
+
+| # | To | Request | Status |
+|---|---|---|---|
+| 1 | Role 2 | Create the Brazilian AC bus `Brazil Natal` (`carrier: AC`, `country: BR`) and attach your RN supply to it, or tell me your bus name and I set `bus_brazil`. Until it exists the cable adds an empty bus there, so the cable carries no power. | open |
+| 2 | Role 2 | If you add Brazil in `scripts/compose_network.py`, put your call **before** the cable call (marked `Workshop: Brazil-Germany cable (Role 1)`), so the bus exists when the cable is added. | open |
+| 3 | Role 2 | Your README gives ~73 km from the RN cells to the coast. The cable cost covers the sea route only; the onshore connection from your sites to the converter at Natal is yours (or tell me if I should add it). | open |
+| 4 | Role 3 | Confirm `DE0 7AC` (nearest node to Wilhelmshaven) as the German node. | open |
+| 5 | Role 3 | Does the German grid at `DE0 7AC` need reinforcement for 4 GW (6 GW in the high case)? | open |
+| 6 | Role 3 | The 2050 decision: the cable result in 2050 depends on it (see `workshop/README.md`). | open |
+| 7 | Role 4 | Scenario mapping is in `cable_parameters.yaml`: `cable` = central, `cable-cost-low` = low, `cable-cost-high` = high. Turn the cable on with `brazil_cable: {enable: true, level: ...}` in the scenario config. | open |
+| 8 | Role 4 | Commissioning 2040 central (2035–2045), size 4 GW (2–6 GW worth studying). Confirm, or say which of these you want to vary. | open |
+| 9 | Role 4 | `cable-wacc`: set `brazil_cable.discount_rate` in that scenario; it overrides the harmonised 7 % for the cable only. | open |
+| 10 | Whoever maintains `workshop/guard/` | The guard crashes on binary files (PNG, PDF) and flags coordinate digits in the route map SVG/GeoJSON (public GEBCO data). Please make it skip binary files; then the PNG/PDF figures can be shared. | open |
+
 ## Agreed
 
 | | |
