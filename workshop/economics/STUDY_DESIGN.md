@@ -61,7 +61,7 @@ thing only.
 | `cable` | `de10-myopic` | the cable | waits for roles 1, 2 |
 | `cable-cost-high`, `cable-cost-low` | `cable` | cable cost | waits for role 1 |
 | `cable-wacc` | `cable` | cost of capital | waits for role 4 input |
-| `cap2050-relaxed` | `de10-myopic` | 2050 cap | config ready |
+| `cap2050-relaxed` | `de10-myopic` | 2050 cap | solved (2% of 1990, placeholder) |
 | `cable-cap2050-relaxed` | `cable` | 2050 cap | waits for `cable` |
 
 A full run takes about 20 minutes, so keep the list short.
