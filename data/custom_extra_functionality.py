@@ -71,6 +71,7 @@ def custom_extra_functionality(n, snapshots, snakemake):
     if snakemake is not None:
         add_border_trade_limit(n, snapshots, snakemake)
         add_capacity_path(n, snakemake)
+    add_border_trade_co2(n, snapshots)
 
 
 def add_capacity_path(n, snakemake):
@@ -157,3 +158,42 @@ def add_border_trade_limit(n, snapshots, snakemake):
         lhs <= float(limit) * 1e6 * nyears, name="border_trade_net_import_limit"
     )
     print(f"Border trade: net imports limited to {limit} TWh/a", flush=True)
+
+
+def add_border_trade_co2(n, snapshots):
+    """
+    Count the emissions of imports in the German CO2 cap (scripts/add_border_trade.py).
+
+    Each import generator carries an hourly CO2 intensity of its neighbour's
+    generation in ``n.generators_t["co2_intensity"]`` (tCO2/MWh). A carrier
+    attribute cannot vary by hour, so the term
+    sum_t w_t * intensity_g(t) * p_g(t) is added here to every CO2 cap of type
+    ``primary_energy``. The constraint keeps its name, so its shadow price is
+    reported as usual in ``n.global_constraints.mu``.
+    """
+    ci = n.generators_t.get("co2_intensity")
+    if ci is None or ci.empty:
+        return
+    gens = ci.columns.intersection(n.generators.index)
+    glcs = n.global_constraints.index[
+        (n.global_constraints.type == "primary_energy")
+        & (n.global_constraints.carrier_attribute == "co2_emissions")
+    ]
+    m = n.model
+    w = n.snapshot_weightings.generators.loc[snapshots]
+    coeff = ci.loc[snapshots, gens].mul(w, axis=0)
+    coeff = xr.DataArray(
+        coeff.values,
+        coords={"snapshot": snapshots, "name": gens},
+        dims=("snapshot", "name"),
+    )
+    term = (m["Generator-p"].loc[snapshots, gens] * coeff).sum()
+    for glc in glcs:
+        name = f"GlobalConstraint-{glc}"
+        if name not in m.constraints:
+            continue
+        con = m.constraints[name]
+        lhs, sign, rhs = con.lhs, con.sign.item(), con.rhs.item()
+        m.remove_constraints(name)
+        m.add_constraints(lhs + term, sign, rhs, name=name)
+        print(f"Border trade: import emissions added to CO2 cap {glc}", flush=True)

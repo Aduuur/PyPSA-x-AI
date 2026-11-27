@@ -159,7 +159,13 @@ if __name__ == "__main__":
     # Workshop: exogenous trade with neighbours (off unless border_trade.enable)
     border_trade = params.border_trade or {}
     if border_trade.get("enable", False):
-        add_border_trade(n, inputs.border_trade_prices, border_trade, current_horizon)
+        add_border_trade(
+            n,
+            inputs.border_trade_prices,
+            border_trade,
+            current_horizon,
+            co2_fn=inputs.get("border_trade_co2") or None,
+        )
 
     sanitize_custom_columns(n)
     sanitize_carriers(n, params.nice_names, params.tech_colors)

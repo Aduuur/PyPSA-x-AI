@@ -59,6 +59,12 @@ def get_compose_inputs(w):
             if cfg.get("border_trade", {}).get("enable", False)
             else []
         ),
+        border_trade_co2=(
+            cfg["border_trade"]["co2_intensity"]
+            if cfg.get("border_trade", {}).get("enable", False)
+            and cfg["border_trade"].get("co2_intensity")
+            else []
+        ),
     )
 
     # Sector-specific inputs (only when sector coupling is enabled)

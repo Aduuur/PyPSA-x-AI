@@ -18,6 +18,17 @@ imports or exports. Historical prices are moved onto the model's weather year
 with matching weekdays, then averaged to the model's time steps and scaled per
 planning horizon.
 
+Imports are not CO2-free: with ``co2_intensity`` set, every import generator
+gets the hourly average CO2 intensity of its neighbour's generation
+(tCO2/MWh, ``workshop/data/fetch_border_co2.py``), aligned like the prices and
+scaled per horizon with ``co2_scaling``. It is stored as the time series
+``n.generators_t["co2_intensity"]``; ``data/custom_extra_functionality.py``
+adds these emissions to the German CO2 cap (a carrier attribute cannot vary by
+hour, so the cap is extended in the solve step). The CO2 price is not added on
+top: the neighbours' prices already contain the EU ETS cost of their plants.
+Exports carry no extra emissions, as the German plants behind them are already
+counted.
+
 The carrier names avoid the word "import" on purpose: ``solve_network.py``
 treats every carrier containing "import" as a sector import.
 """
@@ -77,7 +88,9 @@ def align_prices_to_snapshots(prices: pd.DataFrame, snapshots: pd.DatetimeIndex)
     return aligned.reindex(snapshots).ffill().bfill()
 
 
-def add_border_trade(n: pypsa.Network, prices_fn: str, config: dict, horizon: int):
+def add_border_trade(
+    n: pypsa.Network, prices_fn: str, config: dict, horizon: int, co2_fn: str | None = None
+):
     """Attach import and export options at the border nodes of the network."""
     borders = config.get("borders", {})
     if not borders:
@@ -97,9 +110,23 @@ def add_border_trade(n: pypsa.Network, prices_fn: str, config: dict, horizon: in
     floor, cap = config.get("price_floor"), config.get("price_cap")
     prices = (prices * scale).clip(lower=floor, upper=cap)
 
+    if co2_fn:
+        raw_co2 = pd.read_csv(co2_fn, index_col=0, parse_dates=True)
+        missing = set(zones) - set(raw_co2.columns)
+        if missing:
+            raise KeyError(f"border_trade: zones {missing} not in {co2_fn}")
+        co2_scale = float(_by_horizon(config.get("co2_scaling"), horizon, 1.0))
+        co2 = align_prices_to_snapshots(raw_co2[zones], n.snapshots) * co2_scale
+    else:
+        co2, co2_scale = None, 0.0
+        logger.warning("border_trade: no co2_intensity file, imports count as CO2-free")
+
     for carrier, attrs in CARRIERS.items():
         if carrier not in n.carriers.index:
             n.add("Carrier", carrier, co2_emissions=0.0, **attrs)
+
+    if co2 is not None and "co2_intensity" not in n.generators_t:
+        n.generators_t["co2_intensity"] = pd.DataFrame(index=n.snapshots, dtype=float)
 
     for name, b in borders.items():
         bus = b["bus"]
@@ -118,6 +145,8 @@ def add_border_trade(n: pypsa.Network, prices_fn: str, config: dict, horizon: in
                 p_nom_extendable=False,
                 marginal_cost=price + hurdle,
             )
+            if co2 is not None:
+                n.generators_t["co2_intensity"][f"{name} {CARRIER_IN}"] = co2[b["zone"]]
         if p_out > 0:
             n.add(
                 "Generator",
@@ -135,5 +164,6 @@ def add_border_trade(n: pypsa.Network, prices_fn: str, config: dict, horizon: in
         f"Border trade {horizon}: {len(borders)} borders, "
         f"{sum(float(b.get('p_nom_in', b.get('p_nom', 0))) for b in borders.values()) * capacity_scale / 1e3:.1f} GW in, "
         f"{sum(float(b.get('p_nom_out', b.get('p_nom', 0))) for b in borders.values()) * capacity_scale / 1e3:.1f} GW out, "
-        f"price scaling {scale}, mean price {prices.mean().mean():.1f} EUR/MWh"
+        f"price scaling {scale}, mean price {prices.mean().mean():.1f} EUR/MWh, "
+        f"CO2 scaling {co2_scale}"
     )

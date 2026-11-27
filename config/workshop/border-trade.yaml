@@ -11,7 +11,8 @@
 #     --allowed-rules process_cost_data compose_network solve_network
 #
 # Code: scripts/add_border_trade.py (components), data/custom_extra_functionality.py
-# (optional net import limit). Without this file, or with enable: false, the
+# (optional net import limit, emissions of imports in the CO2 cap). Create the
+# input files once: workshop/data/fetch_border_prices.py, fetch_border_co2.py. Without this file, or with enable: false, the
 # model is the unchanged baseline. To combine with another scenario (e.g. the
 # cable), list both files and give the combination its own run name.
 
@@ -29,7 +30,26 @@ border_trade:
   prices: workshop/data/border_prices_2024.csv
 
   # Factor on the 2024 prices per horizon (role 4 lever). 1.0 = 2024 level.
+  # +7 % per planning horizon (5 years), compounded: 1.07^k (group decision, 27 Nov 2026).
   price_scaling:
+    2025: 1.0
+    2030: 1.07
+    2035: 1.1449
+    2040: 1.225
+    2045: 1.3108
+    2050: 1.4026
+  # Imports are not CO2-free. Hourly average CO2 intensity of each neighbour's
+  # generation in 2024, tCO2/MWh, aligned to the weather year like the prices.
+  # Created with workshop/data/fetch_border_co2.py (energy-charts.info, CC BY 4.0;
+  # fuel factors and efficiencies from the model's cost data). The emissions of
+  # imports count in the German CO2 cap (data/custom_extra_functionality.py);
+  # the CO2 price is not added again, the neighbours' prices contain the EU ETS.
+  # Without this entry imports count as CO2-free.
+  co2_intensity: workshop/data/border_co2_intensity_2024.csv
+  # Factor on that intensity per horizon (role 4 lever: neighbours decarbonise).
+  # 1.0 = 2024 mix in every year. Under the zero cap of 2050 any import with
+  # intensity > 0 must be offset, so this factor decides how much Germany can import then.
+  co2_scaling:
     2025: 1.0
     2030: 1.0
     2035: 1.0
