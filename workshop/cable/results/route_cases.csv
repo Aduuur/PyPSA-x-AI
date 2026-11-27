@@ -1,0 +1,5 @@
+case,route,length_km,max_depth_m,km_deeper_3000m,km_deeper_5000m
+reference,"Natal (RN) - Wilhelmshaven, Channel, shallow",9275.0,4720.0,2358.0,0.0
+"short, deep","Natal (RN) - Wilhelmshaven, Channel, shortest",8304.0,6514.0,6422.0,3260.0
+"long, around Scotland","Natal (RN) - Wilhelmshaven, Scotland, shallow",10385.0,4720.0,2358.0,0.0
+sensitivity: Portugal,"Natal (RN) - Sines (PT), Channel, shallow",6356.0,4720.0,2238.0,0.0

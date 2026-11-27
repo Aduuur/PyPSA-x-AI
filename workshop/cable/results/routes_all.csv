@@ -1,0 +1,31 @@
+route,case,brazil,germany,corridor,variant,length_km,great_circle_km,max_depth_m,mean_depth_m,km_deeper_2150m,km_deeper_3000m,km_deeper_4000m,km_deeper_5000m,km_shallower_200m,shore_offset_km
+"Fortaleza/Pecem (CE) - Wilhelmshaven, Channel, shortest",,Fortaleza/Pecem (CE),Wilhelmshaven,Channel,shortest,8212.0,7693.0,5805.0,3868.0,6596.0,6316.0,5840.0,3100.0,1484.0,39.0
+"Natal (RN) - Wilhelmshaven, Channel, shortest","short, deep",Natal (RN),Wilhelmshaven,Channel,shortest,8304.0,7734.0,6514.0,3862.0,6676.0,6422.0,5588.0,3260.0,1536.0,41.0
+"Sao Luis (MA) - Wilhelmshaven, Channel, shortest",,Sao Luis (MA),Wilhelmshaven,Channel,shortest,8349.0,7887.0,5773.0,3764.0,6554.0,6306.0,5824.0,3034.0,1703.0,44.0
+"Fortaleza/Pecem (CE) - Buesum, Channel, shortest",,Fortaleza/Pecem (CE),Buesum,Channel,shortest,8241.0,7773.0,5805.0,3855.0,6596.0,6316.0,5840.0,3100.0,1513.0,24.0
+"Natal (RN) - Buesum, Channel, shortest",,Natal (RN),Buesum,Channel,shortest,8333.0,7815.0,6514.0,3850.0,6676.0,6422.0,5588.0,3260.0,1565.0,26.0
+"Sao Luis (MA) - Buesum, Channel, shortest",,Sao Luis (MA),Buesum,Channel,shortest,8378.0,7964.0,5773.0,3751.0,6554.0,6306.0,5824.0,3034.0,1732.0,30.0
+"Fortaleza/Pecem (CE) - Sines (PT), Channel, shortest",,Fortaleza/Pecem (CE),Sines (PT),Channel,shortest,5795.0,5550.0,6605.0,4410.0,5506.0,5326.0,4944.0,1242.0,81.0,10.0
+"Natal (RN) - Sines (PT), Channel, shortest",,Natal (RN),Sines (PT),Channel,shortest,5880.0,5573.0,6563.0,4340.0,5580.0,5436.0,4622.0,1264.0,134.0,12.0
+"Sao Luis (MA) - Sines (PT), Channel, shortest",,Sao Luis (MA),Sines (PT),Channel,shortest,5940.0,5789.0,6605.0,4259.0,5468.0,5344.0,4870.0,1236.0,300.0,16.0
+"Fortaleza/Pecem (CE) - Wilhelmshaven, Channel, shallow",,Fortaleza/Pecem (CE),Wilhelmshaven,Channel,shallow,9354.0,7693.0,4720.0,1931.0,4648.0,2546.0,772.0,0.0,2346.0,39.0
+"Natal (RN) - Wilhelmshaven, Channel, shallow",reference,Natal (RN),Wilhelmshaven,Channel,shallow,9275.0,7734.0,4720.0,1910.0,4512.0,2358.0,866.0,0.0,2391.0,41.0
+"Sao Luis (MA) - Wilhelmshaven, Channel, shallow",,Sao Luis (MA),Wilhelmshaven,Channel,shallow,9797.0,7887.0,5185.0,2370.0,6890.0,3410.0,720.0,22.0,1673.0,44.0
+"Fortaleza/Pecem (CE) - Buesum, Channel, shallow",,Fortaleza/Pecem (CE),Buesum,Channel,shallow,9383.0,7773.0,4720.0,1925.0,4648.0,2546.0,772.0,0.0,2375.0,24.0
+"Natal (RN) - Buesum, Channel, shallow",,Natal (RN),Buesum,Channel,shallow,9304.0,7815.0,4720.0,1904.0,4512.0,2358.0,866.0,0.0,2420.0,26.0
+"Sao Luis (MA) - Buesum, Channel, shallow",,Sao Luis (MA),Buesum,Channel,shallow,9784.0,7964.0,5185.0,2375.0,6890.0,3410.0,720.0,22.0,1574.0,30.0
+"Fortaleza/Pecem (CE) - Sines (PT), Channel, shallow",,Fortaleza/Pecem (CE),Sines (PT),Channel,shallow,6435.0,5550.0,4720.0,2572.0,4378.0,2426.0,770.0,0.0,251.0,10.0
+"Natal (RN) - Sines (PT), Channel, shallow",sensitivity: Portugal,Natal (RN),Sines (PT),Channel,shallow,6356.0,5573.0,4720.0,2549.0,4242.0,2238.0,864.0,0.0,298.0,12.0
+"Sao Luis (MA) - Sines (PT), Channel, shallow",,Sao Luis (MA),Sines (PT),Channel,shallow,7014.0,5789.0,4721.0,2386.0,4436.0,2350.0,758.0,0.0,694.0,16.0
+"Fortaleza/Pecem (CE) - Wilhelmshaven, Scotland, shortest",,Fortaleza/Pecem (CE),Wilhelmshaven,Scotland,shortest,8991.0,7693.0,6193.0,3245.0,6500.0,6094.0,4652.0,1338.0,2023.0,39.0
+"Natal (RN) - Wilhelmshaven, Scotland, shortest",,Natal (RN),Wilhelmshaven,Scotland,shortest,9103.0,7734.0,6789.0,3293.0,6586.0,6226.0,4424.0,1932.0,2079.0,41.0
+"Sao Luis (MA) - Wilhelmshaven, Scotland, shortest",,Sao Luis (MA),Wilhelmshaven,Scotland,shortest,9104.0,7887.0,5728.0,2981.0,6414.0,6020.0,4000.0,380.0,2244.0,44.0
+"Fortaleza/Pecem (CE) - Buesum, Scotland, shortest",,Fortaleza/Pecem (CE),Buesum,Scotland,shortest,8977.0,7773.0,6193.0,3252.0,6500.0,6094.0,4652.0,1338.0,1923.0,24.0
+"Natal (RN) - Buesum, Scotland, shortest",,Natal (RN),Buesum,Scotland,shortest,9089.0,7815.0,6789.0,3300.0,6586.0,6226.0,4424.0,1932.0,1979.0,26.0
+"Sao Luis (MA) - Buesum, Scotland, shortest",,Sao Luis (MA),Buesum,Scotland,shortest,9090.0,7964.0,5728.0,2988.0,6414.0,6020.0,4000.0,380.0,2144.0,30.0
+"Fortaleza/Pecem (CE) - Wilhelmshaven, Scotland, shallow",,Fortaleza/Pecem (CE),Wilhelmshaven,Scotland,shallow,10305.0,7693.0,5184.0,2293.0,6928.0,3486.0,722.0,20.0,1947.0,39.0
+"Natal (RN) - Wilhelmshaven, Scotland, shallow","long, around Scotland",Natal (RN),Wilhelmshaven,Scotland,shallow,10385.0,7734.0,4720.0,1719.0,4512.0,2358.0,866.0,0.0,3499.0,41.0
+"Sao Luis (MA) - Wilhelmshaven, Scotland, shallow",,Sao Luis (MA),Wilhelmshaven,Scotland,shallow,9797.0,7887.0,5185.0,2370.0,6890.0,3410.0,720.0,22.0,1673.0,44.0
+"Fortaleza/Pecem (CE) - Buesum, Scotland, shallow",,Fortaleza/Pecem (CE),Buesum,Scotland,shallow,10291.0,7773.0,5184.0,2298.0,6928.0,3486.0,722.0,20.0,1847.0,24.0
+"Natal (RN) - Buesum, Scotland, shallow",,Natal (RN),Buesum,Scotland,shallow,10372.0,7815.0,4720.0,1722.0,4512.0,2358.0,866.0,0.0,3400.0,26.0
+"Sao Luis (MA) - Buesum, Scotland, shallow",,Sao Luis (MA),Buesum,Scotland,shallow,9784.0,7964.0,5185.0,2375.0,6890.0,3410.0,720.0,22.0,1574.0,30.0
