@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Workshop refinement (role 3): wind capacity at least on Germany's legal
+# expansion path. List after the workshop config:
+#
+#   sh workshop/economics/link_inputs.sh de10-windpath
+#   pixi run snakemake results/de10-windpath/networks/solved_2050.nc -c4 \
+#     --configfile config/config.workshop.yaml config/workshop/wind-path.yaml \
+#     --allowed-rules process_cost_data compose_network solve_network
+#
+# Code: add_capacity_path() in data/custom_extra_functionality.py. Counts the
+# surviving capacity plus new builds, so retired turbines must be replaced.
+# 2025 is frozen (dispatch only) and has no constraint.
+
+run:
+  name: de10-windpath
+
+capacity_path:
+  enable: true
+  groups:
+    onwind: [onwind]
+    offwind: [offwind-ac, offwind-dc, offwind-float]
+    # solar: [solar, solar-hsat]   # EEG 2023 § 4 Nr. 3: 215 GW 2030, 309 GW 2035, 400 GW 2040
+  min_gw:
+    # EEG 2023 § 4 Nr. 1 (gesetze-im-internet.de/eeg_2014/__4.html, accessed 2026-11-27):
+    # 115 GW 2030, 157 GW 2035, 160 GW 2040, "sowie den Erhalt dieser installierten
+    # Leistung nach dem Jahr 2040" -> held at 160 GW.
+    onwind: {2030: 115, 2035: 157, 2040: 160, 2045: 160, 2050: 160}
+    # WindSeeG § 1 (2) (gesetze-im-internet.de/windseeg/__1.html, accessed 2026-11-27):
+    # at least 30 GW 2030, 40 GW 2035, 70 GW 2045. 2040 linearly interpolated,
+    # 2050 held. Above the model's offshore potential (about 31 GW) from 2035:
+    # the constraint is then lowered to the potential, see the solve log.
+    offwind: {2030: 30, 2035: 40, 2040: 55, 2045: 70, 2050: 70}

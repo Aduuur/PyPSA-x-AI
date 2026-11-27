@@ -70,6 +70,63 @@ def custom_extra_functionality(n, snapshots, snakemake):
 
     if snakemake is not None:
         add_border_trade_limit(n, snapshots, snakemake)
+        add_capacity_path(n, snakemake)
+
+
+def add_capacity_path(n, snakemake):
+    """
+    Minimum installed capacity per technology group (e.g. the legal expansion path).
+
+    Config ``capacity_path``: ``enable``, ``groups: {name: [carriers]}``,
+    ``min_gw: {name: {horizon: GW}}``. Counts surviving fixed capacity plus new
+    builds. A target above the model's potential (surviving capacity plus
+    p_nom_max of the extendable ones) is lowered to that potential with a
+    warning, so the solve stays feasible.
+    """
+    cfg = snakemake.config.get("capacity_path", {}) or {}
+    if not cfg.get("enable", False):
+        return
+    horizon = int(snakemake.wildcards.horizon)
+    g = n.generators
+    ext_all = g.index[g.p_nom_extendable]
+    if ext_all.empty:  # e.g. frozen first horizon
+        return
+    p_nom = n.model["Generator-p_nom"]
+    dim = p_nom.dims[0]
+
+    for name, carriers in cfg.get("groups", {}).items():
+        targets = {int(k): v for k, v in (cfg.get("min_gw", {}).get(name) or {}).items()}
+        if horizon not in targets or targets[horizon] is None:
+            continue
+        target = float(targets[horizon]) * 1e3
+        in_group = g.carrier.isin(carriers)
+        ext = g.index[in_group & g.p_nom_extendable]
+        fixed = g[in_group & ~g.p_nom_extendable]
+        existing = fixed.p_nom[fixed.build_year + fixed.lifetime > horizon].sum()
+        potential = existing + g.loc[ext, "p_nom_max"].sum()
+        rhs = target - existing
+        if target > potential:
+            print(
+                f"Capacity path {name} {horizon}: target {target / 1e3:.1f} GW above "
+                f"model potential {potential / 1e3:.1f} GW, lowered to the potential",
+                flush=True,
+            )
+            rhs = potential - existing
+        if rhs <= 0 or ext.empty:
+            print(
+                f"Capacity path {name} {horizon}: met by existing "
+                f"{existing / 1e3:.1f} GW (target {target / 1e3:.1f} GW)",
+                flush=True,
+            )
+            continue
+        n.model.add_constraints(
+            p_nom.sel({dim: ext}).sum() >= rhs, name=f"capacity_path_{name}"
+        )
+        print(
+            f"Capacity path {name} {horizon}: >= {target / 1e3:.1f} GW "
+            f"({existing / 1e3:.1f} GW existing, >= {rhs / 1e3:.1f} GW new)",
+            flush=True,
+        )
 
 
 def add_border_trade_limit(n, snapshots, snakemake):
