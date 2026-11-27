@@ -61,6 +61,53 @@ one column per row of the table (`onwind class 0` … `onwind class 2`,
   added; a shared land constraint is needed if both are built at scale.
 - Potential is not the bottleneck: the cable is far smaller than either.
 
+## In the model
+
+`add_brazil_supply.py` is called from `scripts/compose_network.py` before the
+cable. Off by default; a scenario turns it on together with the cable:
+
+```yaml
+brazil_cable:
+  enable: true
+brazil_supply:
+  enable: true
+  # start_year: 2040        # default: the cable's build year
+  # carriers: [onwind, solar-hsat]
+  # connection_cost: true
+```
+
+Run `build_rn_potential.py` once first (the inputs are git-ignored, and
+Snakemake does not track them: after rebuilding them add
+`--forcerun compose_network`).
+
+- Bus `Brazil Natal` (`carrier: AC`, `country: BR`) in every horizon.
+- From the start year: one extendable generator per row of the potential table,
+  carriers `Brazil onwind` and `Brazil solar-hsat`, names like
+  `Brazil Natal onwind 2-2040`. Earlier builds are carried over by the
+  brownfield step and subtracted from the potential.
+- Profiles averaged to the model's snapshots as PyPSA-Eur does it.
+- Capital cost: processed cost data of the horizon (`onwind`, `solar-hsat`)
+  plus the onshore connection above. EUR 2025, 7 % in the main runs (agreed
+  with role 4, below). **Placeholder** for the Brazilian sources: for now the
+  European cost data (role 4's comparison case).
+- No Brazilian demand, storage or grid: what the cable cannot take is
+  curtailed.
+
+Test run with the cable at central level, 2025–2050 (`run: brazil-test`,
+cost placeholders): all horizons solve; 2045 ends "imprecise", like the
+baseline's 2050.
+
+| | 2040 | 2045 | 2050 |
+|---|---|---|---|
+| Brazil onwind built (GW, cumulative) | 5.1 | 5.1 | 5.3 |
+| Brazil solar-hsat built (GW, cumulative) | 2.0 | 2.1 | 2.5 |
+| Delivered to Germany (TWh) | 21.2 | 15.8 | 16.9 |
+| Total system cost, baseline / with cable (bn EUR/a) | 64.5 / 75.5 | 74.1 / 84.6 | 93.3 / 103.6 |
+
+The model builds only the best wind class and some solar. The cable's
+annualised cost (about 12 bn EUR/a at central level) is far larger than what
+it saves; this is a first check, not the study result (role 4).
+
 ## Single wind profile (calibration)
 
 The profile is not committed as data: build it in your workspace from
@@ -173,7 +220,8 @@ line cost, added to the generator's capital cost.
 | solar-hsat | 179 | about 152,000 | about 32 % |
 
 Central case with values from `data/costs/archive/v0.15.0/costs_2040.csv`
-(placeholders until role 4 has answered on the cost basis, see below):
+(EUR 2025, the agreed price base; the European values stay until the Brazilian
+sources are in, see below):
 `HVAC overhead` 680 EUR/MW/km, length factor 1.25 (`lines.length_factor` in
 `config/config.default.yaml`), investment `onwind` and
 `solar-utility single-axis tracking`.
@@ -195,38 +243,34 @@ Central case with values from `data/costs/archive/v0.15.0/costs_2040.csv`
   directly into the cost per MWh.
 - The scaling factor belongs in the sensitivity analysis.
 
-### Open questions for role 4 (please answer, needed for the Brazilian costs)
+### Cost basis, agreed with role 4
 
-Role 2 will derive CAPEX, FOM and VOM for the Brazilian generators. To keep
-them comparable with the German ones, these points from
-`workshop/economics/STUDY_DESIGN.md` need a decision (several are marked
-_to agree with role 2_ there):
+Role 4 answered in `workshop/economics/STUDY_DESIGN.md` ("Answers to role 2's
+questions"). Role 2 adopts answers 1–5; on answer 6 role 2 keeps its own
+carriers (see below).
 
-1. **Price base.** `STUDY_DESIGN.md` says "EUR, price base of the cost data",
-   but the `currency_year` column in
-   `data/costs/archive/v0.15.0/costs_<year>.csv` is mixed (e.g. 2015, 2020,
-   2025). Which EUR year is the common base, and are Brazilian costs converted
-   to it?
-2. **BRL to EUR.** Proposal: annual mean of the ECB reference rate in the
-   price-base year, one fixed rate for all Brazilian costs. Agreed, or another
-   source (e.g. purchasing power parity)?
-3. **Cost of capital.** Role 2 delivers investment, FOM, VOM and lifetime only;
-   role 4 sets the rate. Do Brazilian plants use the harmonised 7 %, or their
-   own rate (country risk)? If their own: does it come through role 4's config
-   layer in `workshop/private/`, so that role 2 does not touch it?
-4. **Lifetimes.** Proposal: as in the cost data (onshore wind 30 years,
-   utility PV 40 years), so Brazil and Germany are treated alike.
-5. **Source of the costs.** Either (a) the European values of the cost data
-   (`onwind`, `solar-utility single-axis tracking`) unchanged, or (b) Brazilian
-   sources (e.g. EPE, IRENA) converted to EUR at the common price base. Role 2
-   proposes (b) with (a) as comparison. Any objection?
-6. **Commissioning and naming.** Brazilian generators are available from the
-   cable's commissioning year (`cable_parameters.yaml`: 2040 central, range
-   2035–2045) and have `Brazil` in their names, as `STUDY_DESIGN.md` asks.
-   Agreed?
+| # | Point | Agreed |
+|---|---|---|
+| 1 | Price base | EUR 2025. Older BRL sources are inflated to 2025 with IPCA, then converted. |
+| 2 | BRL to EUR | ECB reference rate, annual mean 2025, one fixed rate; rate and source stated next to the costs. Purchasing power parity only as a sensitivity. |
+| 3 | Cost of capital | Role 2 delivers no rate: investment, FOM, VOM and lifetime only. Main runs 7 %; the project-finance runs get a Brazilian rate from role 4 at runtime. |
+| 4 | Lifetimes | As in the cost data: onshore wind 30 years, utility PV 40 years. |
+| 5 | Source | Main case: Brazilian sources (e.g. EPE, IRENA) in EUR 2025; comparison: the European cost data unchanged. Same definition as the cost data: overnight investment without grid connection beyond the plant (the onshore connection is added separately, above). |
+| 6 | Commissioning, naming | From the cable's build year, bus `Brazil Natal`, `Brazil` in every name: agreed. **Carrier: role 2 keeps `Brazil onwind` and `Brazil solar-hsat`** (not the plain technology). |
 
-Until these are settled, any Brazilian costs in the model are placeholders from
-the cost data and marked as such.
+Why own carriers: constraints written per carrier for Germany would otherwise
+include the Brazilian plants without anyone noticing, e.g. role 3's capacity
+path (`config/workshop/wind-path.yaml`, carrier `onwind`) and the solar land
+constraint in `scripts/solve_network.py` (`solar`, `solar-hsat`).
+
+**Request to role 4 (plot style, evaluation):** `workshop/plotstyle/studystyle.py`
+maps every carrier containing "Brazil" to the cable group. Please map only
+`Brazil cable` there and `Brazil onwind` / `Brazil solar-hsat` to their
+technology groups (or to a Brazil group), and tell Brazilian plants by the
+bus country in `analyse_runs.py` as planned.
+
+The costs in the model are still the European cost data (comparison case 5a)
+until the Brazilian sources are in; marked as placeholders.
 
 ## Sources
 

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Contributors to PyPSA-Eur <https://github.com/pypsa/pypsa-eur>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Test run (role 2): cable (central) plus Brazilian supply in RN, to check that
+# the Brazil components compose and solve. Not a study scenario; role 4 owns
+# the scenario list (workshop/economics/STUDY_DESIGN.md).
+#
+#   pixi run python workshop/brazil/build_rn_potential.py
+#   sh workshop/economics/link_inputs.sh brazil-test
+#   pixi run snakemake results/brazil-test/networks/solved_2050.nc -c4 \
+#     --configfile config/config.workshop.yaml config/workshop/brazil-test.yaml \
+#     --allowed-rules process_cost_data compose_network solve_network
+
+run:
+  name: brazil-test
+
+brazil_cable:
+  enable: true
+  level: central
+
+brazil_supply:
+  enable: true

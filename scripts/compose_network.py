@@ -144,10 +144,20 @@ if __name__ == "__main__":
         logger.info(f"No investment in first horizon {current_horizon}")
         freeze_expansion(n)
 
-    # Workshop: Brazil-Germany cable (Role 1); off unless brazil_cable.enable.
+    # Workshop: Brazilian supply in RN (Role 2); off unless brazil_supply.enable.
+    # Before the cable, so that the bus "Brazil Natal" exists when it is added.
     import importlib.util
     from pathlib import Path
 
+    _spec = importlib.util.spec_from_file_location(
+        "add_brazil_supply",
+        Path(__file__).resolve().parents[1] / "workshop/brazil/add_brazil_supply.py",
+    )
+    _supply = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_supply)
+    _supply.add_brazil_supply(n, snakemake.config, current_horizon, costs)
+
+    # Workshop: Brazil-Germany cable (Role 1); off unless brazil_cable.enable.
     _spec = importlib.util.spec_from_file_location(
         "add_brazil_cable",
         Path(__file__).resolve().parents[1] / "workshop/cable/add_brazil_cable.py",
